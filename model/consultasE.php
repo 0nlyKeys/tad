@@ -2,7 +2,7 @@
 
     class ConsultasE{
 
-        public function registrarUserE($identificacion, $tipoDoc, $nombres, $apellidos, $email, $telefono, $claveMd, $rol, $estado){
+        public function registrarUserE($identificacion, $tipoDoc, $nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado){
 
             // Conectamos con la clase Conexion
             $objetoConexion = new Conexion();
@@ -28,8 +28,8 @@
                 $objetoConexion = new Conexion();
                 $conexion = $objetoConexion->get_conexion();
 
-                $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, email, telefono, clave, rol, estado) 
-                VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :email, :telefono, :claveMd, :rol, :estado)";
+                $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, email, telefono, ciudad, localidad, direccion, codigo_postal, clave, rol, estado) 
+                VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :email, :telefono, :ciudad, :localidad, :direccion, :code_postal, :claveMd, :rol, :estado)";
 
                 $result = $conexion->prepare($sql);
 
@@ -39,6 +39,10 @@
                 $result->bindParam(':apellidos', $apellidos);
                 $result->bindParam(':email', $email);
                 $result->bindParam(':telefono', $telefono);
+                $result->bindParam(':ciudad', $ciudad);
+                $result->bindParam(':localidad', $localidad);
+                $result->bindParam(':direccion', $direccion);
+                $result->bindParam(':code_postal', $postal);
                 $result->bindParam(':claveMd', $claveMd);
                 $result->bindParam(':rol', $rol);
                 $result->bindParam(':estado', $estado);
