@@ -1,3 +1,8 @@
 .bg-nav-tad{
     background-color: #ffffff;
 }
+
+/*Password show*/
+#hide1{
+    display: none;
+}

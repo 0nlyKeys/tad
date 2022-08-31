@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../dashboard-base/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dashboard-base/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
 </head>
 <body class="hold-transition register-page">
@@ -136,12 +138,26 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" required name="clave" placeholder="Clave">
+          <input id="clave" type="password" class="form-control" required name="clave" placeholder="Clave">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
+        </div>
+        <div class="input-group mb-3">
+          <input id="claveCheck" type="password" class="form-control" required placeholder="Confirmar Clave">
+          <div class="input-group-append">
+            <div class="input-group-text">              
+              <span class="eye" onclick="showClave()" >
+                    <i id="hide1" class="fa fa-eye"></i>
+                    <i id="hide2" class="fa fa-eye-slash"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+            <span id='message'></span>
         </div>
         <div class="row">
           <!-- /.col -->
@@ -170,9 +186,34 @@
   $(function () {
     //Datemask dd/mm/yyyy
     $('#datemask2').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
-
     $('[data-mask]').inputmask()
+
+    $('#clave, #claveCheck').on('keyup', function () {
+   if ($('#clave').val() == $('#claveCheck').val()) {
+      $('#message').html('La contraseña coincide.').css('color', 'green');
+    } else 
+      $('#message').html('La contraseña no coincide.').css('color', 'red');
+    });
   })
+
+  function showClave() {
+    var x = document.getElementById("clave");
+    var v = document.getElementById("claveCheck");
+    var y = document.getElementById("hide1");
+    var z = document.getElementById("hide2");
+    if (x.type === "password" && v.type === "password") {
+      x.type = "text";
+      v.type = "text";
+      y.style.display = "block";
+      z.style.display = "none";
+    } else {
+      x.type = "password";
+      v.type = "password";
+      y.style.display = "none";
+      z.style.display = "block";
+    }
+  }
+
     
 </script>
 </body>
