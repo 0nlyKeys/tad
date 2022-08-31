@@ -72,6 +72,14 @@
           </div>
         </div>
         <div class="input-group mb-3">
+        <input type="text" class="form-control" name="fechaNac" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="far fa-calendar-alt"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
           <input type="email" class="form-control" required name="email"  placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -153,7 +161,19 @@
 <script src="../dashboard-base/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../dashboard-base/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- InputMask -->
+<script src="../dashboard-base/plugins/moment/moment.min.js"></script>
+<script src="../dashboard-base/plugins/inputmask/jquery.inputmask.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../dashboard-base/dist/js/adminlte.min.js"></script>
+<script>
+  $(function () {
+    //Datemask dd/mm/yyyy
+    $('#datemask2').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
+
+    $('[data-mask]').inputmask()
+  })
+    
+</script>
 </body>
 </html>
