@@ -42,8 +42,6 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          
-
           <select class="custom-select form-control" required name="tipoDoc" >
             <option>Tipo Documento</option>
             <option value="CC">CC</option>
@@ -51,8 +49,6 @@
             <option value="TI">TI</option>
             <option value="OTRO">OTRO</option>
           </select>
-
-
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -91,8 +87,48 @@
             </div>
           </div>
         </div>
+        <div class="input-group mb-3">          
+          <select class="custom-select form-control" required name="ciudad" >
+            <option>Seleccione la Ciudad</option>
+            <option value="1">Bogotá</option>
+          </select>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">          
+          <select class="custom-select form-control" required name="localidad" >
+            <option>Seleccione la Localidad</option>
+            <option value="1">Kennedy</option>
+            <option value="2">Usme</option>
+            <option value="3">Bosa</option>
+          </select>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" required name="clave" placeholder="Clave">
+          <input type="text" class="form-control" required name="direccion"  placeholder="Dirección">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" required name="code_postal"  placeholder="Código postal">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" required name="clave" placeholder="Clave">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
