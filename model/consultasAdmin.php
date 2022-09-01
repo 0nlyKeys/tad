@@ -51,7 +51,6 @@
 
         }
 
-
         public function mostrarUsers(){
             $f = null;
             // Conectamos con la clase Conexion
@@ -91,7 +90,50 @@
 
         }
 
+        public function modificarUser($identificacion, $tipoDoc, $nombres, $apellidos, $email, $telefono, $rol, $estado){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
 
+            $sql ="UPDATE users SET identificacion=:identificacion,
+                                    tipodoc=:tipodocumento, 
+                                    nombres=:nombres, 
+                                    apellidos=:apellidos, 
+                                    email=:email, 
+                                    Telefono=:telefono, 
+                                    rol=:rol, 
+                                    estado=:estado WHERE identificacion=:identificacion";
+            $result = $conexion->prepare($sql);
+            $result->bindParam(':identificacion', $identificacion);            
+            $result->bindParam(':tipodocumento', $tipoDoc);
+            $result->bindParam(':nombres', $nombres);
+            $result->bindParam(':apellidos', $apellidos);
+            $result->bindParam(':email', $email);
+            $result->bindParam(':telefono', $telefono);
+            $result->bindParam(':rol', $rol);
+            $result->bindParam(':estado', $estado);
+
+            $result->execute();
+            echo "<script> alert ('ACTUALIZACION EXITOSA')</script>";
+            echo '<script> location.href="../view/admin-side/verUsers.php"</script>';
+
+       }
+
+       public function eliminarUser($id_user){
+             // conectamos con la clase conexion
+             $objetoConexion = new conexion();
+             $conexion = $objetoConexion->get_conexion();
+             
+             $sql ="DELETE FROM users WHERE identificacion=:id_user";
+             $result =$conexion->prepare($sql);
+
+             $result->bindParam(':id_user', $id_user);
+             $result->execute();
+             echo "<script> alert ('EL USUARIO HA SIDO ELIMINADO DE MANERA EXITOSA')</script>";
+             echo '<script> location.href="../view/admin-side/verUsers.php"</script>';
+
+
+       }  
     }
 
 ?>
