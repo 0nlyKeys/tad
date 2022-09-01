@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="../dashboard-base/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="../dashboard-base/plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -236,13 +237,13 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="nombre">Apellido:</label>
-                      <input type="text" class="form-control" id="nombre" name="apellidos" placeholder="Ej:Rodriguez" required>
+                      <label for="apellido">Apellido:</label>
+                      <input type="text" class="form-control" id="apellido" name="apellidos" placeholder="Ej:Rodriguez" required>
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="nombre">Email:</label>
-                      <input type="text" class="form-control" id="nombre" name="email" placeholder="Ej:Daniel@email.com" required>
+                      <label for="fechaNac">Fecha de Nacimiento:</label>
+                      <input type="text" class="form-control" name="fechaNac" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask>
                     </div>
 
                     <div class="form-group col-md-6">
@@ -250,9 +251,46 @@
                       <input type="number" class="form-control" id="telefono" name="telefono" placeholder="3133333333" required>
                     </div>
 
+                    <div class="form-group col-md-6">
+                      <label for="fechaNac">Ciudad:</label>
+                      <select class="form-control" required name="ciudad" >
+                        <option>Seleccione la Ciudad</option>
+                        <option value="1">Bogotá</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label for="fechaNac">Localidad:</label>
+                      <select class="form-control" required name="localidad" >
+                        <option>Seleccione la Localidad</option>
+                        <option value="1">Kennedy</option>
+                        <option value="2">Usme</option>
+                        <option value="3">Bosa</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label for="direccion">Direccion:</label>
+                      <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Digite su dirección" required>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label for="code_postal">Código Postal:</label>
+                      <input type="text" class="form-control" id="code_postal" name="code_postal" placeholder="Digite el código postal" required>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                      <label for="email">Email:</label>
+                      <input type="text" class="form-control" id="email" name="email" placeholder="Ej:Daniel@email.com" required>
+                    </div>
+
                     <div class="form-group col-md-12">
                       <label for="clave">Clave:</label>
                       <input type="password" class="form-control" id="clave" name="clave" placeholder="******" required>
+                      <span class="eye" onclick="showClave()" >
+                          <i id="hide1" class="fa fa-eye"></i>
+                          <i id="hide2" class="fa fa-eye-slash"></i>
+                      </span>
                     </div>
 
                     <div class="form-group col-md-2">
@@ -355,11 +393,40 @@
 <script src="../dashboard-base/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="../dashboard-base/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- InputMask -->
+<script src="../dashboard-base/plugins/moment/moment.min.js"></script>
+<script src="../dashboard-base/plugins/inputmask/jquery.inputmask.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../dashboard-base/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dashboard-base/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dashboard-base/dist/js/pages/dashboard.js"></script>
+
+<script>
+  $(function () {
+    //Datemask dd/mm/yyyy
+    $('#datemask2').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
+    $('[data-mask]').inputmask()
+
+  })
+
+  function showClave() {
+    var x = document.getElementById("clave");
+    var y = document.getElementById("hide1");
+    var z = document.getElementById("hide2");
+    if (x.type === "password") {
+      x.type = "text";
+      y.style.display = "block";
+      z.style.display = "none";
+    } else {
+      x.type = "password";
+      y.style.display = "none";
+      z.style.display = "block";
+    }
+  }
+
+    
+</script>
 </body>
 </html>

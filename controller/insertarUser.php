@@ -31,6 +31,6 @@
     //Si los campos vienen vacios redireccionamos al formulario 
     }else{
         echo "<script> alert('POR FAVOR COMPLETE LOS CAMPOS PARA REGISTRARSE EN EL SISTEMA') </script>";
-        echo '<script> location.href="../view/extras/registro-user.php" </script>';
+        echo '<script> location.href="../view/extras/register-user.php" </script>';
     }    
 ?>
