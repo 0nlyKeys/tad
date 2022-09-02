@@ -69,13 +69,13 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="registrarTecnico.php" class="nav-link ">
+            <a href="registrarTecnicos.php" class="nav-link ">
               <i class="far fa-circle nav-icon"></i>
               <p>Registrar</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="verTecnico.php" class="nav-link">
+            <a href="verTecnicos.php" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Ver</p>
             </a>

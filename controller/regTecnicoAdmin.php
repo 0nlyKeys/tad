@@ -31,11 +31,11 @@
 
         $objetoConsultas = new ConsultasAdmin();
 
-        $result = $objetoConsultas->registrarUserE($identificacion, $tipoDoc, $nombres, $apellidos,$fechaNac, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado);
+        $result = $objetoConsultas->registrarTecnicoE($identificacion, $tipoDoc, $nombres, $apellidos,$fechaNac, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado);
 
     //Si los campos vienen vacios redireccionamos al formulario 
     }else{
-        echo "<script> alert('POR FAVOR COMPLETE LOS CAMPOS PARA REGISTRAR UN NUEVO CLIENTE EN EL SISTEMA') </script>";
-        echo '<script> location.href="../view/admin-side/registrarUsers.php" </script>';
+        echo "<script> alert('POR FAVOR COMPLETE LOS CAMPOS PARA REGISTRAR UN NUEVO TECNICO EN EL SISTEMA') </script>";
+        echo '<script> location.href="../view/admin-side/registrarTecnicos.php" </script>';
     }    
 ?>
