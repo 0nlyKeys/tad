@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <span>Regístrate <a href="register-user.php">Aquí</a></span>
+          <span>Regístrate <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal">Aquí</a></span>
           </div>
         </div>
         <div class="row">
@@ -64,6 +64,28 @@
           <!-- /.col -->
         </div>
       </form>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">¿Como desea registrarse?</h5>
+              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="user_modal_option col-md-6">
+                  <a href="./register-user.php">Usuario</a>
+                </div>
+                <div class="user_modal_option col-md-6">
+                  <a href="./register-tecnico.php">Técnico</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
