@@ -33,54 +33,134 @@
     <div class="card-body">
       <p class="login-box-msg">Complete el formulario para registrarse en el sistema</p>
 
-
       <form action="../../controller/insertarUser.php" method="post">
-        <div class="input-group mb-3">
-          <input type="number" class="form-control" name="identificacion" required  placeholder="Identificación">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-address-card"></span>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <div class="input-group mb-3">
+                <select class="custom-select form-control" required name="tipoDoc" >
+                  <option>Tipo Documento</option>
+                  <option value="CC">CC</option>
+                  <option value="CE">CE</option>
+                  <option value="TI">TI</option>
+                  <option value="OTRO">OTRO</option>
+                </select>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">            
+            <div class="input-group mb-3">
+              <input type="number" class="form-control" name="identificacion" required  placeholder="Identificación">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-address-card"></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <select class="custom-select form-control" required name="tipoDoc" >
-            <option>Tipo Documento</option>
-            <option value="CC">CC</option>
-            <option value="CE">CE</option>
-            <option value="TI">TI</option>
-            <option value="OTRO">OTRO</option>
-          </select>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" required name="nombres"  placeholder="Nombres">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-address-card"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" required name="apellidos"  placeholder="Apellidos">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" required name="nombres"  placeholder="Nombres">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-address-card"></span>
+        
+        <div class="row">
+          <div class="form-group col-md-6">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" name="fechaNac" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="far fa-calendar-alt"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <div class="input-group mb-3">
+              <input type="number" class="form-control" required name="telefono"  placeholder="Teléfono">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="row">
+          <div class="form-group col-md-6">
+            <div class="input-group mb-3">          
+              <select class="custom-select form-control" required name="ciudad" >
+                <option>Seleccione la Ciudad</option>
+                <option value="1">Bogotá</option>
+              </select>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <div class="input-group mb-3">          
+              <select class="custom-select form-control" required name="localidad" >
+                <option>Seleccione la Localidad</option>
+                <option value="1">Kennedy</option>
+                <option value="2">Usme</option>
+                <option value="3">Bosa</option>
+              </select>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" required name="apellidos"  placeholder="Apellidos">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" required name="direccion"  placeholder="Dirección">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" required name="code_postal"  placeholder="Código postal">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-        <input type="text" class="form-control" name="fechaNac" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="far fa-calendar-alt"></span>
-            </div>
-          </div>
-        </div>
+
         <div class="input-group mb-3">
           <input type="email" class="form-control" required name="email"  placeholder="Email">
           <div class="input-group-append">
@@ -88,55 +168,7 @@
               <span class="fas fa-envelope"></span>
             </div>
           </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="number" class="form-control" required name="telefono"  placeholder="Teléfono">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">          
-          <select class="custom-select form-control" required name="ciudad" >
-            <option>Seleccione la Ciudad</option>
-            <option value="1">Bogotá</option>
-          </select>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">          
-          <select class="custom-select form-control" required name="localidad" >
-            <option>Seleccione la Localidad</option>
-            <option value="1">Kennedy</option>
-            <option value="2">Usme</option>
-            <option value="3">Bosa</option>
-          </select>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" required name="direccion"  placeholder="Dirección">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" required name="code_postal"  placeholder="Código postal">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
+        </div>          
         <div class="input-group mb-3">
           <input id="clave" type="password" class="form-control" required name="clave" placeholder="Clave">
           <div class="input-group-append">
@@ -150,21 +182,21 @@
           <div class="input-group-append">
             <div class="input-group-text">              
               <span class="eye" onclick="showClave()" >
-                    <i id="hide1" class="fa fa-eye"></i>
-                    <i id="hide2" class="fa fa-eye-slash"></i>
+                <i id="hide1" class="fa fa-eye"></i>
+                <i id="hide2" class="fa fa-eye-slash"></i>
               </span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-            <span id='message'></span>
+          <span id='message'></span>
         </div>
         <div class="row">
           <!-- /.col -->
           <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
-          <!-- /.col -->
+            <!-- /.col -->
         </div>
       </form>
     </div>
