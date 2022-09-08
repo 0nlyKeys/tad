@@ -38,7 +38,7 @@
           <i class="nav-icon fas fa-users"></i>
           
           <p>
-            Clientes
+            Usuarios
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
@@ -69,14 +69,14 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="registrarTecnico.php" class="nav-link ">
-              <i class="far fa-circle nav-icon"></i>
+            <a href="registrarTecnicos.php" class="nav-link ">
+              <i class="far fa-edit nav-icon"></i>
               <p>Registrar</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="verTecnico.php" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
+            <a href="verTecnicos.php" class="nav-link">
+              <i class="far fa-eye nav-icon"></i>
               <p>Ver</p>
             </a>
           </li>              

@@ -1,14 +1,26 @@
+<?php
+  require_once("../../model/conexion.php");
+  require_once("../../model/consultasAdmin.php");
+  require_once("../../controller/mostrarTecnicos.php");
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Registrar | Usuarios</title>
+  <title>Ver | Tecnicos</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../dashboard-base/plugins/fontawesome-free/css/all.min.css">
+
+   <!-- DataTables -->
+  <link rel="stylesheet" href="../dashboard-base/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../dashboard-base/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="../dashboard-base/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
@@ -25,7 +37,7 @@
   <link rel="stylesheet" href="../dashboard-base/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="../dashboard-base/plugins/summernote/summernote-bs4.min.css">
-  <link rel="stylesheet" href="../../css/style.css">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -184,7 +196,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Registrar Usuarios</h1>
+            <h1 class="m-0">Ver Tecnicos</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -202,134 +214,68 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-md-6">            
-            <h2>Formulario de Registro</h2>
-            <p>Por favor complete los campos para registrar nuevo usuario</p>
-            <div class="card card-primary">
+          <div class="col-md-12"> 
+
+          <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Formulario de Registro</h3>
+                <h3 class="card-title">DataTable with default features</h3>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form action="../../controller/regUserAdmin.php" method="POST">
-                <div class="card-body">
-
-                  <div class="row">
-                    <div class="form-group col-md-6">
-                      <label for="tipoDoc">Tipo de Documento:</label>
-                      <select id="tipoDoc" name="tipoDoc" class="form-control" required>
-                          <option value="">Seleccione...</option>
-                          <option value="C.C">C.C</option>
-                          <option value="C.E">C.E</option>
-                          <option value="Pasaporte">Pasaporte</option>
-                          <option value="">Otros</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                      <label for="numDoc">Digite Documento:</label>
-                      <input type="number" class="form-control" id="numDoc" name="identificacion" placeholder="Ej:12758965" required>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                      <label for="nombre">Nombre:</label>
-                      <input type="text" class="form-control" id="nombre" name="nombres" placeholder="Ej:Daniel" required>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                      <label for="apellido">Apellido:</label>
-                      <input type="text" class="form-control" id="apellido" name="apellidos" placeholder="Ej:Rodriguez" required>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                      <label for="fechaNac">Fecha de Nacimiento:</label>
-                      <input type="text" class="form-control" name="fechaNac" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                      <label for="telefono">Telefono:</label>
-                      <input type="number" class="form-control" id="telefono" name="telefono" placeholder="3133333333" required>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                      <label for="fechaNac">Ciudad:</label>
-                      <select class="form-control" required name="ciudad" >
-                        <option>Seleccione la Ciudad</option>
-                        <option value="1">Bogotá</option>
-                      </select>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                      <label for="fechaNac">Localidad:</label>
-                      <select class="form-control" required name="localidad" >
-                        <option>Seleccione la Localidad</option>
-                        <option value="1">Kennedy</option>
-                        <option value="2">Usme</option>
-                        <option value="3">Bosa</option>
-                      </select>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                      <label for="direccion">Direccion:</label>
-                      <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Digite su dirección" required>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                      <label for="code_postal">Código Postal:</label>
-                      <input type="text" class="form-control" id="code_postal" name="code_postal" placeholder="Digite el código postal" required>
-                    </div>
-
-                    <div class="form-group col-md-12">
-                      <label for="email">Email:</label>
-                      <input type="text" class="form-control" id="email" name="email" placeholder="Ej:Daniel@email.com" required>
-                    </div>
-
-                    <div class="form-group col-md-12">
-                      <label for="clave">Clave:</label>
-                      <input type="password" class="form-control" id="clave" name="clave" placeholder="******" required>
-                      <span class="eye" onclick="showClave()" >
-                          <i id="hide1" class="fa fa-eye"></i>
-                          <i id="hide2" class="fa fa-eye-slash"></i>
-                      </span>
-                    </div>
-
-                    <div class="form-group col-md-2">
-                    </div>
-
-                    <div class="form-group col-md-4">
-                      <label for="estado">Estado:</label>
-                      <select id="estado" name="estado" class="form-control" required>
-                          <option value="">Seleccione...</option>
-                          <option value="Activo">Activo</option>
-                          <option value="Inactivo">Inactivo</option>
-                          <option value="Pendiente">Pendiente</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-md-4">
-                      <label for="rol">Rol:</label>
-                      <select id="rol" name="rol" class="form-control" required>
-                          <option value="">Seleccione...</option>
-                          <option value="Cliente">Cliente</option>
-                          <option value="Tecnico">Tecnico</option>
-                          <option value="Administrador">Administrador</option>
-                        </select>
-                    </div>
-
-
-
-
-                  </div>
-
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
+              <div class="card-body">
+                <?php 
+                  cargarTecnicos();                
+                ?>
+                <!-- <table id="tableUsers" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Tipo de documento</th>
+                    <th>Identificacion</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                    <th>rol</th>
+                    <th>estado</th>
+                    <th>Ver/Editar</th>
+                    <th>Eliminar</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                  <th>Tipo de documento</th>
+                    <th>Identificacion</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                    <th>rol</th>
+                    <th>estado</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                  </tfoot>
+                </table> -->
+              </div>
+              <!-- /.card-body -->
             </div>
+            
           </div>
+
         </div>
         <!-- /.row -->
         <!-- Main row -->
@@ -393,9 +339,22 @@
 <script src="../dashboard-base/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="../dashboard-base/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- InputMask -->
-<script src="../dashboard-base/plugins/moment/moment.min.js"></script>
-<script src="../dashboard-base/plugins/inputmask/jquery.inputmask.min.js"></script>
+
+
+<!-- DataTables  & Plugins -->
+<script src="../dashboard-base/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../dashboard-base/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../dashboard-base/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../dashboard-base/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../dashboard-base/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../dashboard-base/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../dashboard-base/plugins/jszip/jszip.min.js"></script>
+<script src="../dashboard-base/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../dashboard-base/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../dashboard-base/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../dashboard-base/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../dashboard-base/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="../dashboard-base/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -403,30 +362,24 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dashboard-base/dist/js/pages/dashboard.js"></script>
 
+
+<!-- Page specific script -->
 <script>
   $(function () {
-    //Datemask dd/mm/yyyy
-    $('#datemask2').inputmask('yyyy/mm/dd', { 'placeholder': 'yyyy/mm/dd' })
-    $('[data-mask]').inputmask()
-
-  })
-
-  function showClave() {
-    var x = document.getElementById("clave");
-    var y = document.getElementById("hide1");
-    var z = document.getElementById("hide2");
-    if (x.type === "password") {
-      x.type = "text";
-      y.style.display = "block";
-      z.style.display = "none";
-    } else {
-      x.type = "password";
-      y.style.display = "none";
-      z.style.display = "block";
-    }
-  }
-
-    
+    $("#tableUsers").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#tableUsers_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
 </script>
 </body>
 </html>

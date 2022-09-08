@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TAD | Registro Usuario</title>
+  <title>TAD | Registro Técnico</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -28,12 +28,12 @@
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Registro de </b> Usuarios</a>
+      <a href="../../index2.html" class="h1"><b>Registro de </b> Técnicos</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Complete el formulario para registrarse en el sistema</p>
 
-      <form action="../../controller/insertarUser.php" method="post">
+      <form action="../../controller/insertarTecnico.php" method="post">
         <div class="row">
           <div class="form-group col-md-6">
             <div class="input-group mb-3">

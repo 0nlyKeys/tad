@@ -1,3 +1,12 @@
 .bg-nav-tad{
     background-color: #ffffff;
 }
+
+/*Password show*/
+#hide1{
+    display: none;
+    cursor: pointer;
+}
+#hide2{
+    cursor: pointer;
+}

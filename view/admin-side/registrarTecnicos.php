@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Registrar | Usuarios</title>
+  <title>Registrar | Tecnicos</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -184,7 +184,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Registrar Usuarios</h1>
+            <h1 class="m-0">Registrar Tecnico</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -204,14 +204,14 @@
         <div class="row">
           <div class="col-md-6">            
             <h2>Formulario de Registro</h2>
-            <p>Por favor complete los campos para registrar nuevo usuario</p>
+            <p>Por favor complete los campos para registrar nuevo tecnico</p>
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Formulario de Registro</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../../controller/regUserAdmin.php" method="POST">
+              <form action="../../controller/regTecnicoAdmin.php" method="POST">
                 <div class="card-body">
 
                   <div class="row">
