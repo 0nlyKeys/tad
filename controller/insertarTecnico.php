@@ -15,7 +15,9 @@
     $localidad = $_POST['localidad'];
     $direccion = $_POST['direccion'];
     $postal = $_POST['code_postal'];
-    $clave = $_POST['clave'];
+    $experiencia =$_POST['experiencia'];
+    $estudios =$_POST['estudios'];
+    $clave =$_POST['clave'];
     $rol = "Tecnico";
     $estado = "Pendiente";
 
@@ -24,14 +26,15 @@
     strlen($nombres)>0 && strlen($apellidos)>0 && 
     strlen($fechaNac)>0 && strlen($email)>0 && 
     strlen($telefono)>0 && strlen($ciudad)>0 && 
-    strlen($localidad)>0 && strlen($direccion)>0 && 
+    strlen($localidad)>0 && strlen($direccion)>0 &&
+    strlen($experiencia)>0 && strlen($estudios)>0 &&
     strlen($postal)>0 && strlen($clave)>0) {
         // Encriptamos la clave con la instrucción MD5
         $claveMd = md5($clave);
 
         $objetoConsultas = new ConsultasE();
 
-        $result = $objetoConsultas->registrarTecnicoE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado);
+        $result = $objetoConsultas->registrarTecnicoE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion,$experiencia,$estudios, $postal, $claveMd, $rol, $estado);
 
     //Si los campos vienen vacios redireccionamos al formulario 
     }else{

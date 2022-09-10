@@ -56,7 +56,7 @@
 
         }
 
-        public function registrarTecnicoE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado){
+        public function registrarTecnicoE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion,$experiencia,$estudios, $postal, $claveMd, $rol, $estado){
 
             // Conectamos con la clase Conexion
             $objetoConexion = new Conexion();
@@ -82,8 +82,8 @@
                 $objetoConexion = new Conexion();
                 $conexion = $objetoConexion->get_conexion();
 
-                $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, fecha_nacimiento, email, telefono, ciudad, localidad, direccion, codigo_postal, clave, rol, estado) 
-                VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :fechaNac, :email, :telefono, :ciudad, :localidad, :direccion, :code_postal, :claveMd, :rol, :estado)";
+                $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, fecha_nacimiento, email, telefono, ciudad, localidad, direccion,nivel_educativo,experiencia, codigo_postal, clave, rol, estado) 
+                VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :fechaNac, :email, :telefono, :ciudad, :localidad, :direccion,:niveledu,:experiencia, :code_postal, :claveMd, :rol, :estado)";
 
                 $result = $conexion->prepare($sql);
 
@@ -97,6 +97,8 @@
                 $result->bindParam(':ciudad', $ciudad);
                 $result->bindParam(':localidad', $localidad);
                 $result->bindParam(':direccion', $direccion);
+                $result->bindParam(':niveledu', $estudios);
+                $result->bindParam(':experiencia', $experiencia);
                 $result->bindParam(':code_postal', $postal);
                 $result->bindParam(':claveMd', $claveMd);
                 $result->bindParam(':rol', $rol);

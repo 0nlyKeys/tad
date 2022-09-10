@@ -160,6 +160,41 @@
             </div>
           </div>
         </div>
+        
+        <div class="row">
+          <div class="form-group col-md-6">
+            <div class="input-group mb-3">          
+              <select class="custom-select form-control" required name="experiencia" >
+                <option>Seleccione la experiencia laboral</option>
+                <option value="basica">Menos de 6 meses</option>
+                <option value="intermedia">De 6 meses a 1 un año</option>
+                <option value="avanzado">Mas de 1 año </option>
+              </select>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <div class="input-group mb-3">          
+              <select class="custom-select form-control" required name="estudios" >
+                <option>Seleccione su nivel educativo</option>
+                <option value="tecnico">Técnico</option>
+                <option value="tecnologo">Tecnólogo</option>
+                <option value="profesional">Profesional</option>
+                <option value="enpirico">Empírico/Autónomo</option>
+              </select>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
         <div class="input-group mb-3">
           <input type="email" class="form-control" required name="email"  placeholder="Email">
