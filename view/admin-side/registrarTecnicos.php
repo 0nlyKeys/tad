@@ -252,7 +252,7 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="fechaNac">Ciudad:</label>
+                      <label for="ciudad">Ciudad:</label>
                       <select class="form-control" required name="ciudad" >
                         <option>Seleccione la Ciudad</option>
                         <option value="1">Bogotá</option>
@@ -260,7 +260,7 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="fechaNac">Localidad:</label>
+                      <label for="localidad">Localidad:</label>
                       <select class="form-control" required name="localidad" >
                         <option>Seleccione la Localidad</option>
                         <option value="1">Kennedy</option>
@@ -277,6 +277,27 @@
                     <div class="form-group col-md-6">
                       <label for="code_postal">Código Postal:</label>
                       <input type="text" class="form-control" id="code_postal" name="code_postal" placeholder="Digite el código postal" required>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label for="experiencia">Experiencia:</label>
+                      <select class="form-control" required name="experiencia" >
+                        <option> Seleccione la experiencia laboral </option>
+                        <option value="basica">Menos de 6 meses</option>
+                        <option value="intermedia">De 6 meses a 1 un año</option>
+                      <option value="avanzado">Mas de 1 año </option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label for="estudios">Estudios:</label>
+                      <select class="form-control" required name="estudios" >
+                        <option>Seleccione su nivel educativo</option>
+                        <option value="tecnico">Técnico</option>
+                        <option value="tecnologo">Tecnólogo</option>
+                        <option value="profesional">Profesional</option>
+                        <option value="enpirico">Empírico/Autónomo</option>
+                      </select>
                     </div>
 
                     <div class="form-group col-md-12">
