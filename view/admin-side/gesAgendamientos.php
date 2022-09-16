@@ -216,65 +216,30 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-md-6"> 
-
-          <div class="card">
+            <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Aqui podrás ver los agendamientos</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <?php 
                   cargarAgendamientos();                
                 ?>
-                <!-- <table id="tableUsers" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Tipo de documento</th>
-                    <th>Identificacion</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>rol</th>
-                    <th>estado</th>
-                    <th>Ver/Editar</th>
-                    <th>Eliminar</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                  <th>Tipo de documento</th>
-                    <th>Identificacion</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>rol</th>
-                    <th>estado</th>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                  </tfoot>
-                </table> -->
               </div>
               <!-- /.card-body -->
-            </div>
-            
+            </div>            
+          </div>
+          <div id="detailsAgendamiento" class="col-md-6" style="display:none;"> 
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Comprobante Agendamiento</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+               
+              </div>
+              <!-- /.card-body -->
+            </div>            
           </div>
 
         </div>
@@ -381,6 +346,16 @@
       "responsive": true,
     });
   });
+
+
+  function showDetailsAgend() {
+  var x = document.getElementById("detailsAgendamiento");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 </script>
 </body>
 </html>
