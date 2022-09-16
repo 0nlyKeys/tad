@@ -88,28 +88,16 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fas fa-copy"></i>
           <p>
-            Gestionar
+            Agendamientos
             <i class="fas fa-angle-left right"></i>
-            <span class="badge badge-info right">4</span>
+            <!--<span class="badge badge-info right">4</span>-->
           </p>
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="pages/layout/top-nav.html" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Gestionar Clientes</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+            <a href="gesAgendamientos.php" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Gestion Agendamientos</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/layout/boxed.html" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Gestionar Inventarios</p>
             </a>
           </li>
           <li class="nav-item">
