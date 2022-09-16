@@ -261,7 +261,7 @@
 
         }
 
-     public function eliminarTecnico($id_tecnico){
+        public function eliminarTecnico($id_tecnico){
             // conectamos con la clase conexion
             $objetoConexion = new conexion();
             $conexion = $objetoConexion->get_conexion();
@@ -277,6 +277,26 @@
 
         } 
        
+        public function mostrarAgendamientos(){
+            $f = null;
+            // Conectamos con la clase Conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+    
+            $sql = "SELECT id_agendamiento, estado_servicio FROM agendamientos";
+            $result = $conexion-> prepare($sql);
+            $result->execute();
+    
+            while($consulta = $result->fetch()){
+                $f[] = $consulta;
+    
+            }
+    
+            return $f;
+    
+        }
     }
+
+        
 
 ?>
