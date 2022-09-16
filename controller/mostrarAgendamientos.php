@@ -23,7 +23,7 @@
                 <tr class="'.$f['estado_servicio'].'"> 
                 <td>'.$f['id_agendamiento'].'</td>
                 <td>'.$f['estado_servicio'].'</td>
-                <td><a href="editarTecnico.php?id_tecnico='.$f['id_agendamiento'].'" class="btn btn-primary"><i class="bi bi-zoom-in"></i></a></td>
+                <td><button class="btn btn-primary" onclick="showDetailsAgend()"><i class="bi bi-zoom-in"></i></button></td>
                 </tr>
                 ';
 
