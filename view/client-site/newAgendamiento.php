@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ClienteLTE 3 | Dashboard</title>
+  <title>Agendar Técnico</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -204,66 +204,72 @@ include('menuUser.php');
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6">
-          <form action="../../controller/modTecnicoAdmin.php" method="POST">
-                <div class="card-body">
+          <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Solicita tu técnico dando información completa</h3>
+              </div>
+          <form action="../../controller/agendarTecnico.php" method="POST">
+              <div class="card-body">
 
                   <div class="row">
                     <div class="form-group col-md-6">
-                      <label for="tipoDoc">Tipo de Documento:</label>
-                      <select id="tipoDoc" name="tipoDoc" class="form-control" required>
-                          <option value="'.$f["tipodoc"].'">'.$f["tipodoc"].'</option>
-                          <option value="C.C">C.C</option>
-                          <option value="C.E">C.E</option>
-                          <option value="Pasaporte">Pasaporte</option>
-                        </select>
+                      <label for="nombres">Nombres:</label>
+                      <input type="text" class="form-control" id="nombres" name="nombres"  required>
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="numDoc">Digite Documento:</label>
-                      <input type="number" class="form-control" id="numDoc" readonly="readonly" name="identificacion" placeholder="Ej:12758965" value="'.$f["identificacion"].'" required>
+                      <label for="apellidos">Apellidos:</label>
+                      <input type="text" class="form-control" id="apellidos" name="apellidos"  required>
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="nombre">Nombre:</label>
-                      <input type="text" class="form-control" id="nombre" name="nombres" placeholder="Ej:Daniel" value="'.$f["nombres"].'" required>
+                      <label for="email">Email:</label>
+                      <input type="text" class="form-control" id="email" name="email"  required>
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="nombre">Apellido:</label>
-                      <input type="text" class="form-control" id="nombre" name="apellidos" placeholder="Ej:Rodriguez" value="'.$f["apellidos"].'" required>
+                      <label for="telefono">Número de Contacto:</label>
+                      <input type="number" class="form-control" id="telefono" name="telefono" required>
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="nombre">Email:</label>
-                      <input type="text" class="form-control" id="nombre" name="email" placeholder="Ej:Daniel@email.com" value="'.$f["email"].'" required>
+                      <label for="ciudad">Ciudad:</label>
+                      <select class="form-control" required name="ciudad" >
+                        <option>Seleccione la Ciudad</option>
+                        <option value="1">Bogotá</option>
+                      </select>
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="telefono">Telefono:</label>
-                      <input type="number" class="form-control" id="telefono" name="telefono" placeholder="3133333333" value="'.$f["telefono"].'" required>
+                      <label for="localidad">Localidad:</label>
+                      <select class="form-control" required name="localidad" >
+                        <option>Seleccione la Localidad</option>
+                        <option value="1">Kennedy</option>
+                        <option value="2">Usme</option>
+                        <option value="3">Bosa</option>
+                      </select>
                     </div>
 
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-6">
+                      <label for="fechaAgn">Elegir fecha: </label>
+                      <div class="input-group date" id="fechaAgn" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#fechaAgn" name="fechaAgn" onkeydown="return false"/>
+                        <div class="input-group-append" data-target="#fechaAgn" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                      </div>
                     </div>
 
-                    <div class="form-group col-md-4">
-                      <label for="estado">Estado:</label>
-                      <select id="estado" name="estado" class="form-control" required>
-                          <option value="'.$f["estado"].'">'.$f["estado"].'</option>
-                          <option value="Activo">Activo</option>
-                          <option value="Inactivo">Inactivo</option>
-                          <option value="Pendiente">Pendiente</option>
-                        </select>
+                    <div class="form-group col-md-6">
+                      <label for="nombre">Dirección:</label>
+                      <input type="text" class="form-control" id="direccion" name="direccion"  required>
                     </div>
 
-                    <div class="form-group col-md-4">
-                      <label for="rol">Rol:</label>
-                      <select id="rol" name="rol" class="form-control" required>
-                          <option value="'.$f["rol"].'">'.$f["rol"].'</option>
-                          <option value="Cliente">Cliente</option>
-                          <option value="Tecnico">Tecnico</option>
-                          <option value="Administrador">Administrador</option>
-                        </select>
+                    <div class="form-group col-md-3">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="descripcion">Descripción:</label>
+                      <textarea class="form-control" rows="6" name="descripcion" placeholder="Describa su solicitud..."></textarea>
                     </div>
 
 
@@ -273,9 +279,10 @@ include('menuUser.php');
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Modificar</button>
+                  <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
                 </div>
-              </form>
+            </form>
+            </div>
           </div>
         </div>
       
@@ -347,5 +354,12 @@ include('menuUser.php');
 <script src="../dashboard-base/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dashboard-base/dist/js/pages/dashboard.js"></script>
+<script>
+  $(function () {
+    $('#fechaAgn').datetimepicker({ 
+      format: 'YYYY/MM/DD HH:mm',
+      icons: { time: 'far fa-clock' } });
+  });
+</script>
 </body>
 </html>

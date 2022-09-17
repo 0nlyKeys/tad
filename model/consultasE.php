@@ -112,6 +112,55 @@
 
         }
 
+        public function agendarTecnicoE($nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $fechaAgenda, $direccion,$descripcion,$estado){
+
+            // Conectamos con la clase Conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT * FROM agendamientos WHERE email=:email";
+
+            $result = $conexion->prepare($sql);
+
+            $result->bindParam(":email", $email);
+
+            $result->execute();
+
+            $f = $result->fetch();
+
+            if ($f) {
+                echo "<script> alert('YA TIENE UN AGENDAMIENTO PENDIENTE, PORFAVOR ESPERE EL PROCESO') </script>";
+                echo '<script> location.href="../view/client-side/newAgendamiento.php" </script>';
+            }else{
+                
+                // Conectamos con la clase Conexion
+                $objetoConexion = new Conexion();
+                $conexion = $objetoConexion->get_conexion();
+
+                $sql = "INSERT INTO agendamientos (nombres, apellidos, fecha_agendada, email, numero_contacto, id_ciudad, id_localidad, direccion_servicio, descripcion, estado_servicio) 
+                VALUES(:nombres, :apellidos,:fechaAgn, :email, :telefono, :ciudad, :localidad, :direccion, :descripcion, :estado)";
+
+                $result = $conexion->prepare($sql);
+
+                $result->bindParam(':nombres', $nombres);
+                $result->bindParam(':apellidos', $apellidos);
+                $result->bindParam(':fechaAgn', $fechaAgenda);
+                $result->bindParam(':email', $email);
+                $result->bindParam(':telefono', $telefono);
+                $result->bindParam(':ciudad', $ciudad);
+                $result->bindParam(':localidad', $localidad);
+                $result->bindParam(':direccion', $direccion);
+                $result->bindParam(':descripcion', $descripcion);
+                $result->bindParam(':estado', $estado);
+
+                $result-> execute();
+                echo "<script> alert('SU SOLICITUD HA SIDO AGENDADA SATISFACTORIAMENTE') </script>";
+                echo '<script> location.href="../view/client-site/newAgendamiento.php" </script>';
+
+            }
+
+        }
+
 
 
     }
