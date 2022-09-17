@@ -285,7 +285,7 @@
             $objetoConexion = new Conexion();
             $conexion = $objetoConexion->get_conexion();
     
-            $sql = "SELECT id_agendamiento, estado_servicio FROM agendamientos";
+            $sql = "SELECT id_agendamiento, estado_servicio,fecha_agendada FROM agendamientos";
             $result = $conexion-> prepare($sql);
             $result->execute();
     

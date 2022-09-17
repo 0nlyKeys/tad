@@ -12,6 +12,7 @@
                 <thead>
                 <tr>
                 <th>Nro Agendamiento</th>
+                <th>Fecha Agendada</th>
                 <th>estado</th>
                 <th>Ver</th>
                 </tr>
@@ -22,6 +23,7 @@
                 echo '                
                 <tr class="'.$f['estado_servicio'].'"> 
                 <td>'.$f['id_agendamiento'].'</td>
+                <td>'.$f['fecha_agendada'].'</td>
                 <td>'.$f['estado_servicio'].'</td>
                 <td><button class="btn btn-primary" onclick="showDetailsAgend()"><i class="bi bi-zoom-in"></i></button></td>
                 </tr>
@@ -34,6 +36,7 @@
                 <tfoot>
                 <tr>
                 <th>Nro Agendamiento</th>
+                <th>Fecha Agendada</th>
                 <th>estado</th>
                 <th></th>
                 </tr>
