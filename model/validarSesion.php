@@ -27,7 +27,7 @@
                         $_SESSION['rol'] = $f['rol'];
 
 
-                        $_SESSION['auntenticado'] = "SI";
+                        $_SESSION['autenticado'] = "SI";
 
                         if($f['rol']=="Administrador"){
 
@@ -60,6 +60,15 @@
                 echo "<script>alert('EMAIL NO ENCONTRADO EN EL SISTEMA')</script>";
                 echo "<script>location.href=('../view/extras/register-user.php')</script>";
              }
+        }
+
+        public function cerrarSesion(){
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            session_start();
+            session_destroy();
+            echo '<script> location.href="../view/extras/login.php" </script>';
         }
     }
 ?>

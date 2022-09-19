@@ -25,7 +25,7 @@
                 <td>'.$f['id_agendamiento'].'</td>
                 <td>'.$f['fecha_agendada'].'</td>
                 <td>'.$f['estado_servicio'].'</td>
-                <td><button class="btn btn-primary" onclick="showDetailsAgend()"><i class="bi bi-zoom-in"></i></button></td>
+                <td><a href="gesAgendamientos.php?id_agendamiento='.$f['id_agendamiento'].'" class="btn btn-primary" onclick="showDetailsAgend()"><i class="bi bi-zoom-in"></i></a></td>
                 </tr>
                 ';
 
@@ -50,83 +50,112 @@
 
     function cargarAgendamiento(){
 
-        if(isset($_GET['id_tecnico'])){
+        if(isset($_GET['id_agendamiento'])){
             $objetoConsultas = new ConsultasAdmin();
-            $id_tecnico= $_GET['id_tecnico'];
-            $resultado = $objetoConsultas->mostrarTecnico($id_tecnico);
+            $id_agnd= $_GET['id_agendamiento'];
+            $resultado = $objetoConsultas->mostrarAgendamiento($id_agnd);
+            $data = $objetoConsultas->obtenerTecnico();
 
             foreach($resultado as $f){
                 echo '
-                <form action="../../controller/modTecnicoAdmin.php" method="POST">
-                <div class="card-body">
-
-                  <div class="row">
+                <form action="../../controller/asigTecnicoAgnd.php" method="POST">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Comprobante Agendamiento</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="row">
                     <div class="form-group col-md-6">
-                      <label for="tipoDoc">Tipo de Documento:</label>
-                      <select id="tipoDoc" name="tipoDoc" class="form-control" required>
-                          <option value="'.$f["tipodoc"].'">'.$f["tipodoc"].'</option>
-                          <option value="C.C">C.C</option>
-                          <option value="C.E">C.E</option>
-                          <option value="Pasaporte">Pasaporte</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                      <label for="numDoc">Digite Documento:</label>
-                      <input type="number" class="form-control" id="numDoc" readonly="readonly" name="identificacion" placeholder="Ej:12758965" value="'.$f["identificacion"].'" required>
+                      <label for="nombres">Nombres:</label>
+                      <input type="text" class="form-control" id="nombres" name="nombres" value="'.$f["nombres"].'" required>
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="nombre">Nombre:</label>
-                      <input type="text" class="form-control" id="nombre" name="nombres" placeholder="Ej:Daniel" value="'.$f["nombres"].'" required>
+                      <label for="apellidos">Apellidos:</label>
+                      <input type="text" class="form-control" id="apellidos" name="apellidos" value="'.$f["apellidos"].'" required>
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="nombre">Apellido:</label>
-                      <input type="text" class="form-control" id="nombre" name="apellidos" placeholder="Ej:Rodriguez" value="'.$f["apellidos"].'" required>
+                      <label for="email">Email:</label>
+                      <input type="text" class="form-control" id="email" name="email" value="'.$f["email"].'" required>
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="nombre">Email:</label>
-                      <input type="text" class="form-control" id="nombre" name="email" placeholder="Ej:Daniel@email.com" value="'.$f["email"].'" required>
+                      <label for="telefono">Número de Contacto:</label>
+                      <input type="number" class="form-control" id="telefono" name="telefono" value="'.$f["numero_contacto"].'" required>
+                    </div>
+              
+                    <div class="form-group col-md-6">
+                      <label for="ciudad">Ciudad:</label>
+                      <select class="form-control" required name="ciudad"  >
+                      <option value="'.$f["id_ciudad"].'">'.$f["id_ciudad"].'</option>
+                        <option value="1">Bogotá</option>
+                      </select>
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="telefono">Telefono:</label>
-                      <input type="number" class="form-control" id="telefono" name="telefono" placeholder="3133333333" value="'.$f["telefono"].'" required>
+                      <label for="localidad">Localidad:</label>
+                      <select class="form-control" required name="localidad" >
+                        <option value="'.$f["id_localidad"].'">'.$f["id_localidad"].'</option>
+                        <option value="1">Kennedy</option>
+                        <option value="2">Usme</option>
+                        <option value="3">Bosa</option>
+                      </select>
                     </div>
 
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-6">
+                      <label for="fechaAgn">Fecha Agendada: </label>
+                      <div class="input-group date" id="fechaAgn" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#fechaAgn" value="'.$f["fecha_agendada"].'" name="fechaAgn" onkeydown="return false"/>
+                        <div class="input-group-append" data-target="#fechaAgn" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                      </div>
                     </div>
 
-                    <div class="form-group col-md-4">
-                      <label for="estado">Estado:</label>
-                      <select id="estado" name="estado" class="form-control" required>
-                          <option value="'.$f["estado"].'">'.$f["estado"].'</option>
-                          <option value="Activo">Activo</option>
-                          <option value="Inactivo">Inactivo</option>
-                          <option value="Pendiente">Pendiente</option>
-                        </select>
+                    <div class="form-group col-md-6">
+                      <label for="nombre">Dirección:</label>
+                      <input type="text" class="form-control" id="direccion" name="direccion" value="'.$f["direccion_servicio"].'" required>
                     </div>
 
-                    <div class="form-group col-md-4">
-                      <label for="rol">Rol:</label>
-                      <select id="rol" name="rol" class="form-control" required>
-                          <option value="'.$f["rol"].'">'.$f["rol"].'</option>
-                          <option value="Cliente">Cliente</option>
-                          <option value="Tecnico">Tecnico</option>
-                          <option value="Administrador">Administrador</option>
-                        </select>
+                    <div class="form-group col-md-6">
+                      <label for="descripcion">Descripción:</label>
+                      <textarea class="form-control" rows="6" name="descripcion" value="'.$f["descripcion"].'" placeholder="No hay descripción..."></textarea>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <div class="row">
+                        <div class="form-group col-md-12">
+                          <label for="asigTec">Técnico:</label>
+                          <select class="form-control" required name="asigTec"  > 
+                            <option value="'.$f["id_user"].'">'.$f["nombre_Tec"].' '.$f["apellido_Tec"].'</option>
+                            ';
+                            foreach($data as $t){
+                            echo '<option value="'.$t["id_user"].'">'.$t["nombres"].' '.$t["apellidos"].'</option>';  
+                            }
+                            echo ' 
+                          </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                          <label for="estadoServ">Estado:</label>
+                          <select class="form-control" required name="estadoServ"  >
+                            <option value="'.$f["estado_servicio"].'">'.$f["estado_servicio"].'</option>
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo">Inactivo</option>
+                            <option value="Pendiente">Pendiente</option>
+                          </select>
+                        </div>
+                      </div>
                     </div>
 
+                    
 
                   </div>
-
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Modificar</button>
+                    <!-- /.card-body -->
+                  </div> 
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Agendar</button>
+                  </div>
                 </div>
               </form>
                 

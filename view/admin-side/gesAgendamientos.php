@@ -2,6 +2,8 @@
   require_once("../../model/conexion.php");
   require_once("../../model/consultasAdmin.php");
   require_once("../../controller/mostrarAgendamientos.php");
+  require_once("../../model/validarSesion.php");
+  require_once("../../controller/seguridadAdmin.php");
 
 ?>
 <!DOCTYPE html>
@@ -44,9 +46,9 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
+  <!-- <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="../dashboard-base/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
+  </div> -->
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -229,17 +231,10 @@
               <!-- /.card-body -->
             </div>            
           </div>
-          <div id="detailsAgendamiento" class="col-md-6" style="display:none;"> 
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Comprobante Agendamiento</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-               
-              </div>
-              <!-- /.card-body -->
-            </div>            
+          <div id="detailsAgendamiento" class="col-md-6"> 
+            <?php
+                cargarAgendamiento();
+            ?>           
           </div>
 
         </div>
@@ -345,17 +340,12 @@
       "autoWidth": false,
       "responsive": true,
     });
+
+    $('#fechaAgn').datetimepicker({ 
+      format: 'YYYY/MM/DD HH:mm',
+      icons: { time: 'far fa-clock' } });
   });
 
-
-  function showDetailsAgend() {
-  var x = document.getElementById("detailsAgendamiento");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
 </script>
 </body>
 </html>
