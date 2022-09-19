@@ -297,6 +297,72 @@
             return $f;
     
         }
+
+        public function mostrarAgendamiento($id_agnd){
+            $f = null;
+            // Conectamos con la clase Conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            /*SELECT agn.id_agendamiento, agn.nombres, agn.apellidos, usr.nombres as nombre_Tec, usr.apellidos as apellido_Tec, 
+                        agn.fecha_agendada, agn.email, agn.numero_contacto, agn.id_ciudad, agn.id_localidad,
+                        agn.direccion_servicio, agn.descripcion, agn.estado_servicio
+                FROM agendamientos agn
+                INNER JOIN users usr ON agn.data_tecnico = usr.id_user */
+
+            $sql = "SELECT agn.id_agendamiento, agn.nombres, agn.apellidos, usr.id_user as id_user,usr.nombres as nombre_Tec, usr.apellidos as apellido_Tec, 
+                            agn.fecha_agendada, agn.email, agn.numero_contacto, agn.id_ciudad, agn.id_localidad,
+                            agn.direccion_servicio, agn.descripcion, agn.estado_servicio
+                    FROM agendamientos agn
+                    INNER JOIN users usr ON agn.data_tecnico = usr.id_user 
+                    WHERE agn.id_agendamiento=:id_agendamiento";            
+            $result = $conexion-> prepare($sql);
+            $result->bindParam(':id_agendamiento', $id_agnd);
+            $result->execute();
+
+            while($consulta = $result->fetch()){
+                $f[] = $consulta;
+
+            }
+
+            return $f;
+
+        }
+
+        public function obtenerTecnico(){
+            $t = null;
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT id_user,nombres,apellidos FROM users WHERE rol='Tecnico'";
+            $result = $conexion->prepare($sql);
+            $result->execute();
+
+            while($resultado= $result->fetch()){
+                $t[] = $resultado;
+            }
+
+            return $t;
+
+        }
+        
+        public function verPerfil($email){
+            $f = null;
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT * FROM users WHERE email=:email";
+            $result = $conexion->prepare($sql);
+            $result->bindParam(':email',$email);
+            $result->execute();
+
+            while($resultado= $result->fetch()){
+                $f[] = $resultado;
+            }
+
+            return $f;
+
+        }
     }
 
         

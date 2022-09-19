@@ -2,6 +2,8 @@
   require_once("../../model/conexion.php");
   require_once("../../model/consultasAdmin.php");
   require_once("../../controller/mostrarUsers.php");
+  require_once("../../model/validarSesion.php");
+require_once("../../controller/seguridadAdmin.php");
 
 ?>
 <!DOCTYPE html>

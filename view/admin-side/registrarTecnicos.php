@@ -1,3 +1,8 @@
+<?php
+require_once("../../model/conexion.php");
+require_once("../../model/validarSesion.php");
+require_once("../../controller/seguridadAdmin.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
