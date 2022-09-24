@@ -304,37 +304,68 @@
             $objetoConexion = new Conexion();
             $conexion = $objetoConexion->get_conexion();
 
-            /*SELECT agn.id_agendamiento, agn.nombres, agn.apellidos, usr.nombres as nombre_Tec, usr.apellidos as apellido_Tec, 
-                        agn.fecha_agendada, agn.email, agn.numero_contacto, agn.id_ciudad, agn.id_localidad,
-                        agn.direccion_servicio, agn.descripcion, agn.estado_servicio
-                FROM agendamientos agn
-                INNER JOIN users usr ON agn.data_tecnico = usr.id_user */
-
             $sql = "SELECT agn.id_agendamiento, agn.nombres, agn.apellidos, usr.id_user as id_user,usr.nombres as nombre_Tec, usr.apellidos as apellido_Tec, 
                             agn.fecha_agendada, agn.email, agn.numero_contacto, agn.id_ciudad, agn.id_localidad,
                             agn.direccion_servicio, agn.descripcion, agn.estado_servicio
                     FROM agendamientos agn
                     INNER JOIN users usr ON agn.data_tecnico = usr.id_user 
-                    WHERE agn.id_agendamiento=:id_agendamiento";            
-            $result = $conexion-> prepare($sql);
+                    WHERE agn.id_agendamiento=:id_agendamiento";   
+                  
+            $result = $conexion-> prepare($sql); 
             $result->bindParam(':id_agendamiento', $id_agnd);
-            $result->execute();
+            $result->execute();                             
+            
 
             while($consulta = $result->fetch()){
                 $f[] = $consulta;
-
+                
             }
-
             return $f;
 
         }
+
+        public function asigTecnicoAgnd($idAgnd,$nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $fechaAgenda, $direccion,$descripcion,$tecnico,$estado){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql ="UPDATE agendamientos SET nombres=:nombres, 
+                                    apellidos=:apellidos,
+                                    data_tecnico=:tecnico,
+                                    fecha_agendada=:fechaAgn, 
+                                    email=:email, 
+                                    numero_contacto=:numeroContact,
+                                    id_ciudad=:ciudad,
+                                    id_localidad=:localidad,
+                                    direccion_servicio=:dirServ,
+                                    descripcion=:descripcion,
+                                    estado_servicio=:estado WHERE id_agendamiento=:agendamiento";
+            $result = $conexion->prepare($sql);
+            $result->bindParam(':agendamiento', $idAgnd);
+            $result->bindParam(':nombres', $nombres);
+            $result->bindParam(':apellidos', $apellidos);
+            $result->bindParam(':tecnico', $tecnico);
+            $result->bindParam(':fechaAgn', $fechaAgenda);
+            $result->bindParam(':email', $email);
+            $result->bindParam(':numeroContact', $telefono);
+            $result->bindParam(':ciudad', $ciudad);
+            $result->bindParam(':localidad', $localidad);
+            $result->bindParam(':dirServ', $direccion);
+            $result->bindParam(':descripcion', $descripcion);
+            $result->bindParam(':estado', $estado);
+            $result->execute();
+            
+            echo "<script> alert ('AGENDAMIENTO ACTUALIZADO')</script>";
+            echo '<script> location.href="../view/admin-side/gesAgendamientos.php"</script>';
+
+       }
 
         public function obtenerTecnico(){
             $t = null;
             $objetoConexion = new Conexion();
             $conexion = $objetoConexion->get_conexion();
 
-            $sql = "SELECT id_user,nombres,apellidos FROM users WHERE rol='Tecnico'";
+            $sql = "SELECT id_user,nombres,apellidos FROM users WHERE rol='Tecnico' AND estado='Activo'";
             $result = $conexion->prepare($sql);
             $result->execute();
 
@@ -363,6 +394,8 @@
             return $f;
 
         }
+
+
     }
 
         

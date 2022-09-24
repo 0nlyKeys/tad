@@ -112,7 +112,7 @@
 
         }
 
-        public function agendarTecnicoE($nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $fechaAgenda, $direccion,$descripcion,$estado){
+        public function agendarTecnicoE($nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $fechaAgenda, $direccion,$descripcion,$tecnico,$estado){
 
             // Conectamos con la clase Conexion
             $objetoConexion = new Conexion();
@@ -137,13 +137,14 @@
                 $objetoConexion = new Conexion();
                 $conexion = $objetoConexion->get_conexion();
 
-                $sql = "INSERT INTO agendamientos (nombres, apellidos, fecha_agendada, email, numero_contacto, id_ciudad, id_localidad, direccion_servicio, descripcion, estado_servicio) 
-                VALUES(:nombres, :apellidos,:fechaAgn, :email, :telefono, :ciudad, :localidad, :direccion, :descripcion, :estado)";
+                $sql = "INSERT INTO agendamientos (nombres, apellidos, data_tecnico,fecha_agendada, email, numero_contacto, id_ciudad, id_localidad, direccion_servicio, descripcion, estado_servicio) 
+                VALUES(:nombres, :apellidos, :tecnico, :fechaAgn, :email, :telefono, :ciudad, :localidad, :direccion, :descripcion, :estado)";
 
                 $result = $conexion->prepare($sql);
 
                 $result->bindParam(':nombres', $nombres);
                 $result->bindParam(':apellidos', $apellidos);
+                $result->bindParam(':tecnico', $tecnico);
                 $result->bindParam(':fechaAgn', $fechaAgenda);
                 $result->bindParam(':email', $email);
                 $result->bindParam(':telefono', $telefono);

@@ -13,6 +13,7 @@
     $fechaAgenda = $_POST['fechaAgn'];
     $direccion = $_POST['direccion'];
     $descripcion = $_POST['descripcion'];
+    $tecnico = '1';
     $estado = "Pendiente";
 
     // validamos que las variables no estén vacias
@@ -21,11 +22,11 @@
 
         $objetoConsultas = new ConsultasE();
 
-        $result = $objetoConsultas->agendarTecnicoE($nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $fechaAgenda, $direccion,$descripcion,$estado);
+        $result = $objetoConsultas->agendarTecnicoE($nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $fechaAgenda, $direccion,$descripcion,$tecnico,$estado);
 
     //Si los campos vienen vacios redireccionamos al formulario 
     }else{
         echo "<script> alert('POR FAVOR COMPLETE LOS CAMPOS PARA EL AGENDAMIENTO') </script>";
-        echo '<script> location.href="../view/admin-side/editarUsers.php" </script>';
+        echo '<script> location.href="../view/client-site/newAgendamiento.php" </script>';
     }    
 ?>

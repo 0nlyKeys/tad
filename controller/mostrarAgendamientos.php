@@ -25,7 +25,7 @@
                 <td>'.$f['id_agendamiento'].'</td>
                 <td>'.$f['fecha_agendada'].'</td>
                 <td>'.$f['estado_servicio'].'</td>
-                <td><a href="gesAgendamientos.php?id_agendamiento='.$f['id_agendamiento'].'" class="btn btn-primary" onclick="showDetailsAgend()"><i class="bi bi-zoom-in"></i></a></td>
+                <td><a href="gesAgendamientos.php?id_agendamiento='.$f['id_agendamiento'].'" class="btn btn-primary" ><i class="bi bi-zoom-in"></i></a></td>
                 </tr>
                 ';
 
@@ -58,7 +58,7 @@
 
             foreach($resultado as $f){
                 echo '
-                <form action="../../controller/asigTecnicoAgnd.php" method="POST">
+              <form action="../../controller/asigTecnicoAgnd.php" method="POST">
                 <div class="card">
                   <div class="card-header">
                     <h3 class="card-title">Comprobante Agendamiento</h3>
@@ -66,6 +66,10 @@
                   <!-- /.card-header -->
                   <div class="card-body">
                     <div class="row">
+                    <div class="form-group col-md-12">
+                      <input type="hidden" class="form-control" id="idAgnd" name="idAgnd" value="'.$f["id_agendamiento"].'" required>
+                    </div>
+
                     <div class="form-group col-md-6">
                       <label for="nombres">Nombres:</label>
                       <input type="text" class="form-control" id="nombres" name="nombres" value="'.$f["nombres"].'" required>
@@ -127,7 +131,7 @@
                       <div class="row">
                         <div class="form-group col-md-12">
                           <label for="asigTec">Técnico:</label>
-                          <select class="form-control" required name="asigTec"  > 
+                          <select class="form-control" required name="asigTec" > 
                             <option value="'.$f["id_user"].'">'.$f["nombre_Tec"].' '.$f["apellido_Tec"].'</option>
                             ';
                             foreach($data as $t){
@@ -140,16 +144,13 @@
                           <label for="estadoServ">Estado:</label>
                           <select class="form-control" required name="estadoServ"  >
                             <option value="'.$f["estado_servicio"].'">'.$f["estado_servicio"].'</option>
-                            <option value="Activo">Activo</option>
-                            <option value="Inactivo">Inactivo</option>
-                            <option value="Pendiente">Pendiente</option>
+                            <option value="Activo">En curso</option>
+                            <option value="Inactivo">Cancelado</option>
+                            <option value="Pendiente">Asignado</option>
                           </select>
                         </div>
                       </div>
                     </div>
-
-                    
-
                   </div>
                     <!-- /.card-body -->
                   </div> 
