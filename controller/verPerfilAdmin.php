@@ -23,7 +23,7 @@
               </div>
               <div class="info">
                 <a href="#" class="d-block">'.$f["nombres"].' '.$f["apellidos"].'</a>
-                <a href="#" class="d-block">Ver Perfil</a>
+                <a href="myProfile.php" class="d-block">Ver Perfil</a>
               </div>
             </div>            
             
