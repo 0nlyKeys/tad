@@ -12,7 +12,7 @@
              $result->bindParam(":email", $email);
 
              $result->execute();
-
+                
              if($f=$result->fetch()){
 
                 if($clave==$f['clave']){
@@ -23,6 +23,7 @@
                         session_start();
 
                         $_SESSION['id'] = $f['identificacion'];
+                        $_SESSION['id_user'] = $f['id_user'];
                         $_SESSION['email'] = $f['email'];
                         $_SESSION['rol'] = $f['rol'];
 

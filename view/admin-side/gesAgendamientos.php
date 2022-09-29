@@ -323,7 +323,6 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dashboard-base/dist/js/pages/dashboard.js"></script>
 
-
 <!-- Page specific script -->
 <script>
   $(function () {
@@ -345,6 +344,8 @@
       format: 'YYYY/MM/DD HH:mm',
       icons: { time: 'far fa-clock' } });
   });
+
+  
 
 </script>
 </body>
