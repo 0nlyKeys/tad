@@ -64,12 +64,6 @@ require_once("../../controller/verPerfilTecnico.php");
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link ">
-              <i class="far fa-edit nav-icon"></i>
-              <p>Cambiar Clave</p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="../../controller/cerrarSesion.php" class="nav-link">
               <i class="fas fa-sign-out-alt nav-icon"></i>
               <p>Cerrar Sesión</p>

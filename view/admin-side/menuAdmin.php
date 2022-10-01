@@ -95,14 +95,7 @@ require_once("../../controller/verPerfilAdmin.php");
               <i class="far fa-circle nav-icon"></i>
               <p>Gestion Agendamientos</p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Reportes</p>
-            </a>
-          </li>
-          
+          </li>         
         </ul>
       </li>
 
@@ -116,12 +109,6 @@ require_once("../../controller/verPerfilAdmin.php");
           </p>
         </a>
         <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="#" class="nav-link ">
-              <i class="far fa-edit nav-icon"></i>
-              <p>Cambiar Clave</p>
-            </a>
-          </li>
           <li class="nav-item">
             <a href="../../controller/cerrarSesion.php" class="nav-link">
               <i class="fas fa-sign-out-alt nav-icon"></i>
