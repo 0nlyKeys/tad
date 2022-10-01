@@ -4,7 +4,7 @@
         $result = $objetoConsultas -> mostrarTecnicos();
 
         if (!isset($result)){
-            echo '<h2>ACTUALMENTE NO EXISTEN USUARIOS</h2>';
+            echo '<h2>ACTUALMENTE NO EXISTEN TECNICOS</h2>';
         }else{
 
             echo '            
