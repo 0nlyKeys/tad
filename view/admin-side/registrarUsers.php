@@ -217,7 +217,7 @@ require_once("../../controller/seguridadAdmin.php");
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../../controller/regUserAdmin.php" method="POST">
+              <form action="../../controller/regUserAdmin.php" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
 
                   <div class="row">
@@ -322,9 +322,11 @@ require_once("../../controller/seguridadAdmin.php");
                         </select>
                     </div>
 
-
-
-
+                    <div class="form-group col-md-6">
+                      <label for="foto">Foto:</label>
+                      <input type="file" accept=".png, .jpg, .jpeg, .gif" class="form-control" id="foto" name="foto" required>
+                    </div>
+                    
                   </div>
 
                 </div>

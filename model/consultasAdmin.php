@@ -2,7 +2,7 @@
 
     class ConsultasAdmin{
 
-        public function registrarUserE($identificacion, $tipoDoc, $nombres, $apellidos,$fechaNac, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado){
+        public function registrarUserE($identificacion, $tipoDoc, $nombres, $apellidos,$fechaNac, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado,$foto){
 
             // Conectamos con la clase Conexion
             $objetoConexion = new Conexion();
@@ -28,8 +28,8 @@
                 $objetoConexion = new Conexion();
                 $conexion = $objetoConexion->get_conexion();
 
-                $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, fecha_nacimiento, email, telefono, ciudad, localidad, direccion, codigo_postal, clave, rol, estado) 
-                VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :fechaNac, :email, :telefono, :ciudad, :localidad, :direccion, :code_postal, :claveMd, :rol, :estado)";
+                $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, fecha_nacimiento, email, telefono, ciudad, localidad, direccion, codigo_postal, clave, rol, estado, foto) 
+                VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :fechaNac, :email, :telefono, :ciudad, :localidad, :direccion, :code_postal, :claveMd, :rol, :estado, :foto)";
 
                 $result = $conexion->prepare($sql);
 
@@ -47,6 +47,7 @@
                 $result->bindParam(':claveMd', $claveMd);
                 $result->bindParam(':rol', $rol);
                 $result->bindParam(':estado', $estado);
+                $result->bindParam(':foto', $foto);
 
                 $result-> execute();
                 echo "<script> alert('REGISTRO DEL CLIENTE EXITOSO') </script>";
