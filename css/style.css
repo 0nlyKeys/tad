@@ -11,14 +11,16 @@
     cursor: pointer;
 }
 
+
 /*Login*/
-.body-login{
+
+#form-login{
+    background-color: #E9ECEF;
+}
+.login-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    background-color: #E9ECEF;
 }
 .register-tad{
     display: flex;
@@ -29,7 +31,7 @@
     border-radius: 20px;
     width: 401px;
     height: 490px;
-    top: 319px;
+    top: 190px;
     box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.25), 4px 0px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
 }
