@@ -7,61 +7,55 @@
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../dashboard-base/plugins/fontawesome-free/css/all.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="../dashboard-base/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dashboard-base/dist/css/adminlte.min.css">
-
   <link rel="stylesheet" href="../../css/style.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
 </head>
-<body class="hold-transition register-page">  
+<body class="body-login">  
 
-<nav class="navbar fixed-top navbar-light bg-nav-tad">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="../../index.html"><i class="bi bi-arrow-left-circle"></i></a>
-  </div>
-</nav>
-
-<div class="register-box">
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <a href="login.php" class="h1"><b>TAD </b> Acceso</a>
+  <nav class="navbar fixed-top navbar-light bg-nav-tad">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../../index.html"><i class="bi bi-arrow-left-circle"></i></a>
     </div>
-    <div class="card-body">
-      <p class="login-box-msg">Digite los campos para ingresar al sistema</p>
+  </nav>
 
-      <form action="../../controller/iniciarSesion.php" method="post">
-        
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email"  placeholder="Email" required>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
+  <div class="register-tad">
+    <div class="elipse-login">
+      <img src="../../img/tad-logo.png" alt="logoTAD">
+    </div>
+    <div class="title-form-tad">
+      <h1>Bienvenido</h1>
+    </div>
+    <form action="../../controller/iniciarSesion.php" method="post">        
+        <div class="inputBox-tad">
+        <input type="email" name="email"  required>
+        <span>Email</span>
         </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" name="clave" placeholder="Clave" required>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
+
+        <div class="inputBox-tad">
+        <input type="password" name="clave" required>
+        <span>Contraseña</span>
         </div>
-        <div class="input-group mb-3">
-          <span>Regístrate <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal">Aquí</a></span>
-          </div>
+
+        <div class="link-tad-login">
+          <a href=""><span>Olvide mi contraseña.</span></a>
         </div>
-        <div class="row">
+        <div class="row btn-login">
           <!-- /.col -->
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <div class="col-2"></div>
+          <div class="col-8 btn-login-line">
+            <button type="submit" class="btn-tad btn-primary-tad">Iniciar Sesión</button>
           </div>
+          <div class="col-2"></div>
           <!-- /.col -->
+        </div>
+        <div class="login-foot-tad">
+          ¿No tienes cuenta? <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal"><span class="link-tad">Registrate Aquí</span></a>
         </div>
       </form>
 
@@ -86,12 +80,7 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
-</div>
-<!-- /.register-box -->
-
+  </div>
 <!-- jQuery -->
 <script src="../dashboard-base/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
