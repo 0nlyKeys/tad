@@ -50,6 +50,11 @@
     width: 80%;
     left: 18px;
     top: 35px;
+    transition: 0.6s;
+}
+.elipse-login img:hover{
+    transform: translateY(10px);
+    width: 81%;
 }
 .title-form-tad{
     position: absolute;
@@ -136,7 +141,7 @@
 }
 .link-tad{
     color: #5386c4;
-    
+    font-weight: 700;
 }
 .login-foot-tad{
     position: absolute;
@@ -163,4 +168,59 @@
     background: #4266b7;
     color: #f1f1f1;
     border: 1px solid #2939a4;
+}
+
+
+/* Modal Login form */
+.modal-login{
+    border-radius: 20px;
+    height: 286px;
+    background: #f1f1f1;
+}
+
+.options-modal-form{
+    height: 80%;
+}
+
+.options-modal-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.options-modal-btn a{
+    width: 150px;
+    height: 65px;
+    background: #FFFFFF;
+    border: 1px solid #2939a4;
+    border-radius: 10px;
+    padding-top: 18px;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 27px;
+    letter-spacing: 0.205em;
+    color: #000;
+    transition: 0.5s;
+}
+
+.options-modal-btn a:hover{
+    border: 1px solid #f1f1f1;
+    background: #2939a4;
+    color: #FFFFFF;
+}
+
+.modal-title-tad{
+    position: absolute;
+    top: 50px;
+    left: 60px
+}
+
+.modal-header h5{
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 700;
+    letter-spacing: 0.205em;
+    text-transform: uppercase;
 }
