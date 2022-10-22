@@ -25,8 +25,8 @@
     </div>
   </nav>
   <div class="container login-container">
-    <div class="register-tad" >
-      <div class="elipse-login" data-aos="fade-down" data-aos-duration="1000">
+    <div class="login-card-tad" data-aos="fade-down" data-aos-duration="1000">
+      <div class="elipse-login" data-aos="fade-down" data-aos-duration="2000">
         <img src="../../img/tad-logo.png" alt="logoTAD">
       </div>
       <div class="title-form-tad">
@@ -34,13 +34,13 @@
       </div>
       <form action="../../controller/iniciarSesion.php" method="post" >        
           <div class="inputBox-tad">
-          <input type="email" name="email"  required>
-          <span>Email</span>
+            <input type="email" name="email"  required>
+            <span>Email</span>
           </div>
 
           <div class="inputBox-tad">
-          <input type="password" name="clave" required>
-          <span>Contraseña</span>
+            <input type="password" name="clave" required>
+            <span>Contraseña</span>
           </div>
 
           <div class="link-tad-login">
@@ -58,12 +58,13 @@
           <div class="login-foot-tad">
             ¿No tienes cuenta? <a href="#exampleModal" data-toggle="modal" data-target="#exampleModal"><span class="link-tad">Registrate Aquí</span></a>
           </div>
-        </form>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content modal-login">
+      </form>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content modal-login">
               <div class="modal-header" style="border:none;">
                 <h5 class="modal-title" id="exampleModalLabel">¿Como quiere registrarse?</h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="border: none;"><i class="bi bi-x-lg"></i></button>
@@ -81,10 +82,8 @@
                   </div>
                 </div>
               </div>
-            </div>
           </div>
-        </div>
-    </div>
+      </div>
   </div>
   
 

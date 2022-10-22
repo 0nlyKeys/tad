@@ -3,6 +3,12 @@
 }
 
 /*Password show*/
+.eye{
+    position: absolute;
+    top: -20px;
+    left: 330px;
+    color: #2939a4;
+}
 #hide1{
     display: none;
     cursor: pointer;
@@ -22,7 +28,7 @@
     justify-content: center;
     align-items: center;
 }
-.register-tad{
+.login-card-tad{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +85,7 @@
 }
 
 .inputBox-tad input{
-    width: 100%;
+    width: 315px;
     height: 48px;
     background: #D9D9D9;
     border-style: none;
@@ -118,6 +124,55 @@
     font-size: 0.80em;
     padding: 0 10px;
     
+}
+.inputBox-form-tad{
+    position: relative;
+    width: 315px;
+    top: 15px;    
+    margin-top: 25px;
+}
+
+.inputBox-form-tad input{
+    width: 315px;
+    height: 48px;
+    background: #D9D9D9;
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    outline: none;
+    color: #4266b7;
+    font-size: 1em;
+    line-height: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.inputBox-form-tad span{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 14px;
+    font-family: 'Noto Sans SC', sans-serif;
+    line-height: 20px;
+    letter-spacing: 0.105em;
+    color: #A4A4A4;
+    transition: 0.3s;
+}
+.inputBox-form-tad input:valid,
+.inputBox-form-tad input:focus{
+    border-bottom: 1px solid #4266b7;
+}
+.inputBox-form-tad input:valid ~ span,
+.inputBox-form-tad input:focus ~ span{
+    color: #4266b7;
+    transform: translateX(0px) translateY(-10px);
+    font-size: 0.80em;
+    padding: 0 10px;
+    /* background: #f1f1f1;
+    border-right: 1px solid #4266b7;
+    border-left: 1px solid #4266b7; */
 }
 
 .btn-login{
@@ -180,6 +235,7 @@
 
 .options-modal-form{
     height: 80%;
+    text-align: center;
 }
 
 .options-modal-btn{
@@ -223,4 +279,87 @@
     font-weight: 700;
     letter-spacing: 0.205em;
     text-transform: uppercase;
+}
+
+/*Formularios*/
+.form-register-tad{
+    margin-top: 50px;
+}
+.register-form-tad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: #f1f1f1;
+    border-radius: 20px;
+    width: 830px;
+    height: 810px;
+    top: 90px;
+    box-shadow: -4px 0px 4px rgba(0, 0, 0, 0.25), 4px 0px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.register-form-tad select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline:0;
+    border: 0!important;
+    background: #D9D9D9;
+    flex:1;
+    padding: 0 .5em;
+    color:#2939a4;
+    cursor: pointer;
+    margin: 0 46px;
+    border-radius: 5px;
+}
+
+.register-form-tad select::-ms-expand{
+    display: none;
+}
+
+.select-form-tad{
+    position: relative;
+    display: flex;
+    top: 15px;
+    margin-top: 25px;
+    overflow: hidden;
+    line-height: 3;
+    border-radius: 5px;
+    
+
+}
+.select-form-tad::after{
+    content: '\25BC';
+    position: absolute;
+    color: #2939a4;
+    top: 0;
+    right: 0;
+    padding: 0 5em;
+    cursor: pointer;
+    pointer-events: none;
+    transition: .25s all ease;
+}
+
+.terms-tad{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+.btn-form-tad{
+    position: absolute;
+    top: 30px;
+    left: 150px;
+    text-transform: uppercase;
+}
+
+.msg-psw{
+    position: absolute;
+    top: -20px;
+    left: 380px;
 }
