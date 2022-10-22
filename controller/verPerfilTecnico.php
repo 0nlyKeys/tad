@@ -8,6 +8,7 @@
 
         $result = $objetoConsultas->verPerfil($email);
 
+        
         foreach($result as $f){
             echo '
             <div class="brand-link">
