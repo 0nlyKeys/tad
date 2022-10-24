@@ -33,33 +33,33 @@
                         if($f['rol']=="Administrador"){
 
                             echo "<script>alert('Bienvenido Administrador')</script>";
-                            echo "<script>location.href=('../view/admin-side/homeAdmin.php')</script>";
+                            echo "<script>location.href=('../view/admin-side/homeAdmin')</script>";
                         }
 
                         if($f['rol']=="Tecnico"){
 
                             echo "<script>alert('Bienvenido Tecnico')</script>";
-                            echo "<script>location.href=('../view/tecnico-side/homeTecnico.php')</script>";
+                            echo "<script>location.href=('../view/tecnico-side/homeTecnico')</script>";
                         }
 
                         if($f['rol']=="Cliente"){
 
                             echo "<script>alert('Bienvenido Cliente')</script>";
-                            echo "<script>location.href=('../view/client-site/homeCliente.php')</script>";
+                            echo "<script>location.href=('../view/client-site/homeCliente')</script>";
                         }
 
                     }else{
                         echo "<script>alert('SU CUENTA ESTA INACTIVA,COMUNIQUESE CON EL SERVICIO AL CLIENTE')</script>";
-                        echo "<script>location.href=('../index.html')</script>";
+                        echo "<script>location.href=('../index')</script>";
                     }
 
                 }else{
                     echo "<script>alert('CLAVE INCORRECTA')</script>";
-                    echo "<script>location.href=('../view/extras/login.php')</script>";
+                    echo "<script>location.href=('../view/extras/login')</script>";
                 }
              }else{
                 echo "<script>alert('EMAIL NO ENCONTRADO EN EL SISTEMA')</script>";
-                echo "<script>location.href=('../view/extras/register-user.php')</script>";
+                echo "<script>location.href=('../view/extras/register-user')</script>";
              }
         }
 

@@ -21,7 +21,7 @@
 
   <nav class="navbar fixed-top navbar-light bg-nav-tad">
     <div class="container-fluid">
-      <a class="navbar-brand" href="../../index.html"><i class="bi bi-arrow-left-circle"></i></a>
+      <a class="navbar-brand" href="../../index"><i class="bi bi-arrow-left-circle"></i></a>
     </div>
   </nav>
   <div class="container login-container">
@@ -72,13 +72,13 @@
               <div class="modal-body">
                 <div class="row options-modal-form">
                   <div class="col-md-5 options-modal-btn">
-                    <a href="./register-user.php">Usuario</a>
+                    <a href="./register-user">Usuario</a>
                   </div>
                   <div class="col-md-2 options-modal-btn">
                     o
                   </div>
                   <div class="col-md-5 options-modal-btn">
-                    <a href="./register-tecnico.php">Técnico</a>
+                    <a href="./register-tecnico">Técnico</a>
                   </div>
                 </div>
               </div>
