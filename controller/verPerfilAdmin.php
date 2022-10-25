@@ -40,8 +40,6 @@
 
           foreach($resultado as $f){
               echo '
-              <div class="row">  
-              <div class="col-md-8">
                 <form action="../../controller/editProfile.php" method="POST">
                     <div class="form-group row">
                       <label for="inputName" class="col-sm-2 col-form-label">Identificación</label>
@@ -122,30 +120,10 @@
                     </div>
                     <div class="form-group row">
                       <div class="offset-sm-2 col-sm-10">
-                        <button type="submit" class="btn btn-danger">Submit</button>
+                        <button type="submit" class="btn btn-danger">Guardar</button>
                       </div>
                     </div>
-                </form>                         
-              </div>               
-              <div class="col-md-4">
-                <form action="../../controller/editarPerfil.php" method="POST" enctype="multipart/form-data">
-                  <div class="form-group row">
-                      <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                      <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputName" placeholder="Name">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                      <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                      </div>
-                    </div>
-                  </div>                        
-                </form>
-              </div>
-            </div>
-              
+                </form>             
               
               ';
           }

@@ -424,7 +424,24 @@
             $result->bindParam(':postal', $postal);
 
             $result->execute();
-            echo "<script> alert ('CAMBIOS GUARDADOS CORRECTAMENTE')</script>";
+            echo "<script> alert('CAMBIOS GUARDADOS CORRECTAMENTE')</script>";
+            echo '<script> location.href="../view/admin-side/myProfile.php?id_user='.$identificacion.'"</script>';
+
+       }
+
+       public function modificarClave($newClave,$identificacion){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "UPDATE users SET clave=:newClave WHERE identificacion=:identificacion";
+            $result = $conexion->prepare($sql);
+
+            $result->bindParam(':newClave', $newClave);
+            $result->bindParam(':identificacion', $identificacion);
+
+            $result->execute();
+            echo "<script> alert('CONTRASEÑA ACTUALIZADA')</script>";
             echo '<script> location.href="../view/admin-side/myProfile.php?id_user='.$identificacion.'"</script>';
 
        }
