@@ -506,10 +506,41 @@ require_once("../../controller/verPerfilAdmin.php");
                   </div>
                   <!-- /.tab-pane -->
 
-                  <div class="tab-pane" id="settings">
-                    <?php
-                        profileAdmin();
-                    ?>
+                  <div class="tab-pane" id="settings">                          
+                    <div class="row">  
+                      <div class="col-md-8">
+                        <?php
+                            profileAdmin();
+                        ?>
+                      </div>
+                      <div class="col-md-4">
+                        <form action="../../controller/modificarClave.php" method="POST">
+                          <div class="form-group row">
+                            <label for="inputName" class="col-sm-2 col-form-label">Clave Actual:</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" id="inputName" name="claveActual">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="inputName" class="col-sm-2 col-form-label">Clave Nueva:</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" id="inputName" name="newClave">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="inputName" class="col-sm-2 col-form-label">Confirmar Clave:</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" id="inputName" name="confClave">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="offset-sm-2 col-sm-10">
+                              <button type="submit" class="btn btn-danger">Cambiar</button>
+                            </div>
+                          </div>                       
+                        </form>
+                      </div>
+                    </div>
                   </div>
                   <!-- /.tab-pane -->
                 </div>
