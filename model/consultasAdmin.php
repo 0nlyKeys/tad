@@ -425,7 +425,7 @@
 
             $result->execute();
             echo "<script> alert('CAMBIOS GUARDADOS CORRECTAMENTE')</script>";
-            echo '<script> location.href="../view/admin-side/myProfile.php?id_user='.$identificacion.'"</script>';
+            // echo '<script> location.href="../view/admin-side/myProfile.php?id_user='.$identificacion.'"</script>';
 
        }
 
@@ -442,7 +442,7 @@
 
             $result->execute();
             echo "<script> alert('CONTRASEÑA ACTUALIZADA')</script>";
-            echo '<script> location.href="../view/admin-side/myProfile.php?id_user='.$identificacion.'"</script>';
+            // echo '<script> location.href="../view/admin-side/myProfile.php?id_user='.$identificacion.'"</script>';
 
        }
 
