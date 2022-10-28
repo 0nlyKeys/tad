@@ -363,3 +363,237 @@
     top: -20px;
     left: 380px;
 }
+
+
+/*Sidebar User*/
+.contentNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    position: fixed;
+    bottom: 1%;
+    right: 40%;
+}
+
+.navUserTad{
+    width: 400px;
+    height: 70px;
+    background: #2939a4;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.navUserTad ul{
+    display: flex;
+    width: 100%;
+}
+
+.navUserTad ul li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+
+.navUserTad ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.navUserTad ul li a .iconNavUser{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: #FFFFFF;
+}
+
+.navUserTad ul li.active a .iconNavUser{
+    transform: translateY(-20px);
+    color: #2939a4;
+}
+.navUserTad ul li:hover a .iconNavUser{
+    transform: translateY(-10px);
+    color: #4266b7;
+}
+
+.navUserTad ul li a .textNavUser{
+    position: absolute;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.navUserTad ul li.active a .textNavUser{
+    opacity: 1;
+    color: #FFFFFF;
+    top: 40px;
+    transform: translateY(5px);
+}
+.navUserTad ul li:hover a .textNavUser{
+    opacity: 1;
+    color: #FFFFFF;
+    top: 40px;
+    transform: translateY(5px);
+}
+
+.indicatorNavUser{
+    position: absolute;
+    top: -32px;
+    left: 32px;
+    width: 70px;
+    height: 70px;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 6px solid #ffffff;
+    transition: 0.5s;
+    opacity: 0;
+
+}
+ 
+.navUserTad ul li:nth-child(1).active ~ .indicatorNavUser{
+    transform: translateX(calc(70px * 0));
+    opacity: 1;
+}
+.navUserTad ul li:nth-child(2).active ~ .indicatorNavUser{
+    transform: translateX(calc(70px * 1));
+    opacity: 1;
+}
+.navUserTad ul li:nth-child(3).active ~ .indicatorNavUser{
+    transform: translateX(calc(70px * 2));
+    opacity: 1;
+}
+.navUserTad ul li:nth-child(4).active ~ .indicatorNavUser{
+    transform: translateX(calc(70px * 3));
+    opacity: 1;
+}
+.navUserTad ul li:nth-child(5).active ~ .indicatorNavUser{
+    transform: translateX(calc(70px * 4));
+    opacity: 1;
+}
+@media only screen and (max-width: 600px) {
+    .contentNav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        position: fixed;
+        bottom: 0%;
+        right: -2%;
+    }
+
+    .back-to-top {
+        position: fixed;
+        visibility: hidden;
+        opacity: 0;
+        right: 15px;
+        bottom: 75px;
+        z-index: 99999;
+        background: #2939a4;
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        transition: all 0.4s;
+      }
+      .back-to-top:hover {
+        background: #4266b7;
+        color: #fff;
+      }
+  }
+
+/*Profile Pic*/
+
+.userProfilePic{
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right: -10%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+
+.sub-menu{
+    background: #c3deff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+}
+
+.user-info h3{
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+}
+
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: rgb(135, 133, 133);
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.sub-menu-link p{
+    width: 100%;
+}
+
+.sub-menu-link span{
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+    font-weight: 600;
+}

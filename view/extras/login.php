@@ -34,7 +34,7 @@
       </div>
       <form action="../../controller/iniciarSesion.php" method="post" >        
           <div class="inputBox-tad">
-            <input type="email" name="email"  autocomplete="off" required>
+            <input type="email" name="email" required>
             <span>Email</span>
           </div>
 

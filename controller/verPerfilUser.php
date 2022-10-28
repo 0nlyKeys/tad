@@ -10,23 +10,34 @@
 
         foreach($result as $f){
             echo '
-            <div class="brand-link">
-              <img src="../dashboard-base/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-              <span class="brand-text font-weight-light">'.$f["rol"].' | Panel</span>
-            </div>
+            <img src="../'.$f["foto"].'" class="userProfilePic" alt="User Image" onclick="toggleMenu()">
+            
+            <div class="sub-menu-wrap" id="subMenu">
+              <div class="sub-menu">
+                <div class="user-info">
+                  <img src="../'.$f["foto"].'" alt="">
+                  <h3>'.$f["nombres"].' '.$f["apellidos"].'</h3>
+                </div>
+                <hr>
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-              <div class="image">
-                <img src="../'.$f["foto"].'" class="img-circle elevation-2" alt="User Image">
+                
+                <a href="#" class="sub-menu-link">                  
+                  <p>Notificaciones</p>
+                  <span><ion-icon name="notifications-outline"></ion-icon></span>
+                </a>
+                <a href="#" class="sub-menu-link">                  
+                  <p>Mi Perfil</p>
+                  <span><ion-icon name="person-circle-outline"></ion-icon></span>
+                </a>
               </div>
-              <div class="info">
-                <a href="#" class="d-block">'.$f["nombres"].' '.$f["apellidos"].'</a>
-                <a href="myProfile.php?id_user='.$f['identificacion'].'"" class="d-block">Ver Perfil</a>
-              </div>
-            </div>            
+            </div>                        
+            <script>
+              let subMenu = document.getElementById("subMenu");
+
+              function toggleMenu(){
+                subMenu.classList.toggle("open-menu");
+              }
+            </script>
             
             ';
         }
