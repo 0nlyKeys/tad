@@ -26,7 +26,7 @@
 
     //Si los campos vienen vacios redireccionamos al formulario 
     }else{
-        echo "<script> alert('POR FAVOR COMPLETE LOS CAMPOS PARA EL AGENDAMIENTO') </script>";
-        echo '<script> location.href="../view/client-site/newAgendamiento.php" </script>';
+        echo "<script> alert('ALGO SALIÓ MAL INGRESANDO LOS CAMPOS') </script>";
+        echo '<script> location.href="../view/client-site/homeUser" </script>';
     }    
 ?>

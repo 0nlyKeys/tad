@@ -50,7 +50,7 @@
 
                 $result-> execute();
                 echo "<script> alert('REGISTRO EXITOSO') </script>";
-                echo '<script> location.href="../view/extras/login.php" </script>';
+                echo '<script> location.href="../view/extras/login" </script>';
 
             }
 
@@ -75,7 +75,7 @@
 
             if ($f) {
                 echo "<script> alert('SUS DATOS YA SE ENCUENTRAN REGISTRADOS EN EL SISTEMA') </script>";
-                echo '<script> location.href="../view/extras/register-tecnico.php" </script>';
+                echo '<script> location.href="../view/extras/register-tecnico" </script>';
             }else{
                 
                 // Conectamos con la clase Conexion
@@ -106,7 +106,7 @@
 
                 $result-> execute();
                 echo "<script> alert('REGISTRO EXITOSO') </script>";
-                echo '<script> location.href="../view/extras/login.php" </script>';
+                echo '<script> location.href="../view/extras/login" </script>';
 
             }
 
@@ -130,7 +130,7 @@
 
             if ($f) {
                 echo "<script> alert('YA TIENE UN AGENDAMIENTO PENDIENTE, PORFAVOR ESPERE EL PROCESO') </script>";
-                echo '<script> location.href="../view/client-side/homeCliente.php" </script>';
+                echo '<script> location.href="../view/client-site/homeUser" </script>';
             }else{
                 
                 // Conectamos con la clase Conexion
@@ -156,7 +156,7 @@
 
                 $result-> execute();
                 echo "<script> alert('SU SOLICITUD HA SIDO AGENDADA SATISFACTORIAMENTE') </script>";
-                echo '<script> location.href="../view/client-site/homeCliente.php" </script>';
+                echo '<script> location.href="../view/client-site/homeUser" </script>';
 
             }
 
