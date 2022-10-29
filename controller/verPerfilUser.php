@@ -9,8 +9,13 @@
         $result = $objetoConsultas->verPerfilE($email);
 
         foreach($result as $f){
-            echo '
-            <img src="../'.$f["foto"].'" class="userProfilePic" alt="User Image" onclick="toggleMenu()">
+            echo ' 
+            <ul class="icons-Nav-User">
+              <li><ion-icon name="notifications-outline"></ion-icon></li>
+            </ul>
+            <div class="userProfilePic" >                  
+              <img src="../'.$f["foto"].'" alt="User Image" onclick="toggleMenu()">
+            </div>
             
             <div class="sub-menu-wrap" id="subMenu">
               <div class="sub-menu">
