@@ -181,11 +181,7 @@ require_once("../../controller/verPerfilUser.php");
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <?php
-
-    include('menuUser.php');
-
-  ?>
+  
  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
