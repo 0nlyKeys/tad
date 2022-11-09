@@ -30,7 +30,7 @@
                   <p>Notificaciones</p>
                   <span><ion-icon name="notifications-outline"></ion-icon></span>
                 </a>
-                <a href="#" class="sub-menu-link">                  
+                <a href="miPerfil.php?id_user='.$f['identificacion'].'"" class="sub-menu-link">                  
                   <p>Mi Perfil</p>
                   <span><ion-icon name="person-circle-outline"></ion-icon></span>
                 </a>
@@ -128,90 +128,34 @@
 
           foreach($resultado as $f){
               echo '
-                <form action="../../controller/editProfile.php" method="POST">
-                    <div class="form-group row">
-                      <label for="inputName" class="col-sm-2 col-form-label">Identificación</label>
-                      <div class="col-sm-5">
-                        <input type="number" class="form-control" id="inputName" name="identificacion" value="'.$f["identificacion"].'" readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputName" class="col-sm-2 col-form-label">Nombres</label>
-                      <div class="col-sm-5">
-                        <input type="text" class="form-control" id="inputName" name="nombres" value="'.$f["nombres"].'">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputEmail" class="col-sm-2 col-form-label">Apellidos</label>
-                      <div class="col-sm-5">
-                        <input type="text" class="form-control" id="inputEmail" name="apellidos" value="'.$f["apellidos"].'" >
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputName2" class="col-sm-2 col-form-label">Email</label>
-                      <div class="col-sm-5">
-                        <input type="email" class="form-control" id="inputName2" name="email" value="'.$f["email"].'">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputName2" class="col-sm-2 col-form-label">Fecha Nacimiento</label> 
-                      <div class="col-sm-5">                             
-                        <input type="date" class="form-control"  name="fechaNac" value="'.$f["fecha_nacimiento"].'" />
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputName2" class="col-sm-2 col-form-label">Teléfono</label>
-                      <div class="col-sm-5">
-                        <input type="number" class="form-control" id="inputName2" name="telefono" value="'.$f["telefono"].'">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputName2" class="col-sm-2 col-form-label">Ciudad</label>
-                      <div class="col-sm-5">
-                        <select class="form-control" required name="ciudad" value="'.$f["ciudad"].'">
-                          <option value="'.$f["ciudad"].'">'.$f["ciudad"].'</option>
-                          <option value="1">Bogotá</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputName2" class="col-sm-2 col-form-label">Localidad</label>
-                      <div class="col-sm-5">
-                        <select class="form-control" required name="localidad" value="'.$f["localidad"].'">
-                          <option value="'.$f["localidad"].'">'.$f["localidad"].'</option>
-                          <option value="1">Kennedy</option>
-                          <option value="2">Usme</option>
-                          <option value="3">Bosa</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputName2" class="col-sm-2 col-form-label">Direccion</label>
-                      <div class="col-sm-5">
-                        <input type="text" class="form-control" id="inputName2" name="direccion" value="'.$f["direccion"].'">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputName2" class="col-sm-2 col-form-label">Código Postal</label>
-                      <div class="col-sm-5">
-                        <input type="text" class="form-control" id="inputName2" name="code_postal" value="'.$f["codigo_postal"].'">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <div class="offset-sm-2 col-sm-10">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <div class="offset-sm-2 col-sm-10">
-                        <button type="submit" class="btn btn-danger">Guardar</button>
-                      </div>
-                    </div>
-                </form>             
+              <div class="cardProfile">
+              <a href="#Edit">Editar Perfil</a>            
+              <div class="photoProfile">
+                <img src="../'.$f["foto"].'" alt="profileUser">
+              </div>
+              <div class="infoProfile">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h3>'.$f["nombres"].' '.$f["apellidos"].'</h3>
+                  </div>
+                  <div class="col-md-12">
+                    <p>'.$f["email"].'</p>
+                  </div>
+                  <div class="col-md-6">
+                    <span><ion-icon name="call-outline"></ion-icon>'.$f["telefono"].'</span>
+                  </div>
+                  <div class="col-md-6">
+                    <span><ion-icon name="balloon-outline"></ion-icon>'.$f["fecha_nacimiento"].'</span>
+                  </div>
+                  <div class="col-md-6">
+                    <span><ion-icon name="location-outline"></ion-icon>'.$f["ciudad"].','.$f["localidad"].'</span>
+                  </div>
+                  <div class="col-md-6">
+                    <span><ion-icon name="list-outline"></ion-icon>'.$f["direccion"].'</span>
+                  </div>
+                </div>
+              </div>
+            </div>       
               
               ';
           }
