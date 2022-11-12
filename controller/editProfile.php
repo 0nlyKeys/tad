@@ -1,7 +1,7 @@
 <?php
 
     require_once('../model/conexion.php');
-    require_once('../model/consultasAdmin.php');
+    require_once('../model/consultasE.php');
     
     // Aterrizar los valores enviados en los name del form a través del método POST en las diferentes variables
     $identificacion = $_POST['identificacion'];
@@ -13,23 +13,23 @@
     $ciudad = $_POST['ciudad'];
     $localidad = $_POST['localidad'];
     $direccion = $_POST['direccion'];
-    $postal = $_POST['code_postal'];
+    //$postal = $_POST['code_postal'];
 
     // validamos que las variables no estén vacias
     if (strlen($identificacion)>0 && strlen($fechaNac)>0 && 
     strlen($nombres)>0 && strlen($apellidos)>0 && 
     strlen($email)>0 && strlen($telefono)>0 && 
     strlen($ciudad)>0 && strlen($localidad)>0 && 
-    strlen($direccion)>0 && strlen($postal)>0) {
+    strlen($direccion)>0) {
         // Encriptamos la clave con la instrucción MD5
 
-        $objetoConsultas = new ConsultasAdmin();
+        $objetoConsultas = new ConsultasE();
 
-        $result = $objetoConsultas->editarPerfil($identificacion, $nombres, $apellidos, $email, $fechaNac,$telefono, $ciudad, $localidad, $direccion, $postal );
+        $result = $objetoConsultas->editarPerfil($identificacion, $nombres, $apellidos, $email, $fechaNac,$telefono, $ciudad, $localidad, $direccion );
 
     //Si los campos vienen vacios redireccionamos al formulario 
     }else{
         echo "<script> alert('POR FAVOR COMPLETE LOS CAMPOS PARA MODIFICAR UN NUEVO USUARIO EN EL SISTEMA') </script>";
-        echo '<script> location.href="../view/admin-side/myProfile.php" </script>';
+        //echo '<script> location.href="../view/admin-side/myProfile.php" </script>';
     }    
 ?>

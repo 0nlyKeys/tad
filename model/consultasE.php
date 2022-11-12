@@ -206,6 +206,38 @@
 
         }
 
+        public function editarPerfil($identificacion, $nombres, $apellidos, $email, $fechaNac, $telefono, $ciudad, $localidad, $direccion ){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql ="UPDATE users SET identificacion=:identificacion,
+                                    nombres=:nombres, 
+                                    apellidos=:apellidos, 
+                                    email=:email, 
+                                    fecha_nacimiento=:fechaNac,
+                                    Telefono=:telefono, 
+                                    ciudad=:ciudad, 
+                                    localidad=:localidad,
+                                    direccion=:direccion WHERE identificacion=:identificacion";
+            $result = $conexion->prepare($sql);
+            $result->bindParam(':identificacion', $identificacion);
+            $result->bindParam(':nombres', $nombres);
+            $result->bindParam(':apellidos', $apellidos);
+            $result->bindParam(':email', $email);            
+            $result->bindParam(':fechaNac', $fechaNac);
+            $result->bindParam(':telefono', $telefono);
+            $result->bindParam(':ciudad', $ciudad);
+            $result->bindParam(':localidad', $localidad);
+            $result->bindParam(':direccion', $direccion);
+            //$result->bindParam(':postal', $postal);
+
+            $result->execute();
+            echo "<script> alert('CAMBIOS GUARDADOS CORRECTAMENTE')</script>";
+            echo '<script> location.href="../view/client-site/miPerfil.php?id_user='.$identificacion.'"</script>';
+
+       }
+
 
 
     }

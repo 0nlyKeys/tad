@@ -128,34 +128,90 @@
 
           foreach($resultado as $f){
               echo '
-              <div class="cardProfile">
-              <a href="#Edit">Editar</a>            
-              <div class="photoProfile">
-                <img src="../'.$f["foto"].'" alt="profileUser">
-              </div>
-              <div class="infoProfile">
-                <div class="row">
-                  <div class="col-md-12">
-                    <h3>'.$f["nombres"].' '.$f["apellidos"].'</h3>
-                  </div>
-                  <div class="col-md-12">
-                    <p>'.$f["email"].'</p>
-                  </div>
-                  <div class="col-md-6">
-                    <span><ion-icon name="call-outline"></ion-icon>'.$f["telefono"].'</span>
-                  </div>
-                  <div class="col-md-6">
-                    <span><ion-icon name="balloon-outline"></ion-icon>'.$f["fecha_nacimiento"].'</span>
-                  </div>
-                  <div class="col-md-6">
-                    <span><ion-icon name="location-outline"></ion-icon>'.$f["ciudad"].','.$f["localidad"].'</span>
-                  </div>
-                  <div class="col-md-6">
-                    <span><ion-icon name="list-outline"></ion-icon>'.$f["direccion"].'</span>
-                  </div>
-                </div>
-              </div>
-            </div>       
+                    <div id="cardProfileUser" class="cardProfile">            
+                    <div class="photoProfile">
+                      <img src="../'.$f["foto"].'" alt="profileUser">
+                    </div>
+                      <div class="infoProfile">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <a id="btn-edit" class="btn-edit" href="#Edit" >Editar</a>
+                          </div>
+                          <div class="col-md-12">
+                            <h3>'.$f["nombres"].' '.$f["apellidos"].'</h3>
+                          </div>
+                          <div class="col-md-12">
+                            <p>'.$f["email"].'</p>
+                          </div>
+                          <div class="col-md-6">
+                            <span><ion-icon name="call-outline"></ion-icon>'.$f["telefono"].'</span>
+                          </div>
+                          <div class="col-md-6">
+                            <span><ion-icon name="balloon-outline"></ion-icon>'.$f["fecha_nacimiento"].'</span>
+                          </div>
+                          <div class="col-md-12">
+                            <span><ion-icon name="location-outline"></ion-icon>'.$f["ciudad"].','.$f["localidad"].'</span>
+                          </div>
+                          <div class="col-md-6">
+                            <a class="btn-cardfoot" href="#Edit">Información</a>
+                          </div>
+                          <div class="col-md-6">
+                            <a id="btn-history" class="btn-cardfoot" href="#Edit">Historial</a>
+                          </div>
+                        </div>
+                    </div>
+                    </div> 
+                    <div id="editProfileUser" class="cardEdit">
+                      <h3>Editar Perfil</h3>
+                      <form action="../../controller/editProfile.php" method="POST">
+                        <div class="row formEditProfileUser">
+                          <input type="hidden" value="'.$f["identificacion"].'" name="identificacion">
+                          <div class="col-md-6">
+                            <span>Nombres:</span>
+                            <input type="text" value="'.$f["nombres"].'" name="nombres">
+                          </div>
+                          <div class="col-md-6">
+                            <span>Apellidos:</span>
+                            <input type="text" value="'.$f["apellidos"].'" name="apellidos" >
+                          </div>
+                          <div class="col-md-6">
+                            <span>Ciudad:</span>
+                            <input type="text" value="'.$f["ciudad"].'" name="ciudad">
+                          </div>
+                          <div class="col-md-6">
+                            <span>Localidad:</span>
+                            <input type="text" value="'.$f["localidad"].'" name="localidad">
+                          </div>
+                          <div class="col-md-6">
+                            <span>Celular:</span>
+                            <input type="text" value="'.$f["telefono"].'" name="telefono" >
+                          </div>
+                          <div class="col-md-6">
+                            <span>Dirección:</span>
+                            <input type="text" value="'.$f["direccion"].'" name="direccion">
+                          </div>
+                          <div class="col-md-12">
+                            <span class="fchspn">Fecha Nacimiento:</span>
+                            <input type="date" value="'.$f["fecha_nacimiento"].'" name="fechaNac">
+                          </div>
+                          <div class="col-md-12">
+                            <span>Correo:</span>
+                            <input type="email" value="'.$f["email"].'" name="email">
+                          </div>
+                          <div class="col-md-12">
+                            <a href="#">Cambiar Contraseña</a>
+                          </div>
+                          <div class="col-md-12">
+                            <button type="submit">Actualizar</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>  
+
+                    <div id="historyProfileUser" class="cardEdit">
+                      <h3>Mis Solicitudes</h3>
+
+                    </div> 
               
               ';
           }

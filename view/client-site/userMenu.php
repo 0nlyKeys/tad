@@ -6,7 +6,7 @@ require_once("../../controller/seguridadUser.php");
 require_once("../../controller/verPerfilUser.php");
 ?>
 <div class="contentNav" >
-  <div class="navUserTad" data-aos="zoom-in">
+  <div class="navUserTad">
       <ul>
         <li class="listNavUser active"  >
           <a href="#home">
