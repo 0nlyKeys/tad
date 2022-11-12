@@ -129,7 +129,7 @@
           foreach($resultado as $f){
               echo '
               <div class="cardProfile">
-              <a href="#Edit">Editar Perfil</a>            
+              <a href="#Edit">Editar</a>            
               <div class="photoProfile">
                 <img src="../'.$f["foto"].'" alt="profileUser">
               </div>
