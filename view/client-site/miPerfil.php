@@ -96,6 +96,35 @@ require_once("../../controller/verPerfilUser.php");
       </div>
     </div>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-psw-change">
+          <div class="modal-psw-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cambiar Contraseña</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        <form action="../../controller/modificarClave.php" method="POST">
+          <div class="modal-body">            
+            <div class="formEditPassUser row">
+              <div class="col-md-12">
+                <input type="password" id="inputName" name="claveActual" placeholder="Clave Actual" required>
+                </div>
+              <div class="col-md-6">            
+                <input type="password" id="inputName" name="newClave" placeholder="Clave Nueva" required>
+              </div>
+              <div class="col-md-6">
+                <input type="password"  id="inputName" name="confClave" placeholder="Confirmar Clave" required>
+              </div>               
+            </div>
+          </div> 
+          <div class="modal-footer modal-foot-psw">
+            <button type="submit" class="btn btn-primary">Cambiar</button>
+          </div>                              
+        </form>
+        </div>
+      </div>
+    </div>
+
   </section><!-- End Hero -->
   
 
@@ -120,23 +149,29 @@ require_once("../../controller/verPerfilUser.php");
 <script>
 $(document).ready(function(){
   $("#btn-edit").click(function(){
-    $("#editProfileUser").animate({
+    $("#editProfileUser").show({
       height: 'toggle'
     });
-    $("#cardProfileUser").animate({
-      right: '400px'
+  });
+
+  $("#btn-close").click(function(){
+    $("#editProfileUser").hide({
+      height: 'toggle'
     });
   });
+
 });
 </script>
 <script>
 $(document).ready(function(){
   $("#btn-history").click(function(){
-    $("#historyProfileUser").animate({
+    $("#historyProfileUser").show({
       height: 'toggle'
     });
-    $("#cardProfileUser").animate({
-      right: '400px'
+  });
+  $("#btn-close2").click(function(){
+    $("#historyProfileUser").hide({
+      height: 'toggle'
     });
   });
 });

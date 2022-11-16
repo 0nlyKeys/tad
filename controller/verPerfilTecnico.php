@@ -84,7 +84,7 @@
                     <div class="icon">
                       <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Ver servicio<i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="verServicio.php?id_agn='.$f["id_agendamiento"].'" class="small-box-footer">Ver servicio<i class="fas fa-arrow-circle-right"></i></a>
                   </div>
                 </div>';
               }

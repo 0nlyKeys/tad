@@ -55,7 +55,7 @@
             $id_agnd= $_GET['id_agendamiento'];
             $resultado = $objetoConsultas->mostrarAgendamiento($id_agnd);
             $data = $objetoConsultas->obtenerTecnico();
-
+            
             foreach($resultado as $f){
                 echo '
               <form action="../../controller/asigTecnicoAgnd.php" method="POST">
@@ -125,7 +125,7 @@
 
                     <div class="form-group col-md-6">
                       <label for="descripcion">Descripción:</label>
-                      <textarea class="form-control" rows="6" name="descripcion" value="'.$f["descripcion"].'" placeholder="No hay descripción..."></textarea>
+                      <textarea class="form-control" rows="6" name="descripcion" value="'.$f["descripcion"].'"></textarea>
                     </div>
                     <div class="form-group col-md-6">
                       <div class="row">
