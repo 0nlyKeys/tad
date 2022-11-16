@@ -5,7 +5,7 @@ require_once("../../model/consultasTecnico.php");
 require_once("../../controller/seguridadTecnico.php");
 require_once("../../controller/verPerfilTecnico.php");
 ?>
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 bg-menu-tecnico">
 <!-- Brand Logo -->
 
 <?php

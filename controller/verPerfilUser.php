@@ -162,7 +162,10 @@
                     </div>
                     </div> 
                     <div id="editProfileUser" class="cardEdit">
+                    <div class="headerEditProfile">
                       <h3>Editar Perfil</h3>
+                      <span id="btn-close" class="closeCardEdit"><ion-icon name="close-outline"></ion-icon></span>
+                    </div>
                       <form action="../../controller/editProfile.php" method="POST">
                         <div class="row formEditProfileUser">
                           <input type="hidden" value="'.$f["identificacion"].'" name="identificacion">
@@ -199,7 +202,7 @@
                             <input type="email" value="'.$f["email"].'" name="email">
                           </div>
                           <div class="col-md-12">
-                            <a href="#">Cambiar Contraseña</a>
+                            <a href="#ChangePassword" data-bs-toggle="modal" data-bs-target="#exampleModal" >Cambiar Contraseña</a>
                           </div>
                           <div class="col-md-12">
                             <button type="submit">Actualizar</button>
@@ -209,7 +212,11 @@
                     </div>  
 
                     <div id="historyProfileUser" class="cardEdit">
+                    <div class="headerEditProfile">
                       <h3>Mis Solicitudes</h3>
+                      <span id="btn-close2" class="closeCardEdit"><ion-icon name="close-outline"></ion-icon></span>
+                    </div>
+                      
 
                     </div> 
               
