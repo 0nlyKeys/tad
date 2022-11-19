@@ -306,10 +306,12 @@
             $conexion = $objetoConexion->get_conexion();
 
             $sql = "SELECT agn.id_agendamiento, agn.nombres, agn.apellidos, usr.id_user as id_user,usr.nombres as nombre_Tec, usr.apellidos as apellido_Tec, 
-                            agn.fecha_agendada, agn.email, agn.numero_contacto, agn.id_ciudad, agn.id_localidad,
-                            agn.direccion_servicio, agn.descripcion, agn.estado_servicio
+                           agn.fecha_agendada, agn.email, agn.numero_contacto,agn.id_ciudad, agn.id_localidad, ciu.ciudad, loc.localidad,
+                           agn.direccion_servicio, agn.descripcion, agn.estado_servicio
                     FROM agendamientos agn
                     INNER JOIN users usr ON agn.data_tecnico = usr.id_user 
+                    INNER JOIN ciudades ciu ON agn.id_ciudad = ciu.idCiudad 
+                    INNER JOIN localidades loc ON agn.id_localidad = loc.idLocalidad 
                     WHERE agn.id_agendamiento=:id_agendamiento";   
                   
             $result = $conexion-> prepare($sql); 
