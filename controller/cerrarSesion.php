@@ -4,6 +4,5 @@
 
     $objetoConsultas = new validarSesion();
     $result=$objetoConsultas->cerrarSesion();
-    
 
 ?>

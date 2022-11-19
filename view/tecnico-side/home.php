@@ -19,13 +19,12 @@ require_once("../../controller/homeTecnico.php");
     <title>Técnico | Home</title>
 </head>
 <body id="tecnicoHome">
-    <nav class="navbar navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-        <img src="" alt="" width="30" height="24">
-        </a>
-    </div>
-    </nav>
+    
+        <?php
+
+        include('menut.php');
+
+        ?>
     <div class="container tecnico-container">
         <div class="titleTecnicoPage">
             <h1>Bienvenido <br> Juan Bejarano</h1>
