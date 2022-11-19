@@ -15,7 +15,7 @@
     $direccion = $_POST['direccion'];
     $descripcion = $_POST['descripcion'];
     $tecnico = $_POST['asigTec'];
-    $estado = $_POST['estadoServ'];
+    $estado = "Asignado";
     
     if(!$_POST){
         

@@ -93,18 +93,14 @@
                     <div class="form-group col-md-6">
                       <label for="ciudad">Ciudad:</label>
                       <select class="form-control" required name="ciudad"  >
-                      <option value="'.$f["id_ciudad"].'">'.$f["id_ciudad"].'</option>
-                        <option value="1">Bogotá</option>
+                      <option value="'.$f["id_ciudad"].'">'.$f["ciudad"].'</option>
                       </select>
                     </div>
 
                     <div class="form-group col-md-6">
                       <label for="localidad">Localidad:</label>
                       <select class="form-control" required name="localidad" >
-                        <option value="'.$f["id_localidad"].'">'.$f["id_localidad"].'</option>
-                        <option value="1">Kennedy</option>
-                        <option value="2">Usme</option>
-                        <option value="3">Bosa</option>
+                        <option value="'.$f["id_localidad"].'">'.$f["localidad"].'</option>
                       </select>
                     </div>
 
@@ -138,15 +134,6 @@
                             echo '<option value="'.$t["id_user"].'">'.$t["nombres"].' '.$t["apellidos"].'</option>';  
                             }
                             echo ' 
-                          </select>
-                        </div>
-                        <div class="form-group col-md-12">
-                          <label for="estadoServ">Estado:</label>
-                          <select class="form-control" required name="estadoServ"  >
-                            <option value="'.$f["estado_servicio"].'">'.$f["estado_servicio"].'</option>
-                            <option value="Activo">En curso</option>
-                            <option value="Inactivo">Cancelado</option>
-                            <option value="Pendiente">Asignado</option>
                           </select>
                         </div>
                       </div>

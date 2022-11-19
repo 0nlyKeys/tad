@@ -24,6 +24,7 @@
 
                         $_SESSION['id'] = $f['identificacion'];
                         $_SESSION['id_user'] = $f['id_user'];
+                        $_SESSION['postal_code'] = $f['codigo_postal'];
                         $_SESSION['email'] = $f['email'];
                         $_SESSION['rol'] = $f['rol'];
                         $_SESSION['clave'] = $f['clave'];
@@ -40,7 +41,7 @@
                         if($f['rol']=="Tecnico"){
 
                             //echo "<script>alert('Bienvenido Tecnico')</script>";
-                            echo "<script>location.href=('../view/tecnico-side/homeTecnico')</script>";
+                            echo "<script>location.href=('../view/tecnico-side/home')</script>";
                         }
 
                         if($f['rol']=="Cliente"){

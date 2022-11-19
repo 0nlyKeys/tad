@@ -183,9 +183,9 @@ require_once("../../controller/verPerfilTecnico.php");
 
 
  <!-- Main Sidebar Container -->
- <?php
+  <?php
 
-  include('menuTecnico.php');
+    include('menuTecnico.php');
 
   ?>
 

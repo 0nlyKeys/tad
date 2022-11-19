@@ -26,6 +26,32 @@
             return $f;
 
         }
+
+        public function showAgndByPostal($postal_code){
+            $f = null;
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT agn.id_agendamiento, agn.nombres as nom_usr, agn.apellidos as ape_usr, usr.id_user as id_user,usr.nombres as nombre_Tec, usr.apellidos as apellido_Tec, 
+                           agn.fecha_agendada as fecha_agn, agn.email, agn.numero_contacto, ciu.ciudad as ciudad, loc.localidad as localidad, loc.postal_codes,
+                           agn.direccion_servicio, agn.descripcion, agn.estado_servicio
+                    FROM agendamientos agn
+                    INNER JOIN users usr ON agn.data_tecnico = usr.id_user                     
+                    INNER JOIN ciudades ciu ON agn.id_ciudad = ciu.idCiudad
+                    INNER JOIN localidades loc ON agn.id_localidad = loc.idLocalidad
+                    WHERE loc.postal_codes
+                    LIKE '%$postal_code%'";
+            $result = $conexion->prepare($sql);
+            // $result->bindParam(':postal',$postal_code);
+            $result->execute();
+            
+            while($resultado= $result->fetch()){
+                $f[] = $resultado;                
+            }
+
+            return $f;
+
+        }
         
         public function verPerfil($email){
             $f = null;
