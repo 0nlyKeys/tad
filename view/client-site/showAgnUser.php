@@ -2,7 +2,7 @@
 require_once("../../model/conexion.php");
 require_once("../../model/validarSesion.php");
 require_once("../../controller/seguridadUser.php");
-require_once("../../controller/homeUser.php");
+require_once("../../controller/showAgnUser.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -11,7 +11,7 @@ require_once("../../controller/homeUser.php");
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Home | TAD</title>
+  <title>Mis Agendamientos | TAD</title>
   <meta content="" name="description">
 
   <meta content="" name="keywords">
@@ -89,25 +89,16 @@ require_once("../../controller/homeUser.php");
     <section id="home" class="hero d-flex align-items-center">
 
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6 d-flex flex-column justify-content-center">            
-            
+        <div class="row">                 
               <?php 
               
-                userAgnShow();
+                showAgnUser();
 
               ?>
           </div>
-          <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="200">
-            <div class="agnVisitForm">
-            <h1 data-aos="zoom-out">Solicitar Técnico</h1>
-              <div class="agnVisitBody">
-                <?php
-                  userformAgn();
-                ?>
-              </div>
-            </div>
-          </div>
+          <!-- <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="200">
+            
+          </div> -->
         </div>
       </div>
 

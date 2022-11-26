@@ -218,7 +218,7 @@ require_once("../../controller/seguridadAdmin.php");
         <div class="row">
           <div class="col-md-12"> 
 
-          <div class="card">
+            <div class="card">
               <div class="card-header">
                 <h3 class="card-title">DataTable with default features</h3>
               </div>
@@ -227,55 +227,9 @@ require_once("../../controller/seguridadAdmin.php");
                 <?php 
                   cargarUsers();                
                 ?>
-                <!-- <table id="tableUsers" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Tipo de documento</th>
-                    <th>Identificacion</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>rol</th>
-                    <th>estado</th>
-                    <th>Ver/Editar</th>
-                    <th>Eliminar</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                  
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                  <th>Tipo de documento</th>
-                    <th>Identificacion</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>rol</th>
-                    <th>estado</th>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                  </tfoot>
-                </table> -->
               </div>
               <!-- /.card-body -->
-            </div>
-            
+            </div>            
           </div>
 
         </div>

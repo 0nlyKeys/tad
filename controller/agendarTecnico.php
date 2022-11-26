@@ -3,9 +3,11 @@
     require_once('../model/conexion.php');
     require_once('../model/consultasE.php');
     
+    session_start();
     date_default_timezone_set('America/Bogota');
 
     // Aterrizar los valores enviados en los name del form a través del método POST en las diferentes variables 
+    $sessionId = $_SESSION['id'];
     $nombres = $_POST['nombres'];
     $apellidos = $_POST['apellidos'];
     $email = $_POST['email'];
@@ -15,7 +17,7 @@
     $fechaAgenda = $_POST['fechaAgn'];
     $direccion = $_POST['direccion'];
     $descripcion = $_POST['descripcion'];
-    $fechaActual= date('Y-m-d H:i:s');
+    $fechaActual= date("l, d M Y h:i:s");
     $tecnico = '1';
     $estado = "Pendiente";
     
@@ -29,7 +31,7 @@
 
         $objetoConsultas = new ConsultasE();
 
-        $result = $objetoConsultas->agendarTecnicoE($nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $fechaAgenda, $direccion,$descripcion,$tecnico,$estado,$fechaActual);
+        $result = $objetoConsultas->agendarTecnicoE($sessionId,$nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $fechaAgenda, $direccion,$descripcion,$tecnico,$estado,$fechaActual);
 
     //Si los campos vienen vacios redireccionamos al formulario 
     }else{

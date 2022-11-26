@@ -364,6 +364,172 @@
     left: 380px;
 }
 
+/*Bienvenida User*/
+.inProcessAgn{
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+.inProcessAgn .card-agnd-process{
+    background: #f1f1f1;
+    border-bottom: 2px solid #171796;
+    box-shadow: 0px 1px 10px rgb(66, 77, 206);
+    margin-top: 40px;
+    border-radius: 20px;
+    width: 60%;
+    height: 100%;
+    color: #171796;
+    font-size: 20px;
+    letter-spacing: 0.10em;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+.inProcessAgn .stateAgn{
+    position: absolute;
+    top: 39%;
+    right: 35%;
+    transform: rotate(-90deg);
+    text-align: center;
+    width: 90px;
+    color: #f1f1f1;
+    border-radius: 15px;
+    font-size: 13px;
+    display: none;
+}
+.inProcessAgn .Asignado:hover{
+    border-right: 30px solid #24902f;
+}
+.inProcessAgn .Pendiente:hover{
+    border-right: 30px solid #ddd36b;
+}
+.inProcessAgn .Cancelado:hover{
+    border-right: 30px solid #ff0000;
+}
+.inProcessAgn .Finalizado:hover{
+    border-right: 30px solid #4266b7;
+}
+
+.inProcessAgn .card-agnd-process:hover + .stateAgn{
+    display: block;        
+}
+
+/*Formulario Agendar Visita*/
+.agnVisitForm{
+    background: #f1f1f1;
+    width: 100%;
+    border-radius: 5%;
+    border-left: 2px solid #171796;
+    border-right: 2px solid #171796;
+    padding: 3%;
+    text-align: center;
+}
+
+.agnVisitForm .agnVisitBody{
+    color: #2939A4;
+}
+.agnVisitForm .agnVisitBody .col-md-6,.col-md-12{
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.agnVisitForm .agnVisitBody .col-md-6 input[type=text],input[type=number]{
+    margin: 5%;
+    width: 100%;
+    height: 50px;
+    background: #D9D9D9;
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(55, 69, 223, 0.25);
+    outline: none;
+    color: #4266b7;
+    font-size: 1em;
+    line-height: 8px;
+    text-align: center;
+}
+.agnVisitForm .agnVisitBody .col-md-6 input[type=datetime-local]{
+    margin: 5%;
+    width: 90%;
+    height: 50px;
+    background: #D9D9D9;    
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(55, 69, 223, 0.25);
+    color: #4266b7;
+    text-align: center;
+}
+.agnVisitForm .agnVisitBody .col-md-12 textarea{
+    margin: 6%;
+    width: 100%;
+    height: 100px;
+    background: #D9D9D9;
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(55, 69, 223, 0.25);
+    outline: none;
+    color: #4266b7;
+    font-size: 1em;
+    line-height: 8px;
+    text-align: center;
+}
+.agnVisitForm .agnVisitBody .col-md-12 textarea::placeholder{
+    color: #4265b744;
+}
+.agnVisitForm .agnVisitBody .col-md-6 input:focus{
+    border-bottom: 2px solid #171796;
+}
+
+.agnVisitForm .agnVisitBody .col-md-6 select{
+    margin: 5%;
+    width: 100%;
+    height: 50px;
+    background: #D9D9D9;
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(55, 69, 223, 0.25);
+    outline: none;
+    color: #4266b7;
+    font-size: 1em;
+    line-height: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+.agnVisitForm .agnVisitBody span{
+    position: absolute;
+    background: #FFF;
+    font-size: 12px;
+    border-radius: 5px;
+    top: 6%;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    width: 50%;
+}
+.agnVisitForm .btn-form-agn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.agnVisitForm .btn-form-agn .btnSendAgn{
+    width: 110px;
+    height: 34px;
+    border: 2px solid #2939A4;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.015em;
+    color: #2939A4;
+    background: none;
+    transition: 0.2s;
+}
+.agnVisitForm .btn-form-agn .btnSendAgn:hover{
+    color: #FFFFFF;
+    background: #2939A4;
+}
 
 /*Sidebar User*/
 .contentNav{
@@ -625,7 +791,7 @@
     position: relative;
     width: 400px;
     height: 400px;
-    background: linear-gradient(180deg, #2939A4 0%, #6B7FFF 100%);;
+    background: linear-gradient(180deg, #2939A4 0%, #6B7FFF 100%);
     border-radius: 20px;
 }
 .cardProfile a{
