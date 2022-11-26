@@ -42,7 +42,6 @@
                     WHERE loc.postal_codes
                     LIKE '%$postal_code%'";
             $result = $conexion->prepare($sql);
-            // $result->bindParam(':postal',$postal_code);
             $result->execute();
             
             while($resultado= $result->fetch()){

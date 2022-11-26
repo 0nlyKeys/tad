@@ -15,13 +15,13 @@ require_once("../../controller/verPerfilUser.php");
           </a>
         </li>
         <li class="listNavUser">
-          <a href="#features">
+          <a href="#tecnicos">
             <span class="iconNavUser"><ion-icon name="people-outline"></ion-icon></span>
             <span class="textNavUser">Técnicos</span>
           </a>
         </li>
         <li class="listNavUser">
-          <a href="#recent-blog-posts">
+          <a href="#">
             <span class="iconNavUser"><ion-icon name="calendar-outline"></ion-icon></span>
             <span class="textNavUser">Agendar</span>
           </a>

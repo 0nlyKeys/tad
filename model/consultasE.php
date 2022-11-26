@@ -112,7 +112,7 @@
 
         }
 
-        public function agendarTecnicoE($nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $fechaAgenda, $direccion,$descripcion,$tecnico,$estado,$fechaActual){
+        public function agendarTecnicoE($sessionId,$nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $fechaAgenda, $direccion,$descripcion,$tecnico,$estado,$fechaActual){
 
             // Conectamos con la clase Conexion
             $objetoConexion = new Conexion();
@@ -137,11 +137,12 @@
                 $objetoConexion = new Conexion();
                 $conexion = $objetoConexion->get_conexion();
 
-                $sql = "INSERT INTO agendamientos (nombres, apellidos, data_tecnico, fecha_agendada, fecha_creacion, email, numero_contacto, id_ciudad, id_localidad, direccion_servicio, descripcion, estado_servicio) 
-                VALUES(:nombres, :apellidos, :tecnico, :fechaAgn, :fechaAct, :email, :telefono, :ciudad, :localidad, :direccion, :descripcion, :estado)";
+                $sql = "INSERT INTO agendamientos (sessionId, nombres, apellidos, data_tecnico, fecha_agendada, fecha_creacion, email, numero_contacto, id_ciudad, id_localidad, direccion_servicio, descripcion, estado_servicio) 
+                VALUES(:sessionId, :nombres, :apellidos, :tecnico, :fechaAgn, :fechaAct, :email, :telefono, :ciudad, :localidad, :direccion, :descripcion, :estado)";
 
                 $result = $conexion->prepare($sql);
 
+                $result->bindParam(':sessionId', $sessionId);
                 $result->bindParam(':nombres', $nombres);
                 $result->bindParam(':apellidos', $apellidos);
                 $result->bindParam(':tecnico', $tecnico);
@@ -162,22 +163,23 @@
             }
 
         }
-        //Pediente funcion para que muestre los agendamientos que hacen los usuarios
-        public function mostrarAgendamientosE($idUsuario){
+
+        public function mostrarAgendamientosE($id_user){
             $f = null;
             $objetoConexion = new Conexion();
             $conexion = $objetoConexion->get_conexion();
 
-            $sql = "SELECT agn.id_agendamiento, agn.nombres as nom_usr, agn.apellidos as ape_usr, usr.id_user as id_user,usr.nombres as nombre_Tec, usr.apellidos as apellido_Tec, 
+            $sql = "SELECT agn.id_agendamiento, agn.sessionId,ses.nombres as nombre_Session, ses.apellidos ape_Session, agn.nombres as nom_usr, agn.apellidos as ape_usr, usr.id_user as id_user,usr.nombres as nombre_Tec, usr.apellidos as apellido_Tec, 
                             agn.fecha_agendada as fecha_agn, agn.email, agn.numero_contacto, ciu.ciudad as ciudad, loc.localidad as localidad,
                             agn.direccion_servicio, agn.descripcion, agn.estado_servicio
                     FROM agendamientos agn
-                    INNER JOIN users usr ON agn.data_tecnico = usr.id_user                     
+                    INNER JOIN users usr ON agn.data_tecnico = usr.id_user      
+                    INNER JOIN users ses ON agn.sessionId = ses.identificacion 
                     INNER JOIN ciudades ciu ON agn.id_ciudad = ciu.idCiudad
-                    INNER JOIN localidades loc ON agn.id_localidad = loc.idLocalidad 
-                    WHERE usr.id_user=:id_usuario";
+                    INNER JOIN localidades loc ON agn.id_localidad = loc.idLocalidad
+                    WHERE agn.sessionId=:id_usuario ORDER BY agn.fecha_agendada asc";
             $result = $conexion->prepare($sql);
-            $result->bindParam(':id_usuario',$idUsuario);
+            $result->bindParam(':id_usuario',$id_user);
             $result->execute();
             
             while($resultado= $result->fetch()){
@@ -189,14 +191,32 @@
 
         }
 
-        public function verPerfilE($email){
+        public function dataProfile($identificacion){
             $f = null;
             $objetoConexion = new Conexion();
             $conexion = $objetoConexion->get_conexion();
 
-            $sql = "SELECT * FROM users WHERE email=:email";
+            $sql = "SELECT nombres FROM users WHERE identificacion=:ident";
             $result = $conexion->prepare($sql);
-            $result->bindParam(':email',$email);
+            $result->bindParam(':ident',$identificacion);
+            $result->execute();
+
+            while($resultado= $result->fetch()){
+                $f[] = $resultado;
+            }
+
+            return $f;
+
+        }
+
+        public function verPerfilE($identificacion){
+            $f = null;
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT * FROM users WHERE identificacion=:ident";
+            $result = $conexion->prepare($sql);
+            $result->bindParam(':ident',$identificacion);
             $result->execute();
 
             while($resultado= $result->fetch()){
@@ -237,8 +257,76 @@
             echo "<script> alert('CAMBIOS GUARDADOS CORRECTAMENTE')</script>";
             echo '<script> location.href="../view/client-site/miPerfil.php?id_user='.$identificacion.'"</script>';
 
-       }
+        }
 
+        public function mostrarCiudades(){
+            $f = null;
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT * FROM ciudades";
+            $result = $conexion->prepare($sql);
+            $result->execute();
+            
+            while($resultado= $result->fetch()){
+                $f[] = $resultado;
+                
+            }
+
+            return $f;
+
+        }
+
+        public function mostrarLocalidades(){
+            $f = null;
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT * FROM localidades";
+            $result = $conexion->prepare($sql);
+            $result->execute();
+            
+            while($resultado= $result->fetch()){
+                $f[] = $resultado;
+                
+            }
+
+            return $f;
+
+        }
+
+        //Funcion para mostrar tecnicos que no tengan la misma localidad del usuario
+        public function showTecnicos(){
+            $f = null;
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT * FROM users WHERE rol='Tecnico' AND estado='Activo'";
+            $result = $conexion->prepare($sql);
+            $result->execute();
+            
+            while($resultado= $result->fetch()){
+                $f[] = $resultado;                
+            }
+
+            return $f;
+        }
+        //Funcion para mostrar tecnicos que tengan la misma localidad del usuario
+        public function showTecByZone($localidad){
+            $f = null;
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT * FROM users WHERE rol='Tecnico' AND estado='Activo' AND localidad LIKE '%$localidad%'";
+            $result = $conexion->prepare($sql);
+            $result->execute();
+            
+            while($resultado= $result->fetch()){
+                $f[] = $resultado;                
+            }
+
+            return $f;
+        }
 
 
     }

@@ -56,7 +56,6 @@
             }
 
         }
-
         public function mostrarUsers(){
             $f = null;
             // Conectamos con la clase Conexion
@@ -75,7 +74,6 @@
             return $f;
 
         }
-
         public function mostrarUser($id_user){
             $f = null;
             // Conectamos con la clase Conexion
@@ -95,7 +93,6 @@
             return $f;
 
         }
-
         public function modificarUser($identificacion, $tipoDoc, $nombres, $apellidos, $email, $telefono, $rol, $estado){
             // conectamos con la clase conexion
             $objetoConexion = new Conexion();
@@ -123,9 +120,8 @@
             echo "<script> alert ('ACTUALIZACION EXITOSA')</script>";
             echo '<script> location.href="../view/admin-side/verUsers.php"</script>';
 
-       }
-
-       public function eliminarUser($id_user){
+        }
+        public function eliminarUser($id_user){
              // conectamos con la clase conexion
              $objetoConexion = new conexion();
              $conexion = $objetoConexion->get_conexion();
@@ -139,82 +135,79 @@
              echo '<script> location.href="../view/admin-side/verUsers.php"</script>';
 
 
-       }  
-       public function registrarTecnicoE($identificacion, $tipoDoc, $nombres, $apellidos,$fechaNac, $email, $telefono, $ciudad, $localidad, $direccion,$experiencia,$estudios, $postal, $claveMd, $rol, $estado){
-
-        // Conectamos con la clase Conexion
-        $objetoConexion = new Conexion();
-        $conexion = $objetoConexion->get_conexion();
-
-        $sql = "SELECT * FROM users WHERE identificacion=:identificacion OR email=:email";
-
-        $result = $conexion->prepare($sql);
-
-        $result->bindParam(":identificacion", $identificacion);
-        $result->bindParam(":email", $email);
-
-        $result->execute();
-
-        $f = $result->fetch();
-
-        if ($f) {
-            echo "<script> alert('EL TECNICO A REGISTRAR YA SE ENCUENTRA EN EL SISTEMA') </script>";
-            echo '<script> location.href="../view/admin-side/registrarTecnicos.php" </script>';
-        }else{
-            
+        }  
+        public function registrarTecnicoE($identificacion, $tipoDoc, $nombres, $apellidos,$fechaNac, $email, $telefono, $ciudad, $localidad, $direccion,$experiencia,$estudios, $postal, $claveMd, $rol, $estado){
             // Conectamos con la clase Conexion
             $objetoConexion = new Conexion();
             $conexion = $objetoConexion->get_conexion();
 
-            $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, fecha_nacimiento, email, telefono, ciudad, localidad, direccion, nivel_educativo, experiencia, codigo_postal, clave, rol, estado) 
-            VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :fechaNac, :email, :telefono, :ciudad, :localidad, :direccion, :estudios, :experiencia,  :code_postal, :claveMd, :rol, :estado)";
+            $sql = "SELECT * FROM users WHERE identificacion=:identificacion OR email=:email";
 
             $result = $conexion->prepare($sql);
 
-            $result->bindParam(':identificacion', $identificacion);
-            $result->bindParam(':tipoDoc', $tipoDoc);
-            $result->bindParam(':nombres', $nombres);
-            $result->bindParam(':apellidos', $apellidos);
-            $result->bindParam(':fechaNac', $fechaNac);
-            $result->bindParam(':email', $email);
-            $result->bindParam(':telefono', $telefono);
-            $result->bindParam(':ciudad', $ciudad);
-            $result->bindParam(':localidad', $localidad);
-            $result->bindParam(':direccion', $direccion);
-            $result->bindParam(':experiencia', $experiencia);
-            $result->bindParam(':estudios', $estudios);
-            $result->bindParam(':code_postal', $postal);
-            $result->bindParam(':claveMd', $claveMd);
-            $result->bindParam(':rol', $rol);
-            $result->bindParam(':estado', $estado);
+            $result->bindParam(":identificacion", $identificacion);
+            $result->bindParam(":email", $email);
 
-            $result-> execute();
-            echo "<script> alert('REGISTRO DEL TECNICO EXITOSO') </script>";
-            echo '<script> location.href="../view/admin-side/registrarTecnicos.php" </script>';
+            $result->execute();
+
+            $f = $result->fetch();
+
+                if ($f) {
+                    echo "<script> alert('EL TECNICO A REGISTRAR YA SE ENCUENTRA EN EL SISTEMA') </script>";
+                    echo '<script> location.href="../view/admin-side/registrarTecnicos.php" </script>';
+                }else{
+                    
+                    // Conectamos con la clase Conexion
+                    $objetoConexion = new Conexion();
+                    $conexion = $objetoConexion->get_conexion();
+
+                    $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, fecha_nacimiento, email, telefono, ciudad, localidad, direccion, nivel_educativo, experiencia, codigo_postal, clave, rol, estado) 
+                    VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :fechaNac, :email, :telefono, :ciudad, :localidad, :direccion, :estudios, :experiencia,  :code_postal, :claveMd, :rol, :estado)";
+
+                    $result = $conexion->prepare($sql);
+
+                    $result->bindParam(':identificacion', $identificacion);
+                    $result->bindParam(':tipoDoc', $tipoDoc);
+                    $result->bindParam(':nombres', $nombres);
+                    $result->bindParam(':apellidos', $apellidos);
+                    $result->bindParam(':fechaNac', $fechaNac);
+                    $result->bindParam(':email', $email);
+                    $result->bindParam(':telefono', $telefono);
+                    $result->bindParam(':ciudad', $ciudad);
+                    $result->bindParam(':localidad', $localidad);
+                    $result->bindParam(':direccion', $direccion);
+                    $result->bindParam(':experiencia', $experiencia);
+                    $result->bindParam(':estudios', $estudios);
+                    $result->bindParam(':code_postal', $postal);
+                    $result->bindParam(':claveMd', $claveMd);
+                    $result->bindParam(':rol', $rol);
+                    $result->bindParam(':estado', $estado);
+
+                    $result-> execute();
+                    echo "<script> alert('REGISTRO DEL TECNICO EXITOSO') </script>";
+                    echo '<script> location.href="../view/admin-side/registrarTecnicos.php" </script>';
+
+                }
+
+        }       
+        public function mostrarTecnicos(){
+            $f = null;
+            // Conectamos con la clase Conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT * FROM users WHERE rol='Tecnico'";
+            $result = $conexion-> prepare($sql);
+            $result->execute();
+
+                while($consulta = $result->fetch()){
+                    $f[] = $consulta;
+
+                }
+
+            return $f;
 
         }
-
-    }
-
-       public function mostrarTecnicos(){
-        $f = null;
-        // Conectamos con la clase Conexion
-        $objetoConexion = new Conexion();
-        $conexion = $objetoConexion->get_conexion();
-
-        $sql = "SELECT * FROM users WHERE rol='Tecnico'";
-        $result = $conexion-> prepare($sql);
-        $result->execute();
-
-        while($consulta = $result->fetch()){
-            $f[] = $consulta;
-
-        }
-
-        return $f;
-
-    }
-
         public function mostrarTecnico($id_tecnico){
             $f = null;
             // Conectamos con la clase Conexion
@@ -234,7 +227,6 @@
             return $f;
 
         }
-
         public function modificarTecnico($identificacion, $tipoDoc, $nombres, $apellidos, $email, $telefono, $rol, $estado){
                 // conectamos con la clase conexion
                 $objetoConexion = new Conexion();
@@ -263,7 +255,6 @@
                 echo '<script> location.href="../view/admin-side/verTecnicos.php"</script>';
 
         }
-
         public function eliminarTecnico($id_tecnico){
             // conectamos con la clase conexion
             $objetoConexion = new conexion();
@@ -278,8 +269,7 @@
             echo '<script> location.href="../view/admin-side/verTecnicos.php"</script>';
 
 
-        } 
-       
+        }   
         public function mostrarAgendamientos(){
             $f = null;
             // Conectamos con la clase Conexion
@@ -298,7 +288,6 @@
             return $f;
     
         }
-
         public function mostrarAgendamiento($id_agnd){
             $f = null;
             // Conectamos con la clase Conexion
@@ -326,7 +315,6 @@
             return $f;
 
         }
-
         public function asigTecnicoAgnd($idAgnd,$nombres, $apellidos, $email, $telefono, $ciudad, $localidad, $fechaAgenda, $direccion,$descripcion,$tecnico,$estado){
             // conectamos con la clase conexion
             $objetoConexion = new Conexion();
@@ -361,8 +349,7 @@
             echo "<script> alert ('AGENDAMIENTO ACTUALIZADO')</script>";
             echo '<script> location.href="../view/admin-side/gesAgendamientos.php"</script>';
 
-       }
-
+        }
         public function obtenerTecnico(){
             $t = null;
             $objetoConexion = new Conexion();
@@ -379,7 +366,6 @@
             return $t;
 
         }
-        
         public function verPerfil($email){
             $f = null;
             $objetoConexion = new Conexion();
@@ -397,7 +383,6 @@
             return $f;
 
         }
-
         public function editarPerfil($identificacion, $nombres, $apellidos, $email, $fechaNac, $telefono, $ciudad, $localidad, $direccion, $postal ){
             // conectamos con la clase conexion
             $objetoConexion = new Conexion();
@@ -429,9 +414,8 @@
             echo "<script> alert('CAMBIOS GUARDADOS CORRECTAMENTE')</script>";
             // echo '<script> location.href="../view/admin-side/myProfile.php?id_user='.$identificacion.'"</script>';
 
-       }
-
-       public function modificarClave($newClave,$identificacion){
+        }
+        public function modificarClave($newClave,$identificacion){
             // conectamos con la clase conexion
             $objetoConexion = new Conexion();
             $conexion = $objetoConexion->get_conexion();
@@ -446,7 +430,7 @@
             echo "<script> alert('CONTRASEÑA ACTUALIZADA')</script>";
             // echo '<script> location.href="../view/admin-side/myProfile.php?id_user='.$identificacion.'"</script>';
 
-       }
+        }
 
 
     }
