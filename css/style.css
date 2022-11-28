@@ -437,7 +437,21 @@
     text-align: center;
 }
 
-.agnVisitForm .agnVisitBody .col-md-6 input[type=text],input[type=number]{
+.agnVisitForm .agnVisitBody .col-md-6 input[type=text]{
+    margin: 5%;
+    width: 100%;
+    height: 50px;
+    background: #D9D9D9;
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(55, 69, 223, 0.25);
+    outline: none;
+    color: #4266b7;
+    font-size: 1em;
+    line-height: 8px;
+    text-align: center;
+}
+.agnVisitForm .agnVisitBody .col-md-6 input[type=number]{
     margin: 5%;
     width: 100%;
     height: 50px;
@@ -529,6 +543,124 @@
 .agnVisitForm .btn-form-agn .btnSendAgn:hover{
     color: #FFFFFF;
     background: #2939A4;
+}
+#showAgnUser{
+    text-align: center;
+}
+
+#showAgnUser .agnVisitResume{
+    background: #c3deff;
+    width: 100%;
+    border-radius: 5%;
+    border-left: 2px solid #171796;
+    border-right: 2px solid #171796;
+    padding: 3%;
+    text-align: right;
+}
+
+#showAgnUser .cardProfileResume{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 75%;
+}
+#showAgnUser .agnVisitResume h2{
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-align: left;
+    margin-bottom: 5%;
+    font-size: 30px;
+    color: #171796;
+    border-bottom: 1px solid #5a76b8;
+}
+#showAgnUser .agnVisitResume h3{
+    font-weight: 700;
+    text-align: left;
+    font-size: 19px;
+    margin-bottom: 7%;
+    color: rgb(103, 115, 126);;
+}
+
+#showAgnUser .agnVisitResume i{    
+    font-size: 15px;
+    margin-right: 4%;
+}
+
+#showAgnUser .agnVisitResume span{    
+    font-size: 15px;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+}
+#showAgnUser .cancelServiceResume{
+    background: #2939A4;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 4% 1%;
+    color: #ffffff;
+    letter-spacing: 0.10em;  
+    transition: 0.2s;
+}
+#showAgnUser .cancelServiceResume:hover{
+    background: rgb(255, 0, 0);
+}
+
+#showAgnUser .photoProfileResume{
+    width: 100px;
+    height: 100px;
+}
+
+#showAgnUser .photoProfileResume img{
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #f1f1f1;
+}
+#showAgnUser .infoProfileResume{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding: 10px;
+    background: linear-gradient(180deg, #2939A4 0%, #6B7FFF 100%);
+    border-radius: 20px;
+}
+#showAgnUser .infoProfileResume h3{
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    color: #FFFFFF;
+    height: 30px;
+    margin: 0;
+}
+#showAgnUser .infoProfileResume p{
+    letter-spacing: 0.05em;    
+    font-size: 15px;  
+    color: #ffffff;
+}
+
+#showAgnUser .infoProfileResume span{
+    letter-spacing: 0.05em;    
+    font-size: 12px;
+    color: #FFFFFF;
+    opacity: 0.7;
+}
+#showAgnUser .cardProfileResume a{
+    width: 100px;
+    height: 28px;
+    color: #ffffff;
+    font-size: 13px;
+    text-align: center;
+    padding-top: 2px;
+    border-radius: 30px;
+    border: 2px solid #ffffff;
+    font-weight: 500;
+    letter-spacing: 0.015em;
+    transition: 0.2s;
+}
+#showAgnUser .cardProfileResume i{
+    margin-right: 2px;
+}
+#showAgnUser .cardProfileResume a:hover{
+    background: #EABE3F;
+    color: #171796;
+    transform: scale(1.1);
 }
 
 /*Sidebar User*/
