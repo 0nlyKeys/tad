@@ -1,8 +1,10 @@
 <?php
 require_once("../../model/conexion.php");
 require_once("../../model/validarSesion.php");
+require_once("../../model/consultasE.php");
 require_once("../../controller/seguridadUser.php");
 require_once("../../controller/showAgnUser.php");
+require_once("../../controller/verPerfilUser.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -43,7 +45,7 @@ require_once("../../controller/showAgnUser.php");
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,17 +60,12 @@ require_once("../../controller/showAgnUser.php");
 
 <body>
 
-  <?php
-
-  include('userMenu.php');
-
-  ?>
 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="homeUser" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span>TAD</span>
       </a>
@@ -86,38 +83,92 @@ require_once("../../controller/showAgnUser.php");
 
   <main id="main">
     <!-- ======= Hero Section ======= -->
-    <section id="home" class="hero d-flex align-items-center">
+    <section id="showAgnUser" class="hero d-flex align-items-center">
 
       <div class="container">
         <div class="row">                 
-              <?php 
-              
-                showAgnUser();
-
-              ?>
+          <div class="col-lg-6 d-flex flex-column justify-content-center"> 
+            <div class="agnVisitResume" >
+              <h2 >Tu solicitud</h2>
+                <div class="agnVisitBody">
+                  <div class="row">
+                    <div class="col-md-6">  
+                      <h3><i class="fa-solid fa-user"></i>Nombres</h3>       
+                    </div>
+                    <div class="col-md-6">  
+                      <span>Aqui mi nombres y ape</span>       
+                    </div>
+                    <div class="col-md-6">  
+                      <h3><i class="fa-solid fa-calendar-days"></i>Fecha Agendada</h3>        
+                    </div>
+                    <div class="col-md-6">  
+                      <span>Aqui mi fecha</span>        
+                    </div>
+                    <div class="col-md-6">  
+                      <h3><i class="fa-duotone fa-at"></i>Email</h3>        
+                    </div>
+                    <div class="col-md-6">  
+                      <span>Aqui mi Email</span>        
+                    </div>
+                    <div class="col-md-6">  
+                      <h3><i class="fa-solid fa-map-location-dot"></i>Lugar</h3>        
+                    </div>
+                    <div class="col-md-6">  
+                      <span>Aqui Dirección</span>   
+                      <span>Aqui Ciudad, localidad</span>       
+                    </div>          
+                    <div class="col-md-6">  
+                      <h3><i class="fa-solid fa-phone"></i>Número Contacto</h3>        
+                    </div>
+                    <div class="col-md-6">  
+                      <span>Aqui mi numero</span>        
+                    </div>
+                    <div class="col-md-6">  
+                      <h3><i class="fa-solid fa-bars"></i>Descripción</h3>        
+                    </div>
+                    <div class="col-md-6">  
+                      <span>Aqui mi descripción</span>        
+                    </div>
+                </div>
+              </div>
+            </div>
+            <a class="cancelServiceResume" href="#">Cancelar Servicio</a>
+          </div>           
+          <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="200"> 
+            <h1 data-aos="zoom-out">TU TÉCNICO</h1>
+            <div id="cardProfileUser" class="cardProfileResume">              
+              <div class="row infoProfileResume">   
+                <div class="col-md-12 photoProfileResume">
+                    <img src="../../img/Veronica_Lopez.jpg" alt="profileUser">
+                </div>
+                <div class="col-md-12">
+                    <h3>Nombres</h3>
+                </div>
+                <div class="col-md-12">
+                    <p><i class="fa-duotone fa-at"></i>Email</p>
+                </div>
+                <div class="col-md-12">
+                  <p><i class="fa-solid fa-phone"></i>Celular</p>
+                </div>
+                <div class="col-md-12">
+                    <span><i class="fa-solid fa-location-dot"></i>Ciudad, Localidad</span>
+                </div>
+                <div class="col-md-12">
+                    <a href=""><i class="fa-regular fa-star"></i>Calificar</a>
+                </div>
+              </div>
+            </div>
           </div>
+        </div> 
           <!-- <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="200">
             
           </div> -->
-        </div>
       </div>
-
-    </section><!-- End Hero -->
-
-    <!-- ======= Recent Blog Posts Section ======= -->
-    <section id="tecnicos" class="recent-blog-posts">
-
-      <div class="container" data-aos="fade-up">
-        <?php 
-            userTecnicosZone();
-          ?>
-      </div>
-
-    </section><!-- End Recent Blog Posts Section -->
+    </section>
 
   </main>
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
+  <!-- <footer id="footer" class="footer">
 
     <div class="footer-newsletter">
       <div class="container">
@@ -145,10 +196,10 @@ require_once("../../controller/showAgnUser.php");
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
