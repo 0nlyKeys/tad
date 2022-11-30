@@ -177,7 +177,7 @@
                     INNER JOIN users ses ON agn.sessionId = ses.identificacion 
                     INNER JOIN ciudades ciu ON agn.id_ciudad = ciu.idCiudad
                     INNER JOIN localidades loc ON agn.id_localidad = loc.idLocalidad
-                    WHERE agn.sessionId=:id_usuario ORDER BY agn.fecha_agendada asc";
+                    WHERE agn.sessionId=:id_usuario ORDER BY agn.fecha_agendada desc";
             $result = $conexion->prepare($sql);
             $result->bindParam(':id_usuario',$id_user);
             $result->execute();
@@ -188,6 +188,76 @@
             }
 
             return $f;
+
+        }
+
+        public function mostrarResumeAgendamientos($agndm){
+            $f = null;
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT agn.id_agendamiento, agn.nombres as nom_usr, agn.apellidos as ape_usr, usr.id_user as id_user,usr.nombres as nombre_Tec, usr.apellidos as apellido_Tec, usr.foto,usr.email as email_tec, usr.telefono as tel_tec, usr.ciudad as ciudad_tec,usr.localidad as localidad_tec,
+                            agn.fecha_agendada as fecha_agn, agn.email, agn.numero_contacto, ciu.ciudad as ciudad, loc.localidad as localidad,
+                            agn.direccion_servicio, agn.descripcion, agn.estado_servicio
+                    FROM agendamientos agn
+                    INNER JOIN users usr ON agn.data_tecnico = usr.id_user 
+                    INNER JOIN ciudades ciu ON agn.id_ciudad = ciu.idCiudad
+                    INNER JOIN localidades loc ON agn.id_localidad = loc.idLocalidad
+                    WHERE agn.id_agendamiento=:agndm";
+            $result = $conexion->prepare($sql);
+            $result->bindParam(':agndm',$agndm);
+            $result->execute();
+            
+            while($resultado= $result->fetch()){
+                $f[] = $resultado;
+                
+            }
+
+            return $f;
+
+        }
+
+        public function mostrarUser($id_user){
+            $f = null;
+            // Conectamos con la clase Conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT usr.id_user, usr.tipodoc, usr.identificacion, usr.nombres, usr.apellidos, 
+                        usr.email, usr.telefono, usr.fecha_nacimiento,usr.ciudad, ciu.ciudad as nombre_ciu, 
+                        usr.localidad, loc.localidad as nombre_loc, usr.direccion, usr.nivel_educativo, 
+                        usr.experiencia, usr.codigo_postal, usr.clave, usr.rol, usr.estado, usr.foto  
+                    FROM users usr 
+                    INNER JOIN ciudades ciu ON usr.ciudad = ciu.idCiudad
+                    INNER JOIN localidades loc ON usr.localidad = loc.idLocalidad
+                    WHERE identificacion=:id_user";            
+            $result = $conexion-> prepare($sql);
+            $result->bindParam(':id_user', $id_user);
+            $result->execute();
+
+            while($consulta = $result->fetch()){
+                $f[] = $consulta;
+
+            }
+
+            return $f;
+
+        }
+
+        public function modificarClave($newClave,$identificacion){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "UPDATE users SET clave=:newClave WHERE identificacion=:identificacion";
+            $result = $conexion->prepare($sql);
+
+            $result->bindParam(':newClave', $newClave);
+            $result->bindParam(':identificacion', $identificacion);
+
+            $result->execute();
+            echo "<script> alert('CONTRASEÑA ACTUALIZADA')</script>";
+            echo '<script> location.href="../view/client-site/miPerfil.php?id_user='.$identificacion.'"</script>';
 
         }
 
@@ -326,6 +396,38 @@
             }
 
             return $f;
+        }
+
+        public function cancelarServicio($agendamiento, $estado_serv){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql ="UPDATE agendamientos SET estado_servicio=:estado_serv WHERE id_agendamiento=:agendamiento";
+            $result = $conexion->prepare($sql);
+            $result->bindParam(':agendamiento', $agendamiento);
+            $result->bindParam(':estado_serv', $estado_serv);
+
+            $result->execute();
+            echo "<script> alert('AGENDAMIENTO CANCELADO')</script>";
+            echo '<script> location.href="../view/client-site/homeUser"</script>';
+
+        }
+
+        public function cambiarFotoUser($foto,$identificacion){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql ="UPDATE users SET foto=:foto WHERE identificacion=:identificacion";
+            $result = $conexion->prepare($sql);
+            $result->bindParam(':foto', $foto);
+            $result->bindParam(':identificacion', $identificacion);
+
+            $result->execute();
+            echo "<script> alert('FOTO ACTUALIZADA')</script>";
+            echo '<script> location.href="../view/client-site/miPerfil.php?id_user='.$identificacion.'"</script>';
+
         }
 
 

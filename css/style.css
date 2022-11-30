@@ -403,13 +403,16 @@
     border-right: 30px solid #24902f;
 }
 .inProcessAgn .Pendiente:hover{
-    border-right: 30px solid #ddd36b;
+    border-right: 30px solid #9f9100;
 }
 .inProcessAgn .Cancelado:hover{
     border-right: 30px solid #ff0000;
 }
 .inProcessAgn .Finalizado:hover{
     border-right: 30px solid #4266b7;
+}
+.inProcessAgn .En-Curso:hover{
+    border-right: 30px solid #6B7FFF;
 }
 
 .inProcessAgn .card-agnd-process:hover + .stateAgn{
@@ -604,13 +607,31 @@
     background: rgb(255, 0, 0);
 }
 
+#showAgnUser .disable{
+    pointer-events: none;
+    cursor: default;
+    background: #4266b7;
+}
+#showAgnUser .newServiceResume{
+    background: #2939A4;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 4% 1%;
+    color: #ffffff;
+    letter-spacing: 0.10em;  
+    transition: 0.2s;
+}
+#showAgnUser .newServiceResume:hover{
+    background: #24902f;
+}
+
 #showAgnUser .photoProfileResume{
-    width: 100px;
     height: 100px;
 }
 
 #showAgnUser .photoProfileResume img{
     height: auto;
+    width: 100px;
     border-radius: 50%;
     border: 2px solid #f1f1f1;
 }
@@ -627,7 +648,7 @@
     letter-spacing: 0.10em;
     color: #FFFFFF;
     height: 30px;
-    margin: 0;
+    margin-bottom: 15%;
 }
 #showAgnUser .infoProfileResume p{
     letter-spacing: 0.05em;    
@@ -654,14 +675,104 @@
     letter-spacing: 0.015em;
     transition: 0.2s;
 }
+#showAgnUser .cardProfileResume a:hover{
+    background: #EABE3F;
+    color: #FFFFFF;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+#showAgnUser .cardProfileResume #starsService{
+    display: none;
+}
+#showAgnUser .cardProfileResume #starsService a:hover{
+    background: none;
+}
+#showAgnUser .cardProfileResume #starsService .calificarServicio{
+    border: none;
+    width: 15px;
+    height: 20px;
+    padding: 0;
+    margin: 1px;
+}
+
+#showAgnUser .cardProfileResume #starsService .calificarServicio:hover .fa-regular, 
+.calificarServicio .fa-solid{
+    display: none;
+}
+#showAgnUser .cardProfileResume #starsService .calificarServicio:hover .fa-solid{
+    display: inline;
+    color: #EABE3F;
+}
+
 #showAgnUser .cardProfileResume i{
     margin-right: 2px;
 }
-#showAgnUser .cardProfileResume a:hover{
-    background: #EABE3F;
-    color: #171796;
-    transform: scale(1.1);
+#showAgnUser .waitingCardProfile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
+.lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ripple div {
+    position: absolute;
+    border: 4px solid #171796;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    4.9% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    5% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 72px;
+      height: 72px;
+      opacity: 0;
+    }
+  }
+
+  #showAgnUser .cancelCardProfile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  #showAgnUser .cancelCardProfile i{
+    font-size: 30px;
+    color: rgb(255, 0, 0);
+  }
+
 
 /*Sidebar User*/
 .contentNav{
@@ -920,14 +1031,14 @@
     justify-content: center;
 }
 .cardProfile{
-    position: relative;
+    display: flex;
+    justify-content: center;
     width: 400px;
     height: 400px;
     background: linear-gradient(180deg, #2939A4 0%, #6B7FFF 100%);
     border-radius: 20px;
 }
-.cardProfile a{
-    position: absolute;
+.cardProfile .infoProfile a{
     width: 100px;
     height: 28px;
     color: white;
@@ -940,13 +1051,14 @@
     letter-spacing: 0.015em;
     transition: 0.2s;
 }
-.cardProfile .btn-edit{
-    left: 150px;
-    top: -40px;
+.cardProfile .btn-photo{
+    margin-bottom: 15%;
 }
 .cardProfile .btn-cardfoot{
-    right: 50px;
-    bottom: -80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10%;
 }
 .cardProfile a:hover{
     background: #c5c5c5;
@@ -954,25 +1066,20 @@
 .photoProfile{
     position: absolute;
     width: 200px;
-    height: 200px;
+    height: auto;
     border-radius: 50%;
     background-color: #2939A4;
-    left: 100px;
     top: -25%;
 }
 .photoProfile img{
-    position: absolute;
     width: 190px;
     height: 190px;
     border-radius: 50%;
-    top: 5px;
-    left: 5px;
+    margin: 5px;
 }
 .infoProfile{
-    position: absolute;
     width: 100%;
-    top: 145px;
-    padding: 10px;
+    margin-top: 10%;
     text-align: center;
 }
 .infoProfile h3{
@@ -997,7 +1104,6 @@
     position: absolute;
     display: none;
     width: 635px;
-    height: 570px;
     background: #FFFFFF;
     box-shadow: 1px 1px 10px #2939A4;
     border-radius: 20px;
@@ -1008,7 +1114,7 @@
 .headerEditProfile{
     display: flex;
     justify-content: space-around;
-    margin: 5%;
+    margin: 3% 10%;
 }
 
 .cardEdit h3{
@@ -1040,9 +1146,9 @@
     border-radius: 20px;
 }
 .formEditProfileUser .fchspn{
-    left: 215px;
+    left: 38%;
     top: 9px;
-    width: 22%;
+    width: 24%;
 }
 .formEditProfileUser input{
     width: 189px;
@@ -1054,6 +1160,19 @@
     color: white;
     text-align: center;
 }
+
+.formEditProfileUser select{
+    width: 189px;
+    height: 42px;
+    background: #6B7FFF;
+    border: none;
+    border-radius: 10px;
+    margin-top: 25px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
 .formEditProfileUser input[type=email]{
     width: 441px;
 }
@@ -1063,6 +1182,7 @@
     line-height: 16px;
     letter-spacing: 0.1em;
     color: #6B7FFF;
+    margin-top: 5%;
 }
 .formEditProfileUser button{    
     margin-top: 25px;
@@ -1077,6 +1197,7 @@
     color: #2939A4;
     background: none;
     transition: 0.2s;
+    margin-bottom: 5%;
 }
 .formEditProfileUser button:hover{
     color: #FFFFFF;
@@ -1138,6 +1259,31 @@
 .modal-foot-psw button:hover{
     color: #FFFFFF;
     background: #2939A4;
+}
+
+#changePhoto .btn-change-photo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#changePhoto .btn-change-photo input{
+    margin: 5%;
+    width: 110px;
+    height: 34px;
+    border-radius: 20px;
+    border: 2px solid #2939A4;
+    background-color: #FFFFFF;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.015em;
+    color: #2939A4;
+    transition: 0.3s;
+}
+
+#changePhoto .btn-change-photo input:hover{
+    background-color: #2939A4;
+    color: #FFFFFF;
 }
 
 /*Sidebar Técnico*/
@@ -1320,7 +1466,7 @@
     color: #D9D9D9;
 }
 /*Estilos para Mobile*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
     .contentNav{
         right: 0;
         width: 100%;
@@ -1357,4 +1503,29 @@
       .modal-dialog{
         margin-bottom: 63px;
       }
+
+      /*Profile User*/
+      .cardProfile{
+        margin-top: 41%;
+        width: 100%;
+        margin-bottom: 31%;
+      }
+
+      .cardProfile .photoProfile{
+        top: 9%;
+      }
+
+      .cardEdit{
+        width: 90%;
+        height: auto;
+        left: 5%;
+      }
+      .formEditProfileUser span{
+        left: 35%;
+      }
+      .formEditProfileUser .fchspn {
+        left: 67px;
+        top: 9px;
+        width: 52%;
+         }
   }
