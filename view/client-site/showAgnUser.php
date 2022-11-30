@@ -66,8 +66,7 @@ require_once("../../controller/verPerfilUser.php");
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="homeUser" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span>TAD</span>
+        <span><i class="fa-solid fa-arrow-left"></i></span>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -84,85 +83,19 @@ require_once("../../controller/verPerfilUser.php");
   <main id="main">
     <!-- ======= Hero Section ======= -->
     <section id="showAgnUser" class="hero d-flex align-items-center">
-
       <div class="container">
         <div class="row">                 
           <div class="col-lg-6 d-flex flex-column justify-content-center"> 
-            <div class="agnVisitResume" >
-              <h2 >Tu solicitud</h2>
-                <div class="agnVisitBody">
-                  <div class="row">
-                    <div class="col-md-6">  
-                      <h3><i class="fa-solid fa-user"></i>Nombres</h3>       
-                    </div>
-                    <div class="col-md-6">  
-                      <span>Aqui mi nombres y ape</span>       
-                    </div>
-                    <div class="col-md-6">  
-                      <h3><i class="fa-solid fa-calendar-days"></i>Fecha Agendada</h3>        
-                    </div>
-                    <div class="col-md-6">  
-                      <span>Aqui mi fecha</span>        
-                    </div>
-                    <div class="col-md-6">  
-                      <h3><i class="fa-duotone fa-at"></i>Email</h3>        
-                    </div>
-                    <div class="col-md-6">  
-                      <span>Aqui mi Email</span>        
-                    </div>
-                    <div class="col-md-6">  
-                      <h3><i class="fa-solid fa-map-location-dot"></i>Lugar</h3>        
-                    </div>
-                    <div class="col-md-6">  
-                      <span>Aqui Dirección</span>   
-                      <span>Aqui Ciudad, localidad</span>       
-                    </div>          
-                    <div class="col-md-6">  
-                      <h3><i class="fa-solid fa-phone"></i>Número Contacto</h3>        
-                    </div>
-                    <div class="col-md-6">  
-                      <span>Aqui mi numero</span>        
-                    </div>
-                    <div class="col-md-6">  
-                      <h3><i class="fa-solid fa-bars"></i>Descripción</h3>        
-                    </div>
-                    <div class="col-md-6">  
-                      <span>Aqui mi descripción</span>        
-                    </div>
-                </div>
-              </div>
-            </div>
-            <a class="cancelServiceResume" href="#">Cancelar Servicio</a>
+              <?php 
+                showInfoAgn();
+              ?>
           </div>           
           <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="200"> 
-            <h1 data-aos="zoom-out">TU TÉCNICO</h1>
-            <div id="cardProfileUser" class="cardProfileResume">              
-              <div class="row infoProfileResume">   
-                <div class="col-md-12 photoProfileResume">
-                    <img src="../../img/Veronica_Lopez.jpg" alt="profileUser">
-                </div>
-                <div class="col-md-12">
-                    <h3>Nombres</h3>
-                </div>
-                <div class="col-md-12">
-                    <p><i class="fa-duotone fa-at"></i>Email</p>
-                </div>
-                <div class="col-md-12">
-                  <p><i class="fa-solid fa-phone"></i>Celular</p>
-                </div>
-                <div class="col-md-12">
-                    <span><i class="fa-solid fa-location-dot"></i>Ciudad, Localidad</span>
-                </div>
-                <div class="col-md-12">
-                    <a href=""><i class="fa-regular fa-star"></i>Calificar</a>
-                </div>
-              </div>
-            </div>
+             <?php 
+                showTecAgn();
+              ?>
           </div>
         </div> 
-          <!-- <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="200">
-            
-          </div> -->
       </div>
     </section>
 
@@ -192,7 +125,7 @@ require_once("../../controller/verPerfilUser.php");
         &copy; Copyright <strong><span>FlexStart</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
+        All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flexstart-bootstrap-startup-template/ -->
@@ -225,6 +158,10 @@ require_once("../../controller/verPerfilUser.php");
         }
       });
     });
+
+    function showQualify() {
+        document.getElementById('starsService').style.display = "block";
+    }
   </script>
 
 </body>

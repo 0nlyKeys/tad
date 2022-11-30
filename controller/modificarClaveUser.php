@@ -1,7 +1,7 @@
 <?php
 
     require_once("../model/conexion.php");
-    require_once("../model/consultasAdmin.php");
+    require_once("../model/consultasE.php");
     require_once("../model/validarSesion.php");
 
     $claveActual = md5($_POST['claveActual']);
@@ -14,15 +14,16 @@
 
         if($newClave == $confClave){
             
-            $objetoConsultas = new ConsultasAdmin();
+            $objetoConsultas = new consultasE();
             $result = $objetoConsultas->modificarClave($newClave,$identificacion);
             
         }else{
             echo "<script> alert('LA NUEVA CONTRASEÑA NO COINCIDE')</script>";
-
+            echo '<script> location.href="../view/client-site/miPerfil.php?id_user='.$identificacion.'"</script>';
         }
 
     }else{
         echo "<script> alert('LA CONTRASEÑA ACTUAL NO CONCUERDA CON LA REGISTRADA')</script>";
+        echo '<script> location.href="../view/client-site/miPerfil.php?id_user='.$identificacion.'"</script>';
     }
 ?>

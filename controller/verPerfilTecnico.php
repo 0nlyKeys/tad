@@ -106,9 +106,9 @@
     function profileTecnico(){
 
       if(isset($_GET['id_user'])){
-          $objetoConsultas = new ConsultasAdmin();
+          $objetoConsultas = new consultasTecnico();
           $id_user= $_GET['id_user'];
-          $resultado = $objetoConsultas->mostrarUser($id_user);
+          $resultado = $objetoConsultas->mostrarTecnico($id_user);
 
           foreach($resultado as $f){
               echo '

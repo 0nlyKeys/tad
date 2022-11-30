@@ -45,6 +45,7 @@ require_once("../../controller/verPerfilUser.php");
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -67,8 +68,7 @@ require_once("../../controller/verPerfilUser.php");
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="homeUser" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span>TAD</span>
+        <span><i class="fa-solid fa-arrow-left"></i></span>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -85,7 +85,6 @@ require_once("../../controller/verPerfilUser.php");
 <main id="main">
   <!-- ======= Hero Section ======= -->
   <section id="home" class="hero d-flex align-items-center">
-
     <div class="container profile">
       <div class="row">
         <div class="col-lg-12 d-flex flex-column justify-content-center">
@@ -103,17 +102,17 @@ require_once("../../controller/verPerfilUser.php");
             <h5 class="modal-title" id="exampleModalLabel">Cambiar Contraseña</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        <form action="../../controller/modificarClave.php" method="POST">
+        <form action="../../controller/modificarClaveUser.php" method="POST">
           <div class="modal-body">            
             <div class="formEditPassUser row">
               <div class="col-md-12">
-                <input type="password" id="inputName" name="claveActual" placeholder="Clave Actual" required>
+                <input type="password" name="claveActual" placeholder="Clave Actual" required>
                 </div>
               <div class="col-md-6">            
-                <input type="password" id="inputName" name="newClave" placeholder="Clave Nueva" required>
+                <input type="password" name="newClave" placeholder="Clave Nueva" required>
               </div>
               <div class="col-md-6">
-                <input type="password"  id="inputName" name="confClave" placeholder="Confirmar Clave" required>
+                <input type="password"  name="confClave" placeholder="Confirmar Clave" required>
               </div>               
             </div>
           </div> 
@@ -124,6 +123,7 @@ require_once("../../controller/verPerfilUser.php");
         </div>
       </div>
     </div>
+
 
   </section><!-- End Hero -->
   
@@ -147,34 +147,18 @@ require_once("../../controller/verPerfilUser.php");
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
 
 <script>
-$(document).ready(function(){
-  $("#btn-edit").click(function(){
-    $("#editProfileUser").show({
-      height: 'toggle'
-    });
-  });
+function showEditprofile() {
+        document.getElementById('editProfileUser').style.display = "block";
+    }
 
-  $("#btn-close").click(function(){
-    $("#editProfileUser").hide({
-      height: 'toggle'
-    });
-  });
+function closeEdit(){
+        var element = document.getElementById("editProfileUser");
+        element.style.display = "none";
+    }
 
-});
-</script>
-<script>
-$(document).ready(function(){
-  $("#btn-history").click(function(){
-    $("#historyProfileUser").show({
-      height: 'toggle'
-    });
-  });
-  $("#btn-close2").click(function(){
-    $("#historyProfileUser").hide({
-      height: 'toggle'
-    });
-  });
-});
+    function previewPhoto() {
+      imagePreview.src=URL.createObjectURL(event.target.files[0]);
+    }
 </script>
 </body>
 </html>
