@@ -243,6 +243,33 @@
             return $f;
 
         }
+        
+        public function mostrarTecnico($tecnico){
+            $f = null;
+            // Conectamos con la clase Conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT usr.id_user, usr.tipodoc, usr.identificacion, usr.nombres, usr.apellidos, 
+                        usr.email, usr.telefono, usr.fecha_nacimiento,usr.ciudad, ciu.ciudad as nombre_ciu, 
+                        usr.localidad, loc.localidad as nombre_loc, usr.direccion, usr.nivel_educativo, 
+                        usr.experiencia, usr.codigo_postal, usr.clave, usr.rol, usr.estado, usr.foto  
+                    FROM users usr 
+                    INNER JOIN ciudades ciu ON usr.ciudad = ciu.idCiudad
+                    INNER JOIN localidades loc ON usr.localidad = loc.idLocalidad
+                    WHERE id_user=:tecnico";            
+            $result = $conexion-> prepare($sql);
+            $result->bindParam(':tecnico', $tecnico);
+            $result->execute();
+
+            while($consulta = $result->fetch()){
+                $f[] = $consulta;
+
+            }
+
+            return $f;
+
+        }
 
         public function modificarClave($newClave,$identificacion){
             // conectamos con la clase conexion
