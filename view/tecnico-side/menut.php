@@ -8,10 +8,10 @@ require_once("../../controller/verPerfilTecnico.php");
 
 
 <nav class="navbar navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-        <img src="../../img/tad-logo.png" alt="" width="60" height="44">
+    <div class="container navbarTec">
+        <a class="navbar-brand" href="home">
+            <img src="../../img/tad-logo.png" alt="" width="60" height="44">
         </a>
-        <a href="../../controller/cerrarSesion">Cerrar Sesion <i class="bi bi-box-arrow-right"></i></a>
+        <a href="../../controller/cerrarSesion">Salir<i class="bi bi-box-arrow-right"></i></a>
     </div>
 </nav>

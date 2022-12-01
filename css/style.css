@@ -1061,6 +1061,9 @@
     height: 400px;
     background: linear-gradient(180deg, #2939A4 0%, #6B7FFF 100%);
     border-radius: 20px;
+    border-bottom: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
 }
 .cardProfile .infoProfile a{
     width: 100px;
@@ -1100,6 +1103,24 @@
     height: 190px;
     border-radius: 50%;
     margin: 5px;
+}
+.photoProfileTec{
+    position: absolute;
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    background-color: #6B7FFF;
+    top: -25%;
+}
+.photoProfileTec img{
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    margin: 5px;
+}
+.profileTec{
+    width: 100%;
+    height: 90vh;
 }
 .infoProfile{
     width: 100%;
@@ -1311,6 +1332,15 @@
 }
 
 /*Sidebar Técnico*/
+.navbarTec{
+    height: 62px;
+}
+.navbarTec a:hover{
+    color: #4266b7;
+}
+.navbarTec a i{
+    font-size: 20px;
+}
 #tecnicoHome{
     background-color: #2939A4;
     text-align: center;
@@ -1329,10 +1359,24 @@
     height: 80px;
     color: #fff;
     font-size: 35px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+#tecnicoHome .titleTecnicoPage img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
 }
 #tecnicoHome .sectionServices{
     display: flex;
     justify-content: center;
+}
+#tecnicoHome .sectionProfileTec{
+    display: flex;
+    justify-content: center;
+    margin-top: 18%;
 }
 #tecnicoHome .sectionServices .alertServices{
     display: flex;
@@ -1537,6 +1581,10 @@
       }
 
       .cardProfile .photoProfile{
+        top: 9%;
+      }
+
+      .cardProfile .photoProfileTec{
         top: 9%;
       }
 
