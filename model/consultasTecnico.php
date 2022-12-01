@@ -70,13 +70,69 @@
 
         }
 
+        public function editarPerfil($identificacion, $nombres, $apellidos, $email, $fechaNac, $telefono, $ciudad, $localidad, $direccion ){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql ="UPDATE users SET identificacion=:identificacion,
+                                    nombres=:nombres, 
+                                    apellidos=:apellidos, 
+                                    email=:email, 
+                                    fecha_nacimiento=:fechaNac,
+                                    Telefono=:telefono, 
+                                    ciudad=:ciudad, 
+                                    localidad=:localidad,
+                                    direccion=:direccion WHERE identificacion=:identificacion";
+            $result = $conexion->prepare($sql);
+            $result->bindParam(':identificacion', $identificacion);
+            $result->bindParam(':nombres', $nombres);
+            $result->bindParam(':apellidos', $apellidos);
+            $result->bindParam(':email', $email);            
+            $result->bindParam(':fechaNac', $fechaNac);
+            $result->bindParam(':telefono', $telefono);
+            $result->bindParam(':ciudad', $ciudad);
+            $result->bindParam(':localidad', $localidad);
+            $result->bindParam(':direccion', $direccion);
+            //$result->bindParam(':postal', $postal);
+
+            $result->execute();
+            echo "<script> alert('CAMBIOS GUARDADOS CORRECTAMENTE')</script>";
+            echo '<script> location.href="../view/tecnico-side/miPerfil.php?id_user='.$identificacion.'"</script>';
+
+        }
+
+        public function modificarClave($newClave,$identificacion){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "UPDATE users SET clave=:newClave WHERE identificacion=:identificacion";
+            $result = $conexion->prepare($sql);
+
+            $result->bindParam(':newClave', $newClave);
+            $result->bindParam(':identificacion', $identificacion);
+
+            $result->execute();
+            echo "<script> alert('CONTRASEÑA ACTUALIZADA')</script>";
+            echo '<script> location.href="../view/tecnico-side/miPerfil.php?id_user='.$identificacion.'"</script>';
+
+        }
+
         public function mostrarTecnico($id_user){
             $f = null;
             // Conectamos con la clase Conexion
             $objetoConexion = new Conexion();
             $conexion = $objetoConexion->get_conexion();
 
-            $sql = "SELECT * FROM users WHERE identificacion=:id_user";            
+            $sql = "SELECT usr.id_user, usr.tipodoc, usr.identificacion, usr.nombres, usr.apellidos, 
+                        usr.email, usr.telefono, usr.fecha_nacimiento,usr.ciudad, ciu.ciudad as nombre_ciu, 
+                        usr.localidad, loc.localidad as nombre_loc, usr.direccion, usr.nivel_educativo, 
+                        usr.experiencia, usr.codigo_postal, usr.clave, usr.rol, usr.estado, usr.foto  
+                    FROM users usr 
+                    INNER JOIN ciudades ciu ON usr.ciudad = ciu.idCiudad
+                    INNER JOIN localidades loc ON usr.localidad = loc.idLocalidad
+                    WHERE identificacion=:id_user";            
             $result = $conexion-> prepare($sql);
             $result->bindParam(':id_user', $id_user);
             $result->execute();
@@ -87,6 +143,57 @@
             }
 
             return $f;
+
+        }
+        public function mostrarCiudades(){
+            $f = null;
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT * FROM ciudades";
+            $result = $conexion->prepare($sql);
+            $result->execute();
+            
+            while($resultado= $result->fetch()){
+                $f[] = $resultado;
+                
+            }
+
+            return $f;
+
+        }
+
+        public function mostrarLocalidades(){
+            $f = null;
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT * FROM localidades";
+            $result = $conexion->prepare($sql);
+            $result->execute();
+            
+            while($resultado= $result->fetch()){
+                $f[] = $resultado;
+                
+            }
+
+            return $f;
+
+        }
+
+        public function cambiarFotoTecnico($foto,$identificacion){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql ="UPDATE users SET foto=:foto WHERE identificacion=:identificacion";
+            $result = $conexion->prepare($sql);
+            $result->bindParam(':foto', $foto);
+            $result->bindParam(':identificacion', $identificacion);
+
+            $result->execute();
+            echo "<script> alert('FOTO ACTUALIZADA')</script>";
+            echo '<script> location.href="../view/tecnico-side/miPerfil.php?id_user='.$identificacion.'"</script>';
 
         }
 
