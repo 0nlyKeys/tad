@@ -19,7 +19,7 @@
     $descripcion = $_POST['descripcion'];
     $fechaActual= date("l, d M Y h:i:s");
     $tecnico = $_POST['id_tecnico'];
-    $estado = "Pendiente";
+    $estado = "Asignado";
     
     // validamos que las variables no estén vacias
     if (strlen($nombres)>0 && strlen($apellidos)>0 

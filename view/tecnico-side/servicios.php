@@ -4,7 +4,7 @@ require_once("../../model/validarSesion.php");
 require_once("../../model/consultasTecnico.php");
 require_once("../../controller/seguridadTecnico.php");
 require_once("../../controller/verPerfilTecnico.php");
-require_once("../../controller/homeTecnico.php");
+require_once("../../controller/showAgnTecnico.php");
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ require_once("../../controller/homeTecnico.php");
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Home | TAD</title>
+  <title>Mis servicios | TAD</title>
   <meta content="" name="description">
 
   <meta content="" name="keywords">
@@ -62,20 +62,21 @@ require_once("../../controller/homeTecnico.php");
   <link href="../../css/style.css" rel="stylesheet">
 </head>
 <body id="tecnicoHome">
-    
-        <?php
-
-        include('menut.php');
-
-        ?>
+<nav class="navbar navbar-light bg-light">
+    <div class="container navbarTec">
+        <a class="navbar-brand" href="home">
+            <i class="fa-solid fa-arrow-left" width="60" height="44"></i>
+        </a>
+        <a href="../../controller/cerrarSesion">Salir<i class="bi bi-box-arrow-right"></i></a>
+    </div>
+</nav>
     <div class="container tecnico-container">
         
             <?php
-                servicesTecnico();
+                showMyAgendamientos();
             ?> 
         </div>
     </div>
-
     <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -89,7 +90,6 @@ require_once("../../controller/homeTecnico.php");
         </div>
       </div>
     </div>
-
 
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
