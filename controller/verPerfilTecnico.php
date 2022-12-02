@@ -239,8 +239,8 @@
             </div>
       ';
           }
-
-
+      }else{
+          echo '<script> location.href="home"</script>';
       }
-  }
+    }
 ?>

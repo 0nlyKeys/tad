@@ -600,6 +600,7 @@
     padding: 10px;
     margin: 4% 1%;
     color: #ffffff;
+    border: 1px solid #FFFFFF;
     letter-spacing: 0.10em;  
     transition: 0.2s;
 }
@@ -622,6 +623,20 @@
     transition: 0.2s;
 }
 #showAgnUser .newServiceResume:hover{
+    background: #24902f;
+}
+
+#showAgnUser .getServiceResume{
+    background: #2939A4;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 4% 1%;
+    color: #ffffff;
+    border: 1px solid #FFFFFF;
+    letter-spacing: 0.10em;  
+    transition: 0.2s;
+}
+#showAgnUser .getServiceResume:hover{
     background: #24902f;
 }
 
