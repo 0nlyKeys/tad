@@ -13,6 +13,8 @@ if(isset($_GET['resEmail']) && isset($_GET['token'])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TAD | Restablecer Password</title>
   
+  <link href="../../img/favicon-tad-logo.png" rel="icon">
+  
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
