@@ -74,6 +74,25 @@
             return $f;
 
         }
+        public function mostrarUser($id_user){
+            $f = null;
+            // Conectamos con la clase Conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "SELECT * FROM users WHERE identificacion=:id_user";            
+            $result = $conexion-> prepare($sql);
+            $result->bindParam(':id_user', $id_user);
+            $result->execute();
+
+            while($consulta = $result->fetch()){
+                $f[] = $consulta;
+
+            }
+
+            return $f;
+
+        }
         public function modificarUser($identificacion, $tipoDoc, $nombres, $apellidos, $email, $telefono, $rol, $estado){
             // conectamos con la clase conexion
             $objetoConexion = new Conexion();

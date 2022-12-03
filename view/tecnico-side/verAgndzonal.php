@@ -53,6 +53,10 @@ require_once("../../controller/showAgnTecnico.php");
   <link href="../client-site/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../client-site/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 
+    <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+
   <!-- Template Main CSS File -->
   <link href="../client-site/assets/css/style.css" rel="stylesheet">
   <link href="../../css/style.css" rel="stylesheet">
@@ -74,16 +78,17 @@ require_once("../../controller/showAgnTecnico.php");
   <!-- ======= Hero Section ======= -->
   <section id="showAgnUser" class="profileTec d-flex align-items-center">
     <div class="container profile">
-      <div class="row">                 
-          <div class="col-lg-6 d-flex flex-column justify-content-center"> 
+      <div class="row"> 
+          <div class="col-lg-3" data-aos="zoom-out" data-aos-delay="200"> 
+             
+          </div>                
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-out" data-aos-delay="200"> 
               <?php 
                 showInfoAgn();
               ?>
           </div>           
-          <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="200"> 
-             <?php 
-                showTecAgn();
-              ?>
+          <div class="col-lg-3" data-aos="zoom-out" data-aos-delay="200"> 
+             
           </div>
         </div> 
     </div>
@@ -138,8 +143,13 @@ require_once("../../controller/showAgnTecnico.php");
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <script>
+  AOS.init({once: true});
+
 function showEditprofile() {
         document.getElementById('editProfileUser').style.display = "block";
     }
@@ -152,6 +162,49 @@ function closeEdit(){
     function previewPhoto() {
       imagePreview.src=URL.createObjectURL(event.target.files[0]);
     }
+</script>
+
+<script type="text/javascript">
+  $('.cancelServiceTec').on('click', function(e){
+    e.preventDefault();
+    const href = $(this).attr('href')
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "Tendrás que volver a tomar un nuevo servicio.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#2939A4',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, cancelar!'
+    }).then((result) => {
+      if (result.value) {
+          if (result.isConfirmed) {
+          Swal.fire(
+            'Cancelado!',
+            'Ya no eres técnico de este servicio.',
+            'success'
+          )
+        }
+        document.location.href= href;
+      }
+    })
+  });
+
+  $('.getServiceTec').on('click', function(e){
+    e.preventDefault();
+    const href = $(this).attr('href')
+
+    Swal.fire({
+      icon: 'success',
+      title: '¡Servicio Agendado!',
+      showConfirmButton: false,
+      timer: 2000,
+    }).then((result) => {
+        document.location.href= href;
+     
+    })
+  });
 </script>
 </body>
 </html>

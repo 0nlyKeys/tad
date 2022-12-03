@@ -32,7 +32,7 @@
       <div class="title-form-tad">
         <h1>Bienvenido</h1>
       </div>
-      <form action="../../controller/iniciarSesion.php" method="post" >        
+      <form id="" action="../../controller/iniciarSesion.php" method="post" >        
           <div class="inputBox-tad">
             <input type="email" name="email" required>
             <span>Email</span>
@@ -44,7 +44,7 @@
           </div>
 
           <div class="link-tad-login">
-            <a href=""><span>Olvide mi contraseña.</span></a>
+            <a href="#forgotPass" data-toggle="modal" data-target="#forgotPass"><span>Olvide mi contraseña.</span></a>
           </div>
           <div class="row btn-login">
             <!-- /.col -->
@@ -61,7 +61,7 @@
       </form>
     </div>
   </div>
-  <!-- Modal -->
+  <!-- Modal Option Register -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content modal-login">
@@ -86,6 +86,29 @@
       </div>
   </div>
   
+<!-- Modal forgot pass -->
+  <div class="modal fade" id="forgotPass" tabindex="-1" aria-labelledby="forgotPassLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="forgotPassLabel">Olvidé mi contraseña</h1>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="border: none;"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="sendEmailForm" action="../../controller/forgotPass/restablecer_pass.php" method="POST">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" name="resEmail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Digita tu dirección de Email.</div>
+          </div>
+          <button type="submit" class="btn btn-primary-tad sendEmailbtn">Enviar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <!-- jQuery -->
@@ -95,8 +118,23 @@
 <!-- AdminLTE App -->
 <script src="../dashboard-base/dist/js/adminlte.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   AOS.init();
+
+  $(".sendEmailbtn").on("click", function(e) {
+    e.preventDefault(); 
+
+    Swal.fire({
+      icon: 'success',
+      title: '¡Correo Enviado!',
+      showConfirmButton: false,
+      timer: 2000,
+    }).then(function() {
+          $('#sendEmailForm').submit();
+        })
+    });
 </script>
 </body>
 </html>

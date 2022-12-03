@@ -2,6 +2,23 @@
 
     class ConsultasE{
 
+        public function forgotPass($resEmail, $token, $codigo){
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "INSERT INTO passwords (email, token, codigo) 
+            VALUES(:email, :token, :codigo)";
+
+            $result = $conexion->prepare($sql);
+
+            $result->bindParam(':email', $resEmail);
+            $result->bindParam(':token', $token);
+            $result->bindParam(':codigo', $codigo);
+
+            $result-> execute();
+            echo '<script> location.href="../../view/extras/login" </script>';
+        }
+
         public function registrarUserE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado){
 
             // Conectamos con la clase Conexion
@@ -270,6 +287,24 @@
             return $f;
 
         }
+        
+        //Funcion para cambiar la contraseña desde el login
+        public function changePassByToken($newClave,$resEmail){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql = "UPDATE users SET clave=:newClave WHERE email=:email";
+            $result = $conexion->prepare($sql);
+
+            $result->bindParam(':newClave', $newClave);
+            $result->bindParam(':email', $resEmail);
+
+            $result->execute();
+            echo "<script> alert('CONTRASEÑA ACTUALIZADA')</script>";
+            echo '<script> location.href="../../view/extras/login"</script>';
+
+        }
 
         public function modificarClave($newClave,$identificacion){
             // conectamos con la clase conexion
@@ -456,6 +491,8 @@
             echo '<script> location.href="../view/client-site/miPerfil.php?id_user='.$identificacion.'"</script>';
 
         }
+
+
 
 
     }

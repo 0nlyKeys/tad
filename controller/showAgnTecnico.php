@@ -52,7 +52,7 @@ function showInfoAgn(){
                         </div>
                     </div>
                 </div>
-                <a class="cancelServiceResume" href="../../controller/cancelarServicioTec.php?agndm='.$f["id_agendamiento"].'">No quiero este servicio</a>
+                <a class="cancelServiceResume cancelServiceTec" href="../../controller/cancelarServicioTec.php?agndm='.$f["id_agendamiento"].'">No quiero este servicio</a>
                 ';
             }
 
@@ -101,7 +101,7 @@ function showInfoAgn(){
                         </div>
                     </div>
                 </div>
-                <a class="getServiceResume" href="../../controller/tomarServicioTec.php?agndm='.$f["id_agendamiento"].'">Tomar este servicio</a>
+                <a class="getServiceResume getServiceTec" href="../../controller/tomarServicioTec.php?agndm='.$f["id_agendamiento"].'">Tomar este servicio</a>
                 ';
             }
 
@@ -255,7 +255,7 @@ function showInfoAgn(){
         }
 
     }else{
-        echo '<script> location.href="homeUser"</script>';
+        echo '<script> location.href="home"</script>';
     }
 }
 
