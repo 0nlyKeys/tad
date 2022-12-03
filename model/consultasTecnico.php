@@ -282,7 +282,6 @@
             $result->bindParam(':estado_serv', $estado_serv);
 
             $result->execute();
-            echo "<script> alert('AGENDAMIENTO CANCELADO')</script>";
             echo '<script> location.href="../view/tecnico-side/home"</script>';
 
         }
