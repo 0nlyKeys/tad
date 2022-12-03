@@ -305,7 +305,7 @@ function tecnicoAgnForm(){
 
         foreach($resultado as $t){
             echo' 
-            <form action="../../controller/agendarTecLocation" method="POST">           
+            <form id="sendAgnTecForm" action="../../controller/agendarTecLocation" method="POST">           
                 <div class="row">                
                     <div class="col-lg-6 d-flex flex-column justify-content-center">            
                             <div class="agnVisitForm">

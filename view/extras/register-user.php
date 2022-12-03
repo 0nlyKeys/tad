@@ -1,3 +1,12 @@
+<?php
+require_once('../../model/conexion.php');
+require_once('../../model/consultasE.php');
+
+$objetoConsultas = new ConsultasE();
+$ciudades = $objetoConsultas->mostrarCiudades();
+$localidades = $objetoConsultas->mostrarLocalidades();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TAD | Registro Usuario</title>
 
+  <link href="../../img/favicon-tad-logo.png" rel="icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -28,7 +38,7 @@
 </nav>
 
 <div class="container login-container">
-    <div class="register-form-tad" data-aos="zoom-in" data-aos-duration="1500">
+    <div class="register-form-tad card" data-aos="zoom-in" data-aos-duration="1500">
       <div class="title-form-tad">
         <h1>Registro Usuario</h1>
       <p class="login-box-msg">Todos los campos son obligatorios</p>
@@ -64,22 +74,24 @@
             <span>Fecha de Nacimiento</span>
           </div>
           <div class="col-md-6 inputBox-form-tad">
-            <input type="number" required name="telefono">
+            <input type="number" required name="telefono" pattern="^\+?\d{0,13}">
             <span>Celular</span>
           </div>
 
           <div class="col-md-6 select-form-tad">
             <select name="ciudad" required>
               <option>Seleccione la Ciudad</option>
-              <option value="1">Bogotá</option>
+              <?php foreach ($ciudades as $ciu) {?>
+              <option value="<?php echo $ciu['idCiudad']?>"><?php echo $ciu['ciudad']?></option>
+              <?php } ?> 
             </select>
           </div>
           <div class="col-md-6 select-form-tad">
             <select name="localidad" required>
               <option>Seleccione la Localidad</option>
-              <option value="1">Kennedy</option>
-              <option value="2">Usme</option>
-              <option value="3">Bosa</option>
+              <?php foreach ($localidades as $loc) {?>
+              <option value="<?php echo $loc['idLocalidad']?>"><?php echo $loc['localidad']?></option>
+              <?php } ?> 
             </select>
           </div>
 

@@ -21,18 +21,6 @@ require_once("../../controller/verPerfilUser.php");
           </a>
         </li>
         <li class="listNavUser">
-          <a href="#">
-            <span class="iconNavUser"><ion-icon name="calendar-outline"></ion-icon></span>
-            <span class="textNavUser">Agendar</span>
-          </a>
-        </li> 
-        <li class="listNavUser">
-          <a href="#">
-            <span class="iconNavUser"><ion-icon name="archive-outline"></ion-icon></span>
-            <span class="textNavUser">Historial</span>
-          </a>
-        </li>
-        <li class="listNavUser">
           <a href="../../controller/cerrarSesion.php">
             <span class="iconNavUser"><ion-icon name="exit-outline"></ion-icon></span>
             <span class="textNavUser">Salir</span>
