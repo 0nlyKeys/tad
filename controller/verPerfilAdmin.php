@@ -131,4 +131,51 @@
 
       }
   }
+
+  function photoAdmin(){
+    if(isset($_GET['id_user'])){
+      $objetoConsultas = new ConsultasAdmin();
+      $id_user= $_GET['id_user'];
+      $resultado = $objetoConsultas->mostrarUser($id_user);
+
+      foreach($resultado as $f){
+    echo '
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="../'.$f["foto"].'"
+                       alt="User profile picture">
+                </div>
+                
+                <h3 class="profile-username text-center">Tu foto</h3>
+
+                <p class="text-muted text-center">Administrador</p>
+
+                <a href="#" class="btn btn-primary btn-block" data-bs-toggle="modal" data-bs-target="#changePhoto"><b>Editar</b></a>
+
+
+
+
+                <div class="modal fade" id="changePhoto" tabindex="-1" aria-labelledby="changePhotoLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="changePhotoLabel">Cambiar Foto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form action="../../controller/cambiarFotoAdmin.php" method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                      <img src="../'.$f["foto"].'" class="img-fluid" id="imagePreview" alt="photoProfile">
+                      <input type="file" accept=".png, .jpg, .jpeg, .gif" class="form-control" onchange="previewPhoto()" name="foto" required>
+                    </div>
+                    <div class="btn-change-photo">
+                      <input type="submit" class="btn btn-primary" value="Guardar"></input>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+    ';
+    }
+  }
+}
 ?>

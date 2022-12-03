@@ -838,7 +838,7 @@
 
 .navUserTad ul{
     display: flex;
-    width: 100%;
+    width: 65%;
 }
 
 .navUserTad ul li{
@@ -1621,4 +1621,27 @@
       #showAgnUser .infoProfileResume{
             width: 90%;
         }
+        .form-register-tad{
+            margin-top: 153px;
+        }
+
+        .register-form-tad{
+            height: 1138px;
+            padding-bottom: 30%;
+        }
+        .inputBox-form-tad{
+            left: 7%;
+        }
+        .inputBox-form-tad span{
+            top: 7%;
+        }
+        .msg-psw {
+            left: 357px;
+        }
+
+        .btn-form-tad{
+            top: 105px;
+            left: 139px;
+        }
+
   }

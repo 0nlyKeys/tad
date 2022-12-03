@@ -432,6 +432,22 @@
 
         }
 
+        public function cambiarFotoAdmin($foto,$identificacion){
+            // conectamos con la clase conexion
+            $objetoConexion = new Conexion();
+            $conexion = $objetoConexion->get_conexion();
+
+            $sql ="UPDATE users SET foto=:foto WHERE identificacion=:identificacion";
+            $result = $conexion->prepare($sql);
+            $result->bindParam(':foto', $foto);
+            $result->bindParam(':identificacion', $identificacion);
+
+            $result->execute();
+            echo "<script> alert('FOTO ACTUALIZADA')</script>";
+            echo '<script> location.href="../view/admin-side/myProfile.php?id_user='.$identificacion.'"</script>';
+
+        }
+
 
     }
 

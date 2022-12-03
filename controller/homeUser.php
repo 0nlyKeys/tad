@@ -60,7 +60,7 @@
         $localidades = $objetoConsultas->mostrarLocalidades();
 
         echo '
-                <form action="../../controller/agendarTecnico" method="POST">
+                <form id="sendAgnTecForm" action="../../controller/agendarTecnico" method="POST">
                   <div class="row">
                     <div class="col-md-6">
                       <span for="nombres">Nombres</span>

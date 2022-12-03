@@ -19,7 +19,7 @@
             echo '<script> location.href="../../view/extras/login" </script>';
         }
 
-        public function registrarUserE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado){
+        public function registrarUserE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado,$foto){
 
             // Conectamos con la clase Conexion
             $objetoConexion = new Conexion();
@@ -45,8 +45,8 @@
                 $objetoConexion = new Conexion();
                 $conexion = $objetoConexion->get_conexion();
 
-                $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, fecha_nacimiento, email, telefono, ciudad, localidad, direccion, codigo_postal, clave, rol, estado) 
-                VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :fechaNac, :email, :telefono, :ciudad, :localidad, :direccion, :code_postal, :claveMd, :rol, :estado)";
+                $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, fecha_nacimiento, email, telefono, ciudad, localidad, direccion, codigo_postal, clave, rol, estado,foto) 
+                VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :fechaNac, :email, :telefono, :ciudad, :localidad, :direccion, :code_postal, :claveMd, :rol, :estado,:foto)";
 
                 $result = $conexion->prepare($sql);
 
@@ -64,6 +64,7 @@
                 $result->bindParam(':claveMd', $claveMd);
                 $result->bindParam(':rol', $rol);
                 $result->bindParam(':estado', $estado);
+                $result->bindParam(':foto', $foto);
 
                 $result-> execute();
                 echo "<script> alert('REGISTRO EXITOSO') </script>";
@@ -73,7 +74,7 @@
 
         }
 
-        public function registrarTecnicoE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion,$experiencia,$estudios, $postal, $claveMd, $rol, $estado){
+        public function registrarTecnicoE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion,$experiencia,$estudios, $postal, $claveMd, $rol, $estado,$foto){
 
             // Conectamos con la clase Conexion
             $objetoConexion = new Conexion();
@@ -99,8 +100,8 @@
                 $objetoConexion = new Conexion();
                 $conexion = $objetoConexion->get_conexion();
 
-                $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, fecha_nacimiento, email, telefono, ciudad, localidad, direccion,nivel_educativo,experiencia, codigo_postal, clave, rol, estado) 
-                VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :fechaNac, :email, :telefono, :ciudad, :localidad, :direccion,:niveledu,:experiencia, :code_postal, :claveMd, :rol, :estado)";
+                $sql = "INSERT INTO users (identificacion, tipodoc, nombres, apellidos, fecha_nacimiento, email, telefono, ciudad, localidad, direccion,nivel_educativo,experiencia, codigo_postal, clave, rol, estado,foto) 
+                VALUES(:identificacion, :tipoDoc,:nombres, :apellidos, :fechaNac, :email, :telefono, :ciudad, :localidad, :direccion,:niveledu,:experiencia, :code_postal, :claveMd, :rol, :estado,:foto)";
 
                 $result = $conexion->prepare($sql);
 
@@ -120,6 +121,7 @@
                 $result->bindParam(':claveMd', $claveMd);
                 $result->bindParam(':rol', $rol);
                 $result->bindParam(':estado', $estado);
+                $result->bindParam(':foto', $foto);
 
                 $result-> execute();
                 echo "<script> alert('REGISTRO EXITOSO') </script>";
@@ -471,7 +473,6 @@
             $result->bindParam(':estado_serv', $estado_serv);
 
             $result->execute();
-            echo "<script> alert('AGENDAMIENTO CANCELADO')</script>";
             echo '<script> location.href="../view/client-site/homeUser"</script>';
 
         }

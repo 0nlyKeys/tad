@@ -20,6 +20,7 @@
     $clave =$_POST['clave'];
     $rol = "Tecnico";
     $estado = "Pendiente";
+    $foto = "../upload/user-default.png";
 
     // validamos que las variables no estén vacias
     if (strlen($identificacion)>0 && strlen($tipoDoc)>0 && 
@@ -34,7 +35,7 @@
 
         $objetoConsultas = new ConsultasE();
 
-        $result = $objetoConsultas->registrarTecnicoE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion,$experiencia,$estudios, $postal, $claveMd, $rol, $estado);
+        $result = $objetoConsultas->registrarTecnicoE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion,$experiencia,$estudios, $postal, $claveMd, $rol, $estado,$foto);
 
     //Si los campos vienen vacios redireccionamos al formulario 
     }else{

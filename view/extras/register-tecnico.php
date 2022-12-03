@@ -1,3 +1,12 @@
+<?php
+require_once('../../model/conexion.php');
+require_once('../../model/consultasE.php');
+
+$objetoConsultas = new ConsultasE();
+$ciudades = $objetoConsultas->mostrarCiudades();
+$localidades = $objetoConsultas->mostrarLocalidades();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,22 +74,24 @@
             <span>Fecha de Nacimiento</span>
           </div>
           <div class="col-md-6 inputBox-form-tad">
-            <input type="number" required name="telefono">
+            <input type="number" required name="telefono" pattern="^\+?\d{0,13}">
             <span>Celular</span>
           </div>
 
           <div class="col-md-6 select-form-tad">
             <select name="ciudad" required>
               <option>Seleccione la Ciudad</option>
-              <option value="1">Bogotá</option>
+              <?php foreach ($ciudades as $ciu) {?>
+              <option value="<?php echo $ciu['idCiudad']?>"><?php echo $ciu['ciudad']?></option>
+              <?php } ?> 
             </select>
           </div>
           <div class="col-md-6 select-form-tad">
             <select name="localidad" required>
               <option>Seleccione la Localidad</option>
-              <option value="1">Kennedy</option>
-              <option value="2">Usme</option>
-              <option value="3">Bosa</option>
+              <?php foreach ($localidades as $loc) {?>
+              <option value="<?php echo $loc['idLocalidad']?>"><?php echo $loc['localidad']?></option>
+              <?php } ?> 
             </select>
           </div>
 

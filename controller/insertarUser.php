@@ -17,7 +17,8 @@
     $postal = $_POST['code_postal'];
     $clave = $_POST['clave'];
     $rol = "Cliente";
-    $estado = "Pendiente";
+    $estado = "Activo";
+    $foto = "../upload/user-default.png";
 
     // validamos que las variables no estén vacias
     if (strlen($identificacion)>0 && strlen($tipoDoc)>0 && strlen($nombres)>0 && strlen($apellidos)>0 && strlen($fechaNac)>0 && strlen($email)>0 && strlen($telefono)>0 && strlen($ciudad)>0 && strlen($localidad)>0 && strlen($direccion)>0 && strlen($postal)>0 && strlen($clave)>0) {
@@ -26,7 +27,7 @@
 
         $objetoConsultas = new ConsultasE();
 
-        $result = $objetoConsultas->registrarUserE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado);
+        $result = $objetoConsultas->registrarUserE($identificacion, $tipoDoc, $nombres, $apellidos, $fechaNac, $email, $telefono, $ciudad, $localidad, $direccion, $postal, $claveMd, $rol, $estado,$foto);
 
     //Si los campos vienen vacios redireccionamos al formulario 
     }else{
